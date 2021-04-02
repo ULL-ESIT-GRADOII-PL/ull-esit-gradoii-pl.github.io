@@ -14,10 +14,10 @@ sections:
         url: gh
       - title: "GitHub Actions"
         url: github-actions
-      - title: "GitHub Apps"
-        url: github-apps
-      - title: Azure
-        url: azure
+#      - title: "GitHub Apps"
+#        url: github-apps
+#      - title: Azure
+#        url: azure
   - title: Javascript
     subsections:
       - title: Módulos
@@ -34,22 +34,23 @@ sections:
         url: pruebas
       - title: "Object Oriented Programming: OOP"
         url: oop
-      - title: "Functional Programming"
-        url: functional
-      - title: "Diseño, Principios"
-        url: design
-  - title: Typescript
-    subsections:
-      - title: "Introduction to TypeScript"
-        url: typescript
+#      - title: "Functional Programming"
+#        url: functional
+#      - title: "Diseño, Principios"
+#        url: design
+ # - title: Typescript
+ #   url: typescript
+ #   subsections:
+ #     - title: "Introduction to TypeScript"
+ #       url: typescript
+#      - title: "Build Tools"
+#        url: build-tools
   - title: Web
     subsections:  
       - title: Jekyll
         url: jekyll
       - title: "JAM Stack"
         url: jam
-      - title: "Build Tools"
-        url: build-tools
       - title: DOM
         url: dom
       - title: Authentication
