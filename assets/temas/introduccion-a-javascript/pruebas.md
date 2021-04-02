@@ -16,7 +16,7 @@ layout: single
 
 * [Travis](travis)
 
-## GitHb Actions
+## GitHub Actions
 
 * [GitHub Actions](github-actions)
 
