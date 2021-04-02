@@ -53,10 +53,10 @@ sections:
         url: jam
       - title: DOM
         url: dom
-      - title: Authentication
-        url: authentication
-      - title: CORS
-        url: Cors
+#      - title: Authentication
+#        url: authentication
+#      - title: CORS
+#        url: Cors
 ---
 
 
