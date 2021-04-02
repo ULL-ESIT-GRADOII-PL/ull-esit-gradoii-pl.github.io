@@ -61,5 +61,5 @@ toc_icon: "list"
 
 ## References
 
-* [GitHub Repo: Awsome Compilers](https://github.com/aalhour/awesome-compilers#javascript)
+* [GitHub Repo: Awesome Compilers](https://github.com/aalhour/awesome-compilers#javascript)
  A curated list of awesome resources, learning materials, tools, frameworks, platforms, technologies and source code projects in the field of Compilers, Interpreters and Runtimes. This list has a bias towards education.

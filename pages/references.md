@@ -12,7 +12,7 @@ toc: false
   - Disponible en: Matemáticas y Física	B.Mát. y Física	Sala de Lectura	Préstamo exterior	I*D.3.4 AHO com
 * [A Practical Approach to Compiler Construction. Watson. Año:2017]({{site.bull_permanente}}/15vbjs7/ullsfx3710000001127445) (Debes estar autenticado via PuntoQ BULL)
 * [The Modern JavaScript Tutorial. https://javascript.info/](https://javascript.info/)
-* [GitHub Repo: Awsome Compilers](https://github.com/aalhour/awesome-compilers#javascript)
+* [GitHub Repo: Awesome Compilers](https://github.com/aalhour/awesome-compilers#javascript)
  A curated list of awesome resources, learning materials, tools, frameworks, platforms, technologies and source code projects in the field of Compilers, Interpreters and Runtimes. This list has a bias towards education.
 * [UC Berkeley. CS294-113: Virtual Machines and Managed Runtimes](http://www.wolczko.com/CS294/index.html) by [Mario Wolczko](http://www.wolczko.com/)
   - [Virtual Machines Summer School 2016 (#vmss16)](https://soft-dev.org/events/vmss16/) May 31, 12:00 - June 3 2016, 16:00 Cumberland Lodge, UK
