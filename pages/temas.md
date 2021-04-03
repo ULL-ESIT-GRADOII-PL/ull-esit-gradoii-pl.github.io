@@ -21,9 +21,9 @@ toc: true
 
 {% if tema_time < nowunix -%}
 
-### Primera clase
+### Clases
 
-Clase del <a 
+Veanse las clases empezando el <a 
     href="{{site.baseurl}}/clases/{{ tema.date | date: "%Y/%m/%d" }}/leccion.html">
    {{ tema.date | date_to_string  }}
   </a>
