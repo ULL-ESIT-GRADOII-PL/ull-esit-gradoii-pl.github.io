@@ -8,7 +8,16 @@ A **state** is an element $$(X \longrightarrow \alpha \bullet \beta, j)$$ where
 $$X \longrightarrow \alpha \beta \in P$$ is a  production in the set of  grammar productions  $$P$$, and 
 $$j \in \{0 \ldots n \}$$ is a position in the input string $$x = a_{1}a_{2} \ldots a_{n}$$.
 
-The state set at input position *k* is called $$S_k$$. $$S_k$$ is the set of states whose production rule appears in a derivation of the $$Start \Longrightarrow a_{1}a_{2} \ldots a_{k} \beta \omega$$ and can be still used for derivation. 
+The set of *active states* when the  input prefix $$a_1 \ldots $a_k$$ is being analyzed called $$S_k$$. 
+
+More precisely, $$S_k$$ is the set of states $$(X \longrightarrow \alpha \bullet \beta, j)$$  whose production rule $$X \longrightarrow \alpha \beta$$ appears in a derivation from the $$Start$$ symbol 
+
+$$Start \overset{*}{\Longrightarrow} a_{1}a_{2} \ldots a_{j-1}X\omega \underset{X \longrightarrow \alpha \beta}{\Longrightarrow } a_{1}a_{2} \ldots a_{j-1} \alpha \beta \omega 
+\overset{*}{\Longrightarrow} a_{1}a_{2} \ldots a_j \ldots a_{k} \beta \omega$$ 
+
+Observe that $$ \alpha \overset{*}{\Longrightarrow} a_{j} \ldots a_k$$
+
+and so the production $$X \longrightarrow \alpha \beta$$ can  still be used for derivation at position $$k$$. 
 
 The parser is seeded with $$S_0$$ consisting of only the top-level rule. The parser then repeatedly executes three operations: 
 

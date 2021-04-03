@@ -111,6 +111,7 @@ toc: true
 
 * [Actualizar tus organizaciones de acuerdo al Free Plan concedido](https://education.github.com/benefits) Vieja
 
+* [Check the status of your GitHub Application _**as student**_](https://education.github.com/discount_requests/student_application)
 
 ### GitHub Classroom Help
 
