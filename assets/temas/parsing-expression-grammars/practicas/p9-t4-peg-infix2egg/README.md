@@ -15,7 +15,7 @@ next:
 
 Re-escriba la fase de análisis sintáctico del lenguaje de infijo que diseñó en la práctica 
 
-* [Analizador Descendente Predictivo Recursivo. Desde Lenguajes de Infijo a EGG Virtual Machine (p8-t3-pdr-infix2eg)](../../../tema3-analisis-descendente-predictivo-recursivo/practicas/p8-t3-pdr-infix2egg/)
+* [Analizador Descendente Predictivo Recursivo. Desde Lenguajes de Infijo a EGG Virtual Machine (p8-t3-pdr-infix2eg)](../../../assets/temas/syntax-analysis/analisis-descendente-predictivo-recursivo/practicas/p8-t3-pdr-infix2egg/)
 
 usando PEG.js para re-escribir el analizador sintáctico.
 
