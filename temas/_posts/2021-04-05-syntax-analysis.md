@@ -16,7 +16,13 @@ sections:
       - title: Nearley.JS
         url: "earley/nearley"
   - title: LR Parsers
+    subsections:
+    - title: "Análisis LR"
+      url: analisis-LR/README.html
   - title: PEG Parsers
+    subsections:
+    - title: "Parse Expression Grammars"
+      url: parsing-expression-grammars/README.html
 ---
 
 

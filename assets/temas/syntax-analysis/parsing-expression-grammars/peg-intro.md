@@ -1,7 +1,3 @@
----
-layout: single
----
-
 # Introducción a los PEGs
 
 In computer science, a parsing expression grammar, or PEG, is a type of
@@ -145,6 +141,13 @@ The process of rewriting indirectly left-recursive rules is complex in some pack
 ## Referencias y Documentación
 
 * Véase [Parsing Expression Grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar) en la Wikipedia
-* [The Packrat Parsing and Parsing Expression Grammars Page](http://bford.info/packrat/)
+* [PEG.js documentation](http://pegjs.org/documentation)
+* [Testing PEG.js Online](https://pegjs.org/online)
+* [David Majda - Easy parsing with PEG.js](https://www.youtube.com/watch?v=iPC6ArcGyL8) (The author of PEG.js)
 * [Writing a PEG Parser For Fun and Profit](https://www.youtube.com/watch?v=7MuQQQWVzU4) by Guido van Rossum. North Bay Python 2019
+* [The Packrat Parsing and Parsing Expression Grammars Page](http://bford.info/packrat/)
+* Michael's Blog: [JavaScript Parser Generators](http://blog.mi-ernst.de/2012/05/14/javascript-parser-generators/).  The PEG.js Tutorial
 
+## Next
+
+* [Next: PEG.js](pegjs)

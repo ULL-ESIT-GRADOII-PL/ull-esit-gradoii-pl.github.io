@@ -1,7 +1,3 @@
----
-layout: single
----
-
 # PEG.js Grammar
 
 See [https://github.com/pegjs/pegjs/blob/master/src/parser.pegjs](https://github.com/pegjs/pegjs/blob/master/src/parser.pegjs) for latest version

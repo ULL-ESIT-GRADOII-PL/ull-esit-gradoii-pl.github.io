@@ -1,8 +1,6 @@
 ---
-layout: single
+title: Parsing Expression Grammars (PEGs)
 ---
-
-# Parsing Expression Grammars (PEGs)
 
 #### Introducción
 

@@ -1,7 +1,3 @@
----
-layout: single
----
-
 # PEGJS
 
 PEG.js is a parser generator for JavaScript that produces parsers.

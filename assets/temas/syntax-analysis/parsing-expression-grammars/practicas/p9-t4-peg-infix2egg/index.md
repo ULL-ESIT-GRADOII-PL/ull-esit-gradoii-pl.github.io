@@ -1,21 +1,12 @@
 ---
-layout: default
-title: p9-t4-peg-infix2egg
-permalink: /tema4-parsing-expression-grammars/practicas/p9-t4-peg-infix2egg/
-previous: 
-  url: tema3-analisis-descendente-predictivo-recursivo/practicas/p8-t3-pdr-infix2egg/
-next:
-  url: /tema5-analisis-ascendente/practicas/p10-t5-jison-infix2egg/
+title: De Infijo a Egg usando PEG.js
 ---
-
-
-# Práctica: De Infijo a Egg usando PEG.js (p9-t4-peg-infix2egg)
 
 ## Descripción
 
 Re-escriba la fase de análisis sintáctico del lenguaje de infijo que diseñó en la práctica 
 
-* [Analizador Descendente Predictivo Recursivo. Desde Lenguajes de Infijo a EGG Virtual Machine (p8-t3-pdr-infix2eg)](../../../assets/temas/syntax-analysis/analisis-descendente-predictivo-recursivo/practicas/p8-t3-pdr-infix2egg/)
+* [Analizador Descendente Predictivo Recursivo. Desde Lenguajes de Infijo a EGG Virtual Machine (p8-t3-pdr-infix2eg)](../../../tema3-analisis-descendente-predictivo-recursivo/practicas/p8-t3-pdr-infix2egg/)
 
 usando PEG.js para re-escribir el analizador sintáctico.
 

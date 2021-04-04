@@ -1,7 +1,3 @@
----
-layout: single
----
-
 # The `tracer` option
 
 ## Example of the `tracer` option

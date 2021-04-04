@@ -1,7 +1,3 @@
----
-layout: single
----
-
 # Un Lenguaje Dependiente del Contexto
 
 El lenguaje $$\{ a^n b^n c^n / n \in \mathcal{N} \}$$ no puede ser
