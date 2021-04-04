@@ -9,7 +9,7 @@
 {%- if practica_time >= nowunix %}
 * Coming! Expected class date (aprox): <a href="{{site.baseurl}}/clases/{{ yearmonthday }}/leccion.html">{{practica.date | date_to_long_string }}</a> 
   {%- else %}
- * Veánse las clases empezando en <a href="{{site.baseurl}}/clases/{{ yearmonthday }}/leccion.html"> {{practica.date | date_to_long_string }}</a> 
+ * See classes starting at <a href="{{site.baseurl}}/clases/{{ yearmonthday }}/leccion.html"> {{practica.date | date_to_long_string }}</a> 
  {%- endif -%}
 {%- if practica.rubrica %}
 * <a href="{{ practica.url }}#rubrica">rubrica</a>
