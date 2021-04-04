@@ -1,4 +1,6 @@
-# Egg Initial Syntax
+---
+title: Egg Initial Syntax
+---
 
 ```
 expression: (STRING | NUMBER | WORD) apply 
