@@ -1,4 +1,8 @@
-# Árboles de Análisis Abstracto {#section:eyapaat}
+---
+title: Árboles de Análisis Abstracto 
+---
+
+<!-- {#section:eyapaat} -->
 
 Un Árbol de Análisis Abstracto (denotado *AAA*, en inglés *AST*) porta la misma información que el árbol de análisis sintáctico concreto pero de forma mas condensada, eliminándose
 terminales y producciones que no aportan información.
