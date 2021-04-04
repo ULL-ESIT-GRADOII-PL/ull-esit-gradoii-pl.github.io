@@ -1,4 +1,6 @@
-# Ejercicio: Gramática de la versión Inicial de Egg
+---
+title: Ejercicio: Gramática de la versión Inicial de Egg
+---
 
 En este ejercicio te propongo un proceso inverso.
 Partiendo del [código](https://github.com/ULL-ESIT-PL-1617/egg/tree/inicial)
