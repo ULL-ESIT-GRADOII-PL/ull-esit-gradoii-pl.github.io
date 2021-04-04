@@ -1,15 +1,18 @@
 {% assign practicas = site.categories["practicas"] %}
+{%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+{%- for practica in practicas -%}
+  {%- capture practica_time %}{{ practica.date | date: '%s' }}{% endcapture -%}
+  {%- capture yearmonthday %}{{ practica.date | date: "%Y/%m/%d" }}{% endcapture %}
 
-<ol reversed>
-{%- for practica in practicas %}
-<li> <a href="{{site.baseurl}}{{ practica.url }}">{{ practica.title }}</a> 
-  <ul>
-    {% if practica.rubrica %}<li><a href="{{ practica.url }}#rubrica">rubrica</a></li>{% endif %}
-    <li> Veánse las clases empezando en 
-    <a href="{{site.baseurl}}/clases/{{ practica.date | date: "%Y/%m/%d" }}/leccion.html">
-    {{practica.date | date_to_long_string }}</a>
-    </li>
-  </ul>
-</li>
+### <a href="{{site.baseurl}}{{ practica.url }}">{{ practica.title }}</a> 
+
+{%- if practica_time >= nowunix %}
+* Coming! Expected class date (aprox): <a href="{{site.baseurl}}/clases/{{ yearmonthday }}/leccion.html">{{practica.date | date_to_long_string }}</a> 
+  {%- else %}
+ * Veánse las clases empezando en <a href="{{site.baseurl}}/clases/{{ yearmonthday }}/leccion.html"> {{practica.date | date_to_long_string }}</a> 
+ {%- endif -%}
+{%- if practica.rubrica %}
+* <a href="{{ practica.url }}#rubrica">rubrica</a>
+{%- endif %}
 {%- endfor %}
-</ol>
+

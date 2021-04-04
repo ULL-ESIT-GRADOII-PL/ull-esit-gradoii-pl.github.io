@@ -2,7 +2,7 @@
 layout: single
 permalink: /practicas
 title: Prácticas
-toc: false
+toc: true
 ---
 
 ## Enlaces

@@ -15,15 +15,13 @@ toc: true
 {% assign temas = site.categories["temas"] | sort %}
 
   {% for tema in temas %}
-## Tema: <a href="{{site.baseurl}}{{tema.url}}" title="{{ tema.hover }}">{{ tema.title }}</a>  
+## Chapter {{ forloop.index }}: <a href="{{site.baseurl}}{{tema.url}}" title="{{ tema.hover }}">{{ tema.title }}</a>  
   
 {%- capture tema_time %}{{ tema.date | date: '%s'}}{% endcapture %}
 
 {% if tema_time < nowunix -%}
 
-### Clases
-
-Veanse las clases empezando el <a 
+See classes starting at <a 
     href="{{site.baseurl}}/clases/{{ tema.date | date: "%Y/%m/%d" }}/leccion.html">
    {{ tema.date | date_to_string  }}
   </a>
@@ -32,16 +30,11 @@ Veanse las clases empezando el <a
 
 
 {% if tema.sections %}
-  
-### Secciones
-
-<ol>
-  {% for section in tema.sections %}
-  {% assign sectionmark = section.title | downcase | replace: " ", "-" |  replace: "?","" %}
-  <li><a href="{{site.baseurl}}{{tema.url}}#{{ sectionmark }}">{{ section.title }}</a>
-  </li>
+    {% for section in tema.sections %}
+    {% assign sectionmark = section.title | downcase | replace: " ", "-" |  replace: "?","" %}
+### Section {{ forloop.index }}: <a href="{{site.baseurl}}{{tema.url}}#{{ sectionmark }}">{{ section.title }}</a>
   {% endfor %}
-</ol>
+
 {% endif %}
    
 {% endfor %}
