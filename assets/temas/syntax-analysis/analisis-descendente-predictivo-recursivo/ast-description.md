@@ -226,7 +226,23 @@ t.operator, t.operator.name, t.args.0.name, t.args.1.args.0.value
 La misma idea aparece en el uso del operador `/` para denotar subdirectorios en Unix 
 `/src/js/tutu.js` y sub-recursos en una URL.
 
-## Construcción del Árbol
+## Construcción de los Árboles para Egg
+
+### parse 
+
+```js
+function parse(p) {
+  setProgram(p);
+  lex();
+  let result = parseExpression();
+   if (lookahead !== null)
+    throw new SyntaxError(`Unexpected input after reached the end of parsing ${lineno}: ${program.slice(0,10)}`);
+
+  return result;
+}
+```
+
+### parseExpression
 
 ```js
 function parseExpression() {
@@ -249,6 +265,8 @@ function parseExpression() {
   }
 }
 ```
+
+### parseApply
 
 ```js
 function parseApply(tree) {
@@ -275,14 +293,3 @@ function parseApply(tree) {
 }
 ```
 
-```js
-function parse(p) {
-  setProgram(p);
-  lex();
-  let result = parseExpression();
-   if (lookahead !== null)
-    throw new SyntaxError(`Unexpected input after reached the end of parsing ${lineno}: ${program.slice(0,10)}`);
-
-  return result;
-}
-```
