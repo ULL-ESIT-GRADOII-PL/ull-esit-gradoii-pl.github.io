@@ -317,8 +317,10 @@ a ambos repos: el del módulo `lexgen-code-aluAtGitHub` y el repo de pruebas de 
 
 ## Semantic Versioning
 
-Publique una mejora en la funcionalidad del módulo. Por ejemplo añada la opción `/u`
+* Publique una mejora en la funcionalidad del módulo. Por ejemplo añada la opción `/u`
 a la expresión regular creada para que Unicode sea soportado. ¿Como debe cambiar el nº de versión?
+
+* Opcional: Un defecto que tiene el diseño del módulo es que el nombre de la expresión regular que define el token aparece dos veces: dentro de la regexp y en el array y debe ser la misma. Cambie la interfaz para que sólo aparezca una vez. ¿Como debe cambiar el nº de versión?
 
 ## Referencias
 
