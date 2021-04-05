@@ -261,6 +261,8 @@ Entonces (indexando en 1), si no me equivoco:
 * *t/2.1* sería el *WORD{name:a}*
 * *t/2.2.2.1 sería *VALUE{value:4}*
 
+### Es una idea muy repetida: Otras notaciones
+
 En realidad, la notación de Dewey es equivalente al operador "."  
 que usamos en los lenguajes de programación para denotar los atributos de un objeto. 
 Con el "." a partir de `t` podemos construir expresiones como:
@@ -271,6 +273,12 @@ t.operator, t.operator.name, t.args.0.name, t.args.1.args.0.value
 
 La misma idea aparece en el uso del operador "/" para denotar subdirectorios en Unix 
 `/src/js/tutu.js` y sub-recursos en una URL.
+
+También en el lenguaje [XPath](https://en.wikipedia.org/wiki/XPath#Abbreviated_syntax) para hablar de elementos de los objetos de un documento XML. 
+
+For example, the expression "`A//B/*[1]`" selects the first child ("`*[1]`"), whatever its name, of every "`B`" element that itself is a child or other, deeper descendant ("`//`") of an "`A`" element that is a child of the current context node (the expression does not begin with a "`/`").
+
+The language [jq](https://stedolan.github.io/jq/manual/) to select sub-objects inside a JSON is another example.
 
 ## Construcción de los Árboles para Egg con un algoritmo PDR
 
