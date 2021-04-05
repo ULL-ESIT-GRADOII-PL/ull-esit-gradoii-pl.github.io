@@ -228,10 +228,11 @@ es una forma de
 especificar los subárboles de un árbol $$t \in B(\Sigma)$$. La notación
 sigue el mismo esquema que la numeración de secciones en un texto: es
 una palabra formada por números separados por puntos. Así *t/2.1.3*
-denota al tercer hijo del primer hijo del segundo hijo del árbol $$t$$. La
-definición formal sería:
+denota al tercer hijo del primer hijo del segundo hijo del árbol $$t$$. 
 
--   $$t/\epsilon = t$$ esto es, si el sufijo es $$\epsilon$$ es el propio árbol
+La definición formal por inducción sería:
+
+-   $$t/\epsilon = t$$. Esto es, si el sufijo es $$\epsilon$$ es el propio árbol
 
 -   Si $$t = a(t_1, \ldots t_k)$$ y $$j \in \{ 1 \ldots k \}$$ y $$n$$ es una
     cadena de números y puntos, se define inductivamente el subárbol
@@ -260,19 +261,20 @@ Entonces (indexando en 1), si no me equivoco:
 * *t/2.1* sería el *WORD{name:a}*
 * *t/2.2.2.1 sería *VALUE{value:4}*
 
-En realidad, la notación de Dewey es equivalente al operador `.`  
-que usamos en los lenguajes de programación. Con el `.` a partir de `t` podemos construir expresiones como:
+En realidad, la notación de Dewey es equivalente al operador "."  
+que usamos en los lenguajes de programación para denotar los atributos de un objeto. 
+Con el "." a partir de `t` podemos construir expresiones como:
 
 ```
 t.operator, t.operator.name, t.args.0.name, t.args.1.args.0.value
 ```
 
-La misma idea aparece en el uso del operador `/` para denotar subdirectorios en Unix 
+La misma idea aparece en el uso del operador "/" para denotar subdirectorios en Unix 
 `/src/js/tutu.js` y sub-recursos en una URL.
 
 ## Construcción de los Árboles para Egg
 
-### parse 
+### Código de parse 
 
 ```js
 function parse(p) {
@@ -286,7 +288,7 @@ function parse(p) {
 }
 ```
 
-### parseExpression
+### Código de parseExpression
 
 ```js
 function parseExpression() {
@@ -310,7 +312,7 @@ function parseExpression() {
 }
 ```
 
-### parseApply
+### Código de parseApply
 
 ```js
 function parseApply(tree) {
