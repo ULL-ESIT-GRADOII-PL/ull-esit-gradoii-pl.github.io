@@ -174,7 +174,7 @@ APPLY(
 )
 ``` 
 
-Otro ejemplo, el AST para `+(a,*(4,5))` sería 
+Que explicitando los atributos sería: 
 
 ```
 APPLY(
