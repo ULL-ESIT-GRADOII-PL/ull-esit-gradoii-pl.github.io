@@ -275,7 +275,6 @@ La misma idea aparece en el uso del operador "/" para denotar subdirectorios en 
 `/src/js/tutu.js` y sub-recursos en una URL.
 
 También en el lenguaje [XPath](https://en.wikipedia.org/wiki/XPath#Abbreviated_syntax) para hablar de elementos de los objetos de un documento XML. 
-
 For example, the expression "`A//B/*[1]`" selects the first child ("`*[1]`"), whatever its name, of every "`B`" element that itself is a child or other, deeper descendant ("`//`") of an "`A`" element that is a child of the current context node (the expression does not begin with a "`/`").
 
 The language [jq](https://stedolan.github.io/jq/manual/) to select sub-objects inside a JSON is another example.
