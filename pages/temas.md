@@ -25,7 +25,8 @@ See classes starting at <a
     href="{{site.baseurl}}/clases/{{ tema.date | date: "%Y/%m/%d" }}/leccion.html">
    {{ tema.date | date_to_string  }}
   </a>
-
+{% else %}
+Expected date (approximate): {{ tema.date | date_to_string  }}
 {% endif %}
 
 

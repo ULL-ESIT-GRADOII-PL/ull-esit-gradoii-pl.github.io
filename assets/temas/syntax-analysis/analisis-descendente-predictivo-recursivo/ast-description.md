@@ -31,7 +31,7 @@ y este un posible árbol sintáctico abstracto con la misma información que el 
 
 ## Alfabeto con Aridad o Alfabeto Árbol
 
-No deja de ser curioso que es posible definir un equivalente del cierre de Kleene $$\Sigma*$$ de un alfabeto $$\Sigma$$ para modelizar matemáticamente los árboles.
+No deja de ser curioso que es posible definir un equivalente del cierre de Kleene $$\Sigma^*$$ de un alfabeto $$\Sigma$$ para modelizar matemáticamente los árboles.
 
 Para ello se empieza definiendo lo que es un **alfabeto con función de aridad**:
 
