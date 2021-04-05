@@ -80,9 +80,9 @@ WORD["print"](
 **Solución**:
 
 En la solución que sigue, 
-abreviamos *expression* por *e* , 
-*apply* por *a*,
- *WORD* por *w* y *NUMBER* por *N*:
+abreviamos *expression* por $$e$$ , 
+*apply* por $$a$$,
+ *WORD* por $$W$$ y *NUMBER* por $$N$$:
 
 $$e \Longrightarrow  W [print] a$$ (Aquí $$e \longrightarrow W a$$)
 
@@ -99,6 +99,8 @@ $$\Longrightarrow W[print] (W[**] (e, e) (e) a )$$ (La última *a* hizo $$a \lon
 $$\Longrightarrow  W[print] (W[**] (e, e) (e))$$  (La última $$a$$ hace $$\epsilon$$)
 
 $$\overset{*}{\Longrightarrow} W[print] (W[**] (W[g], W[f]) (N[8]))$$ (después de aplicar reiteradas veces las reglas)
+
+En forma gráfica, tenemos el árbol sintáctico concreto que sigue:
 
 ![]({{site.baseurl}}/assets/images/ast-compose-g-f-8.jpg)
 
