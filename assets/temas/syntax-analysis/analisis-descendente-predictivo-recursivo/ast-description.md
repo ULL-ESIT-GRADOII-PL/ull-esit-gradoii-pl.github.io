@@ -223,7 +223,7 @@ ast: VALUE
 
 ## Notación de Dewey o Coordenadas de un Árbol
 
-La [notación de Dewey](https://en.wikipedia.org/wiki/Dewey_Decimal_Classification) 
+La [notación de Dewey](https://en.wikipedia.org/wiki/Dewey_Decimal_Classification) (1876)
 es una forma de
 especificar los subárboles de un árbol $$t \in B(\Sigma)$$. La notación
 sigue el mismo esquema que la numeración de secciones en un texto: es
@@ -231,7 +231,7 @@ una palabra formada por números separados por puntos. Así *t/2.1.3*
 denota al tercer hijo del primer hijo del segundo hijo del árbol $$t$$. La
 definición formal sería:
 
--   $$t/\epsilon = t$$
+-   $$t/\epsilon = t$$ esto es, si el sufijo es $$\epsilon$$ es el propio árbol
 
 -   Si $$t = a(t_1, \ldots t_k)$$ y $$j \in \{ 1 \ldots k \}$$ y $$n$$ es una
     cadena de números y puntos, se define inductivamente el subárbol
