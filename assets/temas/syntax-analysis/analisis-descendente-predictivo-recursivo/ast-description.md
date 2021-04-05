@@ -83,10 +83,10 @@ $$\Sigma = \{ VALUE, \, WORD, \, APPLY, \, ARRAY \}$$
 
 con aridad:
 
-* $$\rho(VALUE) = 0$$
-* $$\rho(WORD) = 0$$
-* $$\rho(APPLY) = 2$$
-* $$\rho(ARRAY) = *$$
+* $$\rho(VALUE) = 0$$ los nodos *VALUE* son hojas
+* $$\rho(WORD) = 0$$ los nodos *WORD* los consideramos hojas
+* $$\rho(APPLY) = 2$$ un *APPLY* tiene dos hijos: el hijo *OPERATOR* y el hijo *ARGS* que es un array
+* $$\rho(ARRAY) = *$$ los arrays contienen diferentes números de árboles
 
 Al igual que con los tokens, los nodos son objetos y tienen propiedades.
 Todos los nodos tiene una propiedad `type` que determina que tipo de nodo es y por tanto su aridad.
@@ -100,12 +100,32 @@ Todos los nodos tiene una propiedad `type` que determina que tipo de nodo es y p
   - `args` property that is an *special* node: `ARRAY` 
 * `ARRAY` is in fact an *special node* of ASTs that holds the arguments of the application
 
-For example, The AST resulting from parsing the input `>(x, 5)` 
-would be represented like this term: `APPLY(WORD, ARRAY[WORD, VALUE])` or 
-if we want to explicit the attributes we can extend the notation: 
+For example, The AST resulting from parsing the input 
+```
+>(x, 5)
+``` 
+would be represented like this term:
 
 ```
-APPLY(operator:WORD{name:>}, args:ARRAY[WORD{name:x} VALUE{value:5}])
+APPLY(
+  WORD, 
+  ARRAY[
+    WORD, 
+    VALUE
+  ]
+)
+``` 
+
+or if we want to explicit the attributes we can extend the notation: 
+
+```
+APPLY(
+  operator: WORD{name:>}, 
+  args:     ARRAY[
+              WORD{name:x} 
+              VALUE{value:5}
+            ]
+)
 ``` 
 
 More precisely, describing its actual implementation attributes:
@@ -149,6 +169,21 @@ APPLY(
     APPLY(
       WORD, 
       ARRAY[VALUE, VALUE]
+    )
+   ]
+)
+``` 
+
+Otro ejemplo, el AST para `+(a,*(4,5))` sería 
+
+```
+APPLY(
+  operator: WORD[{name: +},
+  args: ARRAY[
+    WORD{name: a}, 
+    APPLY(
+      name: WORD{name:*}, 
+      args: ARRAY[VALUE{value:4}, VALUE{value:5}]
     )
    ]
 )
