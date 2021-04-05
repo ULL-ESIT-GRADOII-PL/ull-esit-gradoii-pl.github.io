@@ -254,7 +254,7 @@ APPLY(
 )
 ``` 
 
-Entonces (indexando en 1) 
+Entonces (indexando en 1), si no me equivoco: 
 
 * *t/1* sería el árbol *WORD{name:+}*
 * *t/2.1* sería el *WORD{name:a}*
