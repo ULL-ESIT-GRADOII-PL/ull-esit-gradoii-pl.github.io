@@ -22,6 +22,7 @@ hacen en modo inverso.
 
 El que describiremos aquí es un descendente: se denomina **método de análisis predictivo descendente recursivo**.
 
+
 ## Gramáticas Independientes del Contexto {#gramaticas}
 
 Supongamos una gramática $$G = (\Sigma, V, P, S)$$ con alfabeto $$\Sigma$$, conjunto de variables sintácticas (o no terminales) $$V$$, reglas de producción $$P$$ y símbolo de arranque $$S$$.
@@ -60,6 +61,47 @@ STRING = /"((?:[^"\\]|\\.)*)"/
 NUMBER = /([-+]?\d*\.?\d+([eE][-+]?\d+)?)/
 WORD   = /([^\s(),"]+)/
 ```
+### Ejercicio
+
+Construye una derivación para la frase
+
+```
+print(**(g,f)(8))
+```
+
+Observa que a nivel léxico es 
+
+```
+WORD["print"](
+  WORD[**](WORD[g],WORD[f])(NUMBER[8])
+)
+```
+
+**Solución**:
+
+En la solución que sigue, 
+abreviamos *expression* por *e* , 
+*apply* por *a*,
+ *WORD* por *w* y *NUMBER* por *N*:
+
+$$e \Longrightarrow  W [print] a$$ (Aquí $$e \longrightarrow W a$$)
+
+$$\Longrightarrow W[print] (e) a$$ (Ya que $$a \longrightarrow  (e) a$$)
+
+$$\Longrightarrow  W [print] (e)$$ (Ya que  $$a \longrightarrow \epsilon$$)
+
+$$\Longrightarrow W[print] (W[**] a)$$ (Aquí hizo $$e \longrightarrow W a$$)
+
+$$\Longrightarrow W[print] (W[**] (e, e) a )$$  (Aquí hizo $$a \longrightarrow (e, e) a$$)
+
+$$\Longrightarrow W[print] (W[**] (e, e) (e) a )$$ (La última *a* hizo $$a \longrightarrow  (e) a$$)
+
+$$\Longrightarrow  W[print] (W[**] (e, e) (e))$$  (La última $$a$$ hace $$\epsilon$$)
+
+$$\overset{*}{\Longrightarrow} W[print] (W[**] (W[g], W[f]) (N[8]))$$ (después de aplicar reiteradas veces las reglas)
+
+![]({{site.baseurl}}/assets/images/ast-compose-g-f-8.jpg)
+
 
 ## Lenguaje Generado por Una Gramática {#lenguaje}
 
@@ -95,6 +137,7 @@ $$L_{apply}(EggGrammar) = \{ x \in \Sigma^* : apply \stackrel{*}{\Longrightarrow
 Escribiremos una función `parseApply`que se deberá encargar de reconocer las frases de $$L_{apply}(EggGrammar)$$. 
 
 Por supuesto también escribiremos una función `parseExpression`que se deberá encargar de reconocer las frases de $$L_{expression}(EggGrammar)$$. 
+
 
 ## Una función por Variable Sintáctica {#funpervar}
 
