@@ -75,7 +75,7 @@ hablar de la ocurrencia de un elemento $$f \in \Sigma_k$$ dentro de un árbol.
 $$B(\Sigma)$$ es a los *nodos* (árboles) lo  que $$\Sigma*$$ es a las tokens (strings).
 
 
-## Tipos de Nodos en Egg
+## Aridad  de los Nodos en Egg
 
 Los AST con los que trabajamos en nuestro parser son de tres tipos
 
@@ -87,6 +87,8 @@ con aridad:
 * $$\rho(WORD) = 0$$ los nodos *WORD* los consideramos hojas
 * $$\rho(APPLY) = 2$$ un *APPLY* tiene dos hijos: el hijo *OPERATOR* y el hijo *ARGS* que es un array
 * $$\rho(ARRAY) = *$$ los arrays contienen diferentes números de árboles
+
+## Implementación de los Nodos de los AST de Egg
 
 En cuanto a la implementación, al igual que con los tokens, los nodos son objetos y tienen propiedades.
 Todos los nodos tiene una propiedad `type` que determina que tipo de nodo es y por tanto su aridad.
@@ -100,7 +102,7 @@ Todos los nodos tiene una propiedad `type` que determina que tipo de nodo es y p
   - `args` property that is an *special* node: `ARRAY` 
 * `ARRAY` is in fact an *special node* of ASTs that holds the arguments of the application
 
-### Example: AST `>(x, 5)`
+## Example: AST `>(x, 5)`
 
 For example, The AST resulting from parsing the input 
 ```
@@ -161,7 +163,7 @@ Here is the JSON:
 }
 ```
 
-### Example: AST ` +(a,*(4,5))`
+## Example: AST ` +(a,*(4,5))`
 
 
 Otro ejemplo, el AST para `+(a,*(4,5))` sería 
@@ -213,7 +215,7 @@ NOTA: [Regular Tree Grammar](https://en.wikipedia.org/wiki/Regular_tree_grammar)
 
 ### Gramática Informal de los árboles del Parser de Egg
 
-En nuestro intérprete de Egg usaremos los árboles generados por esta gramática:
+En nuestro intérprete de Egg  los árboles usados son los generados por esta gramática:
 
 ```
 ast: VALUE
@@ -279,7 +281,7 @@ For example, the expression "`A//B/*[1]`" selects the first child ("`*[1]`"), wh
 
 The language [jq](https://stedolan.github.io/jq/manual/) to select sub-objects inside a JSON is another example.
 
-## Construcción de los Árboles para Egg con un algoritmo PDR
+## Códigos para la Construcción de los ASTs de Egg con un algoritmo PDR
 
 ### Código de parse 
 
