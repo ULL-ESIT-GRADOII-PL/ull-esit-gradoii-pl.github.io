@@ -75,7 +75,7 @@ hablar de la ocurrencia de un elemento $$f \in \Sigma_k$$ dentro de un árbol.
 $$B(\Sigma)$$ es a los *nodos* (árboles) lo  que $$\Sigma*$$ es a las tokens (strings).
 
 
-## Ejemplo en Egg
+## Tipos de Nodos en Egg
 
 Los AST con los que trabajamos en nuestro parser son de tres tipos
 
@@ -100,6 +100,8 @@ Todos los nodos tiene una propiedad `type` que determina que tipo de nodo es y p
   - `args` property that is an *special* node: `ARRAY` 
 * `ARRAY` is in fact an *special node* of ASTs that holds the arguments of the application
 
+### Example: AST `>(x, 5)`
+
 For example, The AST resulting from parsing the input 
 ```
 >(x, 5)
@@ -116,7 +118,7 @@ APPLY(
 )
 ``` 
 
-or if we want to explicit the attributes we can extend the notation: 
+or if we want to explicit the attributes we can extend the notation to look like this: 
 
 ```
 APPLY(
@@ -158,6 +160,9 @@ Here is the JSON:
   ]
 }
 ```
+
+### Example: AST ` +(a,*(4,5))`
+
 
 Otro ejemplo, el AST para `+(a,*(4,5))` sería 
 
@@ -206,16 +211,14 @@ es una cuadrupla $$((\Sigma, \rho), N, P, S)$$, donde:
 
 NOTA: [Regular Tree Grammar](https://en.wikipedia.org/wiki/Regular_tree_grammar) en la Wikipedia
 
-### Ejemplo
+### Gramática Informal de los árboles del Parser de Egg
 
 En nuestro intérprete de Egg usaremos los árboles generados por esta gramática:
 
 ```
-ast: VALUE {value}
-   | WORD {name}
-   | APPLY( WORD ARRAY( astlist ))
-astlist: ast  astlist
-   | /* vacío */
+ast: VALUE
+   | WORD 
+   | APPLY( WORD ARRAY( ast * ))
 ```
 
 ## Notación de Dewey o Coordenadas de un Árbol
@@ -235,7 +238,7 @@ definición formal sería:
     $$t/j.n$$ como el subárbol $$n$$-ésimo del $$j$$-ésimo subárbol de $$t$$.
     Esto es: $$t/j.n = t_j/n$$
 
-Ejemplo generalizado:
+Por ejemplo si:
 
 ```
 t =  
@@ -250,6 +253,12 @@ APPLY(
   ]
 )
 ``` 
+
+Entonces (indexando en 1) 
+
+* *t/1* sería el árbol *WORD{name:+}*
+* *t/2.1* sería el *WORD{name:a}*
+* *t/2.2.2.1 sería *VALUE{value:4}*
 
 En realidad, la notación de Dewey es equivalente al operador `.`  
 que usamos en los lenguajes de programación. Con el `.` a partir de `t` podemos construir expresiones como:
