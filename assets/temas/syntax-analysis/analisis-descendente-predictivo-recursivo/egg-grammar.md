@@ -1,4 +1,7 @@
-# Egg Proposed Syntax
+---
+title: Egg Proposed Syntax
+---
+
 ```
 expression: STRING
           | NUMBER
