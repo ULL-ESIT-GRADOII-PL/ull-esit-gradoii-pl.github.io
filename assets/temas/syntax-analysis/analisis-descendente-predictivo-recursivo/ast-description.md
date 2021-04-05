@@ -272,7 +272,7 @@ t.operator, t.operator.name, t.args.0.name, t.args.1.args.0.value
 La misma idea aparece en el uso del operador "/" para denotar subdirectorios en Unix 
 `/src/js/tutu.js` y sub-recursos en una URL.
 
-## Construcción de los Árboles para Egg
+## Construcción de los Árboles para Egg con un algoritmo PDR
 
 ### Código de parse 
 
