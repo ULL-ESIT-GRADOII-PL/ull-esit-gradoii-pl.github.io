@@ -27,6 +27,7 @@ El que describiremos aquí es un descendente: se denomina **método de análisis
 
 Supongamos una gramática $$G = (\Sigma, V, P, S)$$ con alfabeto $$\Sigma$$, conjunto de variables sintácticas (o no terminales) $$V$$, reglas de producción $$P$$ y símbolo de arranque $$S$$.
 
+{% include video provider="youtube" id="0Xk_r8V_FeE" %}
 
 Por ejemplo, en la gramática de Egg este es el conjunto $$P$$ de reglas de producción:
 
