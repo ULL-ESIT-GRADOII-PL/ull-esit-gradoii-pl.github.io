@@ -20,6 +20,8 @@ WORD   = /^[^\s(),"]+/
 
 # Ejecuciones
 
+Es importante observar para encontrar la versión que la rama es `inicial`:
+
 ```
 [~/.../PLgrado/eloquentjsegg(inicial)]$ node egg.js 'print(+)'
 [Function: anonymous]

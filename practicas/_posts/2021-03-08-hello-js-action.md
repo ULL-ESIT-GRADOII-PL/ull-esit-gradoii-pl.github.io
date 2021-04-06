@@ -43,6 +43,10 @@ steps:
 
 Pay special attention to how the tests were written in this example.
 
+## Video de la clase de PL del curso 2020-04-01 sobre GH Actions
+
+{% include video provider="youtube" id="xeH67k2Vxl0" %}
+
 ## References
 
 {% include github-js-actions-references.md %}
