@@ -27,8 +27,6 @@ El que describiremos aquí es un descendente: se denomina **método de análisis
 
 Supongamos una gramática $$G = (\Sigma, V, P, S)$$ con alfabeto $$\Sigma$$, conjunto de variables sintácticas (o no terminales) $$V$$, reglas de producción $$P$$ y símbolo de arranque $$S$$.
 
-{% include video provider="youtube" id="0Xk_r8V_FeE" %}
-
 Por ejemplo, en la gramática de Egg este es el conjunto $$P$$ de reglas de producción:
 
 ```yacc
@@ -49,6 +47,7 @@ $$\Sigma = \{ STRING,\, NUMBER,\, WORD,\, '(',\, ')',\, ','  \}$$
 Observe que algunos de los tokens son a su vez lenguajes de cierta complejidad, cuya definición está en otro nivel de abstracción, **el nivel léxico** y que se pueden definir mediante un mecanismo 
 mas secillo como son las expresiones regulares. 
 
+
 Por ejemplo, en una definición de Egg inicial podríamos definir así lo que entendemos por **espacios** o **blancos**, esto es, que partes del texto no son significativas para que nuestro programa pueda entender la estructura de la frase:
 
 ```js
@@ -62,6 +61,12 @@ STRING = /"((?:[^"\\]|\\.)*)"/
 NUMBER = /([-+]?\d*\.?\d+([eE][-+]?\d+)?)/
 WORD   = /([^\s(),"]+)/
 ```
+
+### Clase de PL 2020/04/13: La Gramática de Egg
+
+{% include video provider="youtube" id="0Xk_r8V_FeE" %}
+
+
 ### Ejercicio
 
 Construye una derivación para la frase
@@ -70,12 +75,10 @@ Construye una derivación para la frase
 print(**(g,f)(8))
 ```
 
-Observa que a nivel léxico es 
+Observa que el resultado del análisis léxico sería un stream como este: 
 
 ```
-WORD["print"](
-  WORD[**](WORD[g],WORD[f])(NUMBER[8])
-)
+WORD["print"] "(" WORD[**] "(" WORD[g] "," WORD[f] ")" "(" NUMBER[8] ")" ")"
 ```
 
 **Solución**:
@@ -131,7 +134,10 @@ Siguiendo con el ejemplo de Egg, en $$L_{apply}(EggGrammar)$$ tenemos frases com
 
 Recuerda que:
 
-`apply: /* vacio */ | '(' (expression ',')* expression? ')' apply`
+```
+apply: /* vacio */ 
+     | '(' (expression ',')* expression? ')' apply
+```
 
 y que:
 
