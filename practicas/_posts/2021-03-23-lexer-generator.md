@@ -3,6 +3,21 @@ title: Lexer Generator
 published: true
 categories: ["practicas"]
 rubrica:
+  - El paquete está publicado en GitHub Registry
+  - "Opcional: Se ha cambiado la interfaz para que el nombre del token sólo aparezca una vez"
+  - El módulo exporta las funciones adecuadas
+  - Contiene suficientes tests 
+  - "Opcional: estudio de covering"
+  - Se ha hecho CI con GitHub Actions
+  - Los informes están bien presentados
+  - "La documentación es completa: API, ejecutable, instalación, etc." 
+  - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta `docs/`"
+  - Las *pruebas de producción* funcionan bien
+  - El superproyecto está correctamente estructurado usando submódulos
+  - Se ha hecho un buen uso del versionado semántico en la evolución del módulo
+  - "Opcional: se proporciona información de localización (offset, etc.)"
+  - Manejo de errores y blancos
+  - Calidad del código
 video:
   clase20200401: gO49wnWoE_s 
   clase20200325: 4jmsZbEpW7g
