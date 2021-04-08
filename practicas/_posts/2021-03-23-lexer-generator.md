@@ -337,6 +337,17 @@ a la expresión regular creada para que Unicode sea soportado. ¿Como debe cambi
 
 * Opcional: Un defecto que tiene el diseño del módulo es que el nombre de la expresión regular que define el token aparece dos veces: dentro de la regexp y en el array y debe ser la misma. Cambie la interfaz para que sólo aparezca una vez. ¿Como debe cambiar el nº de versión?
 
+<!--
+## Mejoras 2022
+
+* Nos. de línea
+* Transformers
+* next (compatibilidad con nearley)
+* reset(chunk, info) sets the internal buffer of the lexer to chunk, and restores its state to a state returned by save().
+* formatError(token)
+* has(name) returns true if the lexer can emit tokens with that name. This is used to resolve %-specifiers in compiled nearley grammars.
+-->
+
 ## Referencias
 
 * Tema [Expresiones Regulares y Análisis Léxico]({{site.baseurl}}/temas/expresiones-regulares-y-analisis-lexico)  
