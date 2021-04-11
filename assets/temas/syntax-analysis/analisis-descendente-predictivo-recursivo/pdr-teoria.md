@@ -335,7 +335,7 @@ Se sigue de la derivación anterior que cuando se aplica la regla `apply: /* vac
 cualquier token que, como es el caso del token $$a_1$$, pueda aparecer en alguna derivación **inmediatamente a continuación de `apply`** 
 es un posible `lookahead` en la ejecución de  `parseApply()`.
 
-## Calculando los Tokens que Pueden Seguir a una Variable en Alguna Derivación
+## Calculo del FOLLOW
 
 Tenemos entonces que computar el conjunto de tokens `FOLLOW(apply)`  que pueden aparecer a continuación de la variable`apply` en alguna derivación desde `expression`.
 
@@ -368,7 +368,10 @@ Sigamos derivando:
 
 $$\stackrel{*}{\Longrightarrow} WORD \, ( \,expression \, , \, WORD \, apply \, ) \bullet $$
 
+aplicando la regla $$expression \longrightarrow STRING$$, tenemos:
+
 $$ \Longrightarrow WORD \, ( \, STRING \, , \, WORD \, apply \, ) \bullet$$  
+
 
 que aplicando la regla $$ apply \longrightarrow \epsilon$$ deriva en:
 
@@ -431,7 +434,7 @@ function parseApply() {
 }
 ```
 
-Sin embargo, el código queda mas simple si seguimos
+Aunque esta versión controla mejor los errores, el código queda mas simple si seguimos
 la estrategia de si el token `lookahead` es el paréntesis izquierdo 
 entonces se trata de la regla de producción del paréntesis y en caso 
 contrario es la regla $$apply \longrightarrow \epsilon$$:
