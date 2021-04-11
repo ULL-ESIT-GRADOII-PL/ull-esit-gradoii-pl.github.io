@@ -339,22 +339,51 @@ es un posible `lookahead` en la ejecución de  `parseApply()`.
 
 Tenemos entonces que computar el conjunto de tokens `FOLLOW(apply)`  que pueden aparecer a continuación de la variable`apply` en alguna derivación desde `expression`.
 
-$$FOLLOW(apply) = \left \{ T \in \Sigma :  expression  \stackrel{*}{\Longrightarrow}  \beta \, apply \, T \, \alpha  \right \}$$ where $$\alpha \in (V \cup \Sigma)^*$$
+$$FOLLOW(apply) = \left \{ a \in \Sigma :  expression  \stackrel{*}{\Longrightarrow}  \beta \, apply \, a \, \alpha  \right \}$$ where $$\alpha \in (V \cup \Sigma)^*$$
 
-Consideremos la siguiente sinopsis de  derivación de una cadena como `print("hi", a)` en 
-la que el símbolo $$\bullet$$ denota el final de la cadena de entrada:
+Consideremos la siguiente sinopsis de  derivación de una cadena como 
 
-$$ expression \bullet \Rightarrow WORD \, apply \bullet \stackrel{*}{\Longrightarrow} WORD \, ( \,expression \, , \, WORD \, apply \, ) \bullet $$
+```js
+print("hi", a)
+``` 
+en la que el símbolo $$\bullet$$ denota el final de la cadena de entrada:
 
-$$ \Longrightarrow WORD \, ( \, STRING \, , \, WORD \, apply \, ) \bullet  \stackrel{*}{\Longrightarrow} WORD \, ( \, STRING \, , \, WORD) \bullet$$
+$$ expression \bullet \Rightarrow WORD \, apply \bullet $$
 
-muestra claramente que uno de esos tokens es `')'`. 
+que deriva en:
+
+$$\Longrightarrow WORD \, ( \,expression \, , \, expression \, ) \, apply \bullet $$
+
+que aplicando la regla $$ apply \longrightarrow \epsilon$$ deriva en:
+
+$$\Longrightarrow WORD \, ( \,expression \, , \, expression \, ) \bullet $$
+
+Ya de aquí sacamos la conclusión de que el token final de la entrada está en los  "follow" de *apply*: 
+
+$$\bullet \in  FOLLOW(apply)$$. 
+
+Así pues en el instante de la ejecución del análisis que se corresponde con ese punto de esta derivación se llamará  a `parseApply()` y el valor de *lookahead* será el final de la entrada, que hemos denotado como $$\bullet$$ (y que en nuestro analizador léxico se retorna como `null`).
+
+Sigamos derivando:
+
+$$\stackrel{*}{\Longrightarrow} WORD \, ( \,expression \, , \, WORD \, apply \, ) \bullet $$
+
+$$ \Longrightarrow WORD \, ( \, STRING \, , \, WORD \, apply \, ) \bullet$$  
+
+que aplicando la regla $$ apply \longrightarrow \epsilon$$ deriva en:
+
+$$ \stackrel{*}{\Longrightarrow} WORD \, ( \, STRING \, , \, WORD) \bullet$$
+
+muestra claramente que el tokens es `')'` está en los "follow" de *apply*:
+
+$$')' \in  FOLLOW(apply)$$. 
+
 
 También si nos fijamos en esta otra derivación para una frase como `'x'`: 
 
 $$ expression \bullet \Rightarrow WORD \, apply \bullet \Longrightarrow WORD \, \bullet $$
 
-vemos que `apply ` aparece al final de la frase cuando se aplicó la regla de producción 
+vemos de nuevo que `apply ` aparece al final de la frase cuando se aplicó la regla de producción 
 $$apply \longrightarrow \epsilon$$. 
 
 
@@ -365,11 +394,12 @@ Así pues en el instante de la ejecución del análisis que se corresponde con e
 
 Asumiremos que el analizador léxico retorna un `null` cuando encuentra el final de la entrada. 
 
-Otro token que es fácil ver que puede seguir a  `apply` es la coma. 
 
-**Ejercicio**: Busque una derivación en la que la coma aparezca siguiendo a `apply`
+Otro token que es fácil ver que puede seguir a  `apply` es la coma. Se lo dejamos como **Ejercicio**: Busque una derivación en la que la coma aparezca siguiendo a `apply`
 
-$$FOLLOW(apply)\, = \, $$\{ ')', \,\bullet \, ',' \}$$
+Por tanto el conjunto  de los "follow" de *apply* son: 
+
+la coma "," el fin de la entrada "$$\bullet$$"  y el paréntesis cerrar")"
 
 Puesto que la segunda regla tiene un `*` indicando la repetición 0 o mas veces de la expresión entre paréntesis:
 
@@ -383,10 +413,11 @@ Entonces el código queda como sigue:
 
 ```js
 function parseApply() {
-  if (!lookahead) return;      // token "final de la entrada" apply: /* vacio */
-  if ((lookahead.type === "RP")|| (lookahead.type === ',')) // apply: /* vacio */
+  if (!lookahead) return; // token "End of Input": apply: /* vacio */
+  if ((lookahead.type === "RP")|| (lookahead.type === 'COMMA')) // apply: /* vacio */
     return;
-  if (lookahead.type !== "LP") throw new SyntaxError(`Error`);
+  if (lookahead.type !== "LP") throw new SyntaxError(`Error: Found ${lookahead.type}, Expected ',' or '(' or ')'`);
+  
   lex();                // apply: '(' (expression ',')* expression? ')' apply
   while (lookahead && lookahead.type !== "RP") {
     parseExpression();
