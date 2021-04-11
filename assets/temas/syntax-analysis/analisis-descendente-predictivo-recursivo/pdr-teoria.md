@@ -382,6 +382,8 @@ muestra claramente que el tokens es `')'` está en los "follow" de *apply*:
 $$')' \in  FOLLOW(apply)$$. 
 
 
+{% include figure image_path="/assets/images/egg-syntax-tree-4-W-LP-S-comma-W-RP-EOI.jpg" caption="Syntax Tree for `print(\"hi\", a)`" %}
+
 También si nos fijamos en esta otra derivación para una frase como `'x'`: 
 
 $$ expression \bullet \Rightarrow WORD \, apply \bullet \Longrightarrow WORD \, \bullet $$
