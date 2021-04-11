@@ -335,7 +335,7 @@ Se sigue de la derivación anterior que cuando se aplica la regla `apply: /* vac
 cualquier token que, como es el caso del token $$a_1$$, pueda aparecer en alguna derivación **inmediatamente a continuación de `apply`** 
 es un posible `lookahead` en la ejecución de  `parseApply()`.
 
-## Calculo del FOLLOW
+## Cálculo del FOLLOW
 
 Tenemos entonces que computar el conjunto de tokens `FOLLOW(apply)`  que pueden aparecer a continuación de la variable`apply` en alguna derivación desde `expression`.
 
