@@ -50,8 +50,8 @@ y ya podemos editar nuestros repos privados.
 
 Resumiendo:
 
-Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del GitHub teachers' toolbox: <https://education.github.com/toolbox>. Por tanto, si lo tienes actualizado creo que tanto los profes como los alumnos tienen acceso a repos privados y a la nube proveída por GitPod sin más trámites.
-Así que en principio no hace falta dinero ni que el STIC colabore. Si el STIC colabora y aporta la self hosted solution mejor. Pero no es necesario ahora mismo se puede usar para la enseñanza.
+Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del GitHub teachers' toolbox: <https://education.github.com/toolbox>. Por tanto, si  tienes actualizado tu GitHub Toolbox, creo que tanto los profes como los alumnos tienen acceso a repos privados y a la nube proveída por GitPod.
+
 
 ## Drawbacks according to Pattacini
 
