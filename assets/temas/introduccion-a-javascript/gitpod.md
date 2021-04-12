@@ -47,3 +47,7 @@ Le damos los permisos adecuados:
 ![teacher-coupon]({{site.baseurl}}/assets/images/gitpod/teacher-coupon.png)
 
 y ya podemos editar nuestros repos privados.
+
+## Referencias
+
+* [The benefits of integrating Docker and Cloud IDE’s in the GitHub Classroom workflow](https://education.github.community/t/the-benefits-of-integrating-docker-and-cloud-ides-in-the-github-classroom-workflow/40724) by Ugo Pattacini
