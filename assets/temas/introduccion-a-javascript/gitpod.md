@@ -9,7 +9,10 @@ See [Introduction to Gitpod](https://www.gitpod.io/docs)
 ##  Oferta Plan Personal (2021)
 
 En esta URL [https://gitpod.io/plans](https://gitpod.io/plans)
-se puede solicitar un upgrade al plan "personal"  que permite acceder a repositorios privados si eres un miembro de una comunidad educativa. No he tenido que introducir tarjetas ni siquiera probar  que soy miembro de la ULL (¿quizás les basta con el email?). 
+se puede solicitar un upgrade al plan "personal"  que permite acceder a repositorios privados si eres un miembro de una comunidad educativa. No he tenido que introducir tarjetas.
+Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del GitHub teachers' toolbox: <https://education.github.com/toolbox>. Por tanto, si  tienes actualizado tu GitHub Toolbox, creo que tanto los profesores como los alumnos tienen acceso a repos privados y a la nube proveída por GitPod.
+
+
 
 
 
@@ -47,10 +50,6 @@ Le damos los permisos adecuados:
 ![teacher-coupon]({{site.baseurl}}/assets/images/gitpod/teacher-coupon.png)
 
 y ya podemos editar nuestros repos privados.
-
-Resumiendo:
-
-Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del GitHub teachers' toolbox: <https://education.github.com/toolbox>. Por tanto, si  tienes actualizado tu GitHub Toolbox, creo que tanto los profesores como los alumnos tienen acceso a repos privados y a la nube proveída por GitPod.
 
 
 ## Drawbacks according to Pattacini
