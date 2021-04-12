@@ -16,7 +16,7 @@ se puede solicitar un upgrade al plan "personal"  que permite acceder a reposit
 ![](8-horas-100-euros.png)
 
 
-**Está limitada a 100 horas de uso** pero:
+**Está limitada a 100 horas de uso**:
 
 * 100 horas
 * Repositorios privados
@@ -46,3 +46,4 @@ Le damos los permisos adecuados:
 
 ![teacher-coupon]({{site.baseurl}}/assets/images/gitpod/teacher-coupon.png)
 
+y ya podemos editar nuestros repos privados.
