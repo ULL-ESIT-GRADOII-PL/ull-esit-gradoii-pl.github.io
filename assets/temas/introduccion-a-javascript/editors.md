@@ -10,6 +10,11 @@ practicas_asociadas:
 
 * [Aprendiendo a usar VSCode](vscode)
 
+## GitPod
+
+
+* [Aprendiendo a usar GitPod](gitpod)
+
 ## StackEdit
 
 * [Aprendiendo a usar StackEdit](stackedit)

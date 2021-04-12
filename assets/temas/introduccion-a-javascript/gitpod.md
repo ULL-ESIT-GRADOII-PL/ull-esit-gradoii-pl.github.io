@@ -48,6 +48,19 @@ Le damos los permisos adecuados:
 
 y ya podemos editar nuestros repos privados.
 
+
+## Drawbacks according to Pattacini
+
+> Gitpod is fantastic but comes with some constraints that may affect yours and your students’ work:
+
+> Obviously, you’d need to learn how to deal with Docker files and do some preliminary tests on your side. Getting accustomed to Docker might take some time :hourglass_flowing_sand:
+
+> In a Gitpod workspace, the user has no sudo credentials. This is understandable and represents good practice, but sometimes it’d be convenient to install packages straight away from the console without the burden of adjusting the Dockerfile once more.
+Gitpod is free only for public GitHub repositories. This is ok for public assignments but could be a hitch for private ones. An easy workaround could be to ask students to clone their private repositories only after the workspace is ready.
+There’s the threshold of 100 hours/month per user. Quite reasonable, but much depends on your classroom payload.
+When you share a running workspace, you’ll share also your access to GitHub, which might not be desirable! This is a serious inconvenient during remote technical interviews, for example.
+Finally, don’t expect to have quantum computers available from free Cloud IDE’s services. After all, there’s a trade-off and resources are limited (e.g. no GPU), even though Gitpod seems quite generous in this sense.
+
 ## Referencias
 
 * [The benefits of integrating Docker and Cloud IDE’s in the GitHub Classroom workflow](https://education.github.community/t/the-benefits-of-integrating-docker-and-cloud-ides-in-the-github-classroom-workflow/40724) by Ugo Pattacini
