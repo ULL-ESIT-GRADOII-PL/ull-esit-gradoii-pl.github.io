@@ -50,7 +50,7 @@ y ya podemos editar nuestros repos privados.
 
 Resumiendo:
 
-Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del GitHub teachers' toolbox: <https://education.github.com/toolbox>. Por tanto, si  tienes actualizado tu GitHub Toolbox, creo que tanto los profes como los alumnos tienen acceso a repos privados y a la nube proveída por GitPod.
+Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del GitHub teachers' toolbox: <https://education.github.com/toolbox>. Por tanto, si  tienes actualizado tu GitHub Toolbox, creo que tanto los profesores como los alumnos tienen acceso a repos privados y a la nube proveída por GitPod.
 
 
 ## Drawbacks according to Pattacini
