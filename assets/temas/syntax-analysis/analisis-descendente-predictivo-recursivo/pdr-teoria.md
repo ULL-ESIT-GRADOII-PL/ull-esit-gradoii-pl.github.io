@@ -325,11 +325,16 @@ Mas difícil es determinar que tokens pueden aparecer cuando en la derivación s
 
 Para poder responder a esta pregunta consideremos una derivación en la que intervenga la regla `apply: /* vacio */`
 
-Si hacemos una derivación a derechas en la que esta es la última regla que se aplica, tendría que ocurrir algo como esto:
+Si hacemos una derivación a derechas en la que esta es la última regla que se aplica, tendría que ocurrir algo como esto. Si derivamos desde el símbolo de arranque $$expression$$:
 
-$$ expression \stackrel{*}{\Longrightarrow} \beta \, apply \, a_1\, a_2\, \ldots \, a_n \Rightarrow \beta \, a_1 \ldots \, a_n $$
+$$ expression \stackrel{*}{\Longrightarrow} \beta \, apply \, a_1\, a_2\, \ldots \, a_n$$ 
 
-Donde $$\beta$$ es una cadena arbitraria de variables y terminales y los $$a_i$$ son terminales. 
+en algún moomento en la parte derecha aparece *apply* quizá precedido de alguna secuencia $$\beta$$,
+donde $$\beta$$ es una cadena arbitraria de variables y terminales y los $$a_i \in \Sigma$$ son terminales.  Si derivamos por $$apply \longrightarrow \epsilon$$ tenemos:
+
+$$\Rightarrow \beta \, a_1 \ldots \, a_n $$
+
+ 
 
 Se sigue de la derivación anterior que cuando se aplica la regla `apply: /* vacio */`
 cualquier token que, como es el caso del token $$a_1$$, pueda aparecer en alguna derivación **inmediatamente a continuación de `apply`** 
