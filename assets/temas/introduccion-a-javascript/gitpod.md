@@ -29,7 +29,7 @@ Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del [Gi
 
 
 
-En el ejemplo se ve los apuntes de PL (un repo público usando Jekyll) siendo editado:
+En el ejemplo se ve los apuntes de PL (un repo público usando Jekyll) siendo editado con VSCode:
 
 ![apuntes-pl-gitpod]({{site.baseurl}}/assets/images/gitpod/apuntes-pl-gitpod.png)
 
