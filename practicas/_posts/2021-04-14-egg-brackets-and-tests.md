@@ -55,7 +55,9 @@ los correspondientes paréntesis `()`.
   ```
   produce una excepción
 
-4. Introduzca una prueba en `test/test.js` que demuestre que una entrada como la de `examples/one.egg`: 
+## Stubbing
+
+Introduzca una prueba en `test/test.js` que demuestre que una entrada como la de `examples/one.egg`: 
 
   ```js
   do(
@@ -69,29 +71,33 @@ los correspondientes paréntesis `()`.
   )
   ```
 
-  produce una salida en `stdout` de 50. 
-  * Utilice la técnica de stubbing (test stubs are software components that simulate the behaviors of other software components (or modules) that a module undergoing tests depends on). Haga stubbing sobre `console.log`
-  * Algo como esto le puede ayudar:
+produce una salida en `stdout` de 50. 
 
-  ```js
-  describe("run", function() {
-    let originalLog;
-    beforeEach(function() {
-      originalLog = console.log;
-      console.log = function (...args) { 
-        ...
-      };
-    });
-    // test code here
-    afterEach(function() {
+* Utilice la técnica de stubbing (test stubs are software components that simulate the behaviors of other software components (or modules) that a module undergoing tests depends on). Haga stubbing sobre `console.log`
+* Algo como esto le puede ayudar:
+
+```js
+describe("run", function() {
+  let originalLog;
+  beforeEach(function() {
+    originalLog = console.log;
+    console.log = function (...args) { 
       ...
-    });
-    it("testing one.egg with mocking of console.log", function() {
-      ...
-    }
+    };
+  });
+  // test code here
+  afterEach(function() {
+    ...
+  });
+  it("testing one.egg with mocking of console.log", function() {
+    ...
   }
-  ```
-  Si quiere saber mas sobre stubbing estudie la librería [sinon](http://sinonjs.org/)
+}
+```
+
+* [Mocha: Hooks](https://mochajs.org/#hooks)
+* Si quiere saber mas sobre stubbing estudie la librería [sinon](http://sinonjs.org/)
+* [Jest: Setup and Teardown](https://jestjs.io/docs/setup-teardown#one-time-setup)
 
 ## Módulo npm
 
