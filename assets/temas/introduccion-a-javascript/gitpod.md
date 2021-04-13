@@ -13,7 +13,7 @@ se puede solicitar un upgrade al plan "personal"  que permite acceder a reposit
 
 **Importante**: Cuando rellenes la solicitud ¡El campo VAT déjalo vacío!
 
-Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del *GitHub teachers' toolbox*: <https://education.github.com/toolbox>. Por tanto, si  tienes actualizado tu GitHub Toolbox, creo que tanto los profesores como los alumnos tienen acceso a repos privados y a la nube proveída por GitPod.
+Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del [GitHub teachers' toolbox](https://education.github.com/toolbox). Por tanto, si  tienes actualizado tu GitHub Toolbox, creo que tanto los profesores como los alumnos tienen acceso a repos privados y a la nube proveída por GitPod.
 
 
 
@@ -63,6 +63,10 @@ y ya podemos editar nuestros repos privados.
 
 > In a Gitpod workspace, the user has no sudo credentials. This is understandable and represents good practice, but sometimes it’d be convenient to install packages straight away from the console without the burden of adjusting the Dockerfile once more.
 
+Pero en otro post posterior (Feb 25 2021) comenta:
+
+> Just wanted to tell you that Gipod has been growing up tremendously as well as awesomely and, among the latest advancements it provides, we have now root access
+
 > Gitpod is free only for public GitHub repositories. This is ok for public assignments but could be a hitch for private ones. An easy workaround could be to ask students to clone their private repositories only after the workspace is ready.
 
 Esto se resuelve como he comentado
@@ -75,3 +79,5 @@ When you share a running workspace, you’ll share also your access to GitHub, w
 ## Referencias
 
 * [The benefits of integrating Docker and Cloud IDE’s in the GitHub Classroom workflow](https://education.github.community/t/the-benefits-of-integrating-docker-and-cloud-ides-in-the-github-classroom-workflow/40724) by Ugo Pattacini
+* [Introduction to Gitpod](https://www.gitpod.io/docs)
+* [GitPod For Schools, Universities, and Coding Bootcamps](https://www.gitpod.io/education)
