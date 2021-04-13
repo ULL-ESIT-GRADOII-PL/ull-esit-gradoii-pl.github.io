@@ -29,6 +29,11 @@ Modifique la versión actual del lenguaje egg para que acepte como entrada este 
   }
   ```
 
+1. la idea es que las llaves `{}` y los corchetes `[]` puedan ser usados como sinónimos de 
+los correspondientes paréntesis `()`. 
+2. Además de eso se han introducido algunas alias para `define` (`:=`), `fun` (`->`), etc.
+3. Se permiten comentarios de una línea (`# ...`) y multilínea `/* ... */`
+
 ## Tests
 
 1. Introduzca una prueba en `test/test.js` que demuestre que una entrada como la de [`examples/scope-err.egg`](https://github.com/ULL-ESIT-PL-1617/egg/blob/reto/examples/scope-err.egg):
