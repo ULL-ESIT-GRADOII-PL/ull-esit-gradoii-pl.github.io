@@ -36,11 +36,11 @@ En el ejemplo se ve los apuntes de PL (un repo público usando Jekyll) siendo ed
 todo funciona bien.
 
 Con este plan es posible acceder a repos privados. 
-En el repo en GitHub aparece un nuevo botón verde con etiqueta "GitPod":
+En el repo en GitHub aparece un nuevo botón verde con etiqueta "GitPod". Obsérvese que el repo es privado:
 
 ![boton-gitpod-en-repo-privado]({{site.baseurl}}/assets/images/gitpod/boton-gitpod-en-repo-privado.png)    
 
-Cuando le damos  la primera vez nos sale un mensaje de error:
+Cuando le damos  al botón "GitPod" por primera vez es posible que nos salga un mensaje de error:
 
 ![autorizar-gitpod-a-organizacion.png 8-horas-100-euros]({{site.baseurl}}/assets/images/gitpod/autorizar-gitpod-a-organizacion.png)
 
