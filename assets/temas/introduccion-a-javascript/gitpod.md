@@ -22,6 +22,8 @@ Lo que pasa (Abril 2021) es que GitPod está siendo ofertado como parte del [Gi
 ![]({{site.baseurl}}/assets/images/gitpod/8-horas-100-euros.png)
 
 
+![teacher-coupon]({{site.baseurl}}/assets/images/gitpod/teacher-coupon.png)
+
 **Está limitada a 100 horas de uso por mes**:
 
 * [100 horas](https://www.gitpod.io/pricing)
@@ -49,8 +51,6 @@ Le damos los permisos adecuados:
 ![gitpos-request-permissions]({{site.baseurl}}/assets/images/gitpod/gitpos-request-permissions.png)   
 
 ![grant-access]({{site.baseurl}}/assets/images/gitpod/grant-access.png)                    
-
-![teacher-coupon]({{site.baseurl}}/assets/images/gitpod/teacher-coupon.png)
 
 y ya podemos editar nuestros repos privados.
 
