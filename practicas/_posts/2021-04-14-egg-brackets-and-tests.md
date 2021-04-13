@@ -88,6 +88,10 @@ Modifique la versión actual del lenguaje egg para que acepte como entrada este 
   ```
   Si quiere saber mas sobre stubbing estudie la librería [sinon](http://sinonjs.org/)
 
+## Módulo npm
+
+Publique la nueva versión del Módulo en el GitHub Registry
+
 ## Recursos
 
 <!--
