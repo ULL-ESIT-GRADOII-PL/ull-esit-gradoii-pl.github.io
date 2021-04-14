@@ -39,6 +39,8 @@ Continuing in the series on making parsers, this time, we build a calculator tha
 
 ## Performance of NearleyJS
 
+The study shows a case in which NearleyJS is 200 times solwer than a Recursive Descendant Functional parser :disappointed:.
+
 {% include video id="njWmVljrhEE" provider="youtube" %}
 
 
