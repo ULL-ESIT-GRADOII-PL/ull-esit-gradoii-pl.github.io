@@ -7,6 +7,6 @@
 {% else %}
 <h2> Que veremos </h2>
 {% endif %}
-{{ page.summary }}
+{{ page.summary | markdownify  }}
 
 {% endif %}
