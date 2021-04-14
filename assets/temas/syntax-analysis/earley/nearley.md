@@ -37,6 +37,10 @@ Continuing in the series on making parsers, this time, we build a calculator tha
 
 {% include video provider="youtube" id="fsXp3Oh7JUU" %}
 
+## Performance of NearleyJS
+
+{% include video id="njWmVljrhEE" provider="youtube" %}
+
 
 ## References
 
