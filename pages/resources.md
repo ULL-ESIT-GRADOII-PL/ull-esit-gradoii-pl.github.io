@@ -101,6 +101,11 @@ toc: true
 
 * [Cambio de contraseña](https://usuarios.ull.es/autogestion/cambio_password_google/)
 
+### Búsqueda de Usuarios ULL
+
+* [Búsqueda de Usuarios ULL](https://usuarios.ull.es/buscar/)
+
+
 ## Recursos GitHub
 
 ### GitHub Benefits
@@ -129,6 +134,10 @@ toc: true
 ### Authorizing Apps to access your GitHub Orgs and Repos
 
 * [Authorize an OAuth App: settings/applications](https://github.com/settings/connections/applications/) Go to **user** settings and from there to applications
+
+### GitPod
+
+* [Introducción a GitPod]({{ site.baseurl}}/assets/temas/introduccion-a-javascript/gitpod)
 
 <!--
 

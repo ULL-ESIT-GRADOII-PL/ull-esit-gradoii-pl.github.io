@@ -76,7 +76,7 @@ When you share a running workspace, you’ll share also your access to GitHub, w
 
 > Finally, don’t expect to have quantum computers available from free Cloud IDE’s services. After all, there’s a trade-off and resources are limited (e.g. no GPU), even though Gitpod seems quite generous in this sense.
 
-## Images
+## Docker Images
 
 Si la [imagen](https://github.com/gitpod-io/workspace-images) por defecto no se adapta a lo que quieres
 puedes [configurarla](https://www.gitpod.io/docs/config-docker)
