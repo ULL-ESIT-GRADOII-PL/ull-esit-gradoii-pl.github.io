@@ -28,10 +28,13 @@ Esta referencia puede ayudar sobre este tema:
 
 * [Vim Syntax Higlighting for Egg](https://github.com/ULL-ESIT-PL-1819/.vim/tree/master/syntax) by David Afonso (dibad)
 
+### Inheritance and Scopes in Egg
+
+* [inheritance-and-scopes-in-egg]()
 
 ### Metodología  de Trabajo
 
-* [Metodología](practicas/metodologia-para-las-practicas)
+{% include temas/syntax-analysis/metodologia-para-las-practicas-egg.md %}
 
 ### Recursos para el Profesor
 
