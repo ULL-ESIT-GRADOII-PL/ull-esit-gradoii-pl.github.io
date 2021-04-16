@@ -89,6 +89,10 @@ toc: true
   * [Instrucciones para acceder a la VPN de la ULL en un Mac sin usar GlobalProtect]({{site.baseurl}}/pages/vpn-ull)
   *   [Guía de configuración del cliente VPN para Linux, Android e IOS (Ipad, Iphone) con IPSEC](https://drive.google.com/open?id=0B3mzWpxzbJD1Z1p4OWtQSFFzOGs)
 
+### Servicio de Escritorios Virtuales para la docencia
+
+* [Servicio de Escritorios Virtuales](https://www.ull.es/servicios/stic/2020/09/01/escritorios-virtuales-para-la-docencia-en-la-universidad-de-la-laguna/)
+
 ### Mapa de Recursos ULL
 
 - [Mapa de recursos de la ULL](https://www.ull.es/donde/)
