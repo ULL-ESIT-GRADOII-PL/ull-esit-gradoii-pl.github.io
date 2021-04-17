@@ -15,7 +15,7 @@ More precisely, $$S_k$$ is the set of states $$(X \longrightarrow \alpha \bullet
 $$Start \overset{*}{\Longrightarrow} a_{1}a_{2} \ldots a_{j-1}X\omega \underset{X \longrightarrow \alpha \beta}{\Longrightarrow } a_{1}a_{2} \ldots a_{j-1} \alpha \beta \omega 
 \overset{*}{\Longrightarrow} a_{1}a_{2} \ldots a_j \ldots a_{k} \beta \omega$$ 
 
-Observe that $$ \alpha \overset{*}{\Longrightarrow} a_{j} \ldots a_k$$
+Observe that it holds that $$ \alpha \overset{*}{\Longrightarrow} a_{j} \ldots a_k$$
 
 and so the production $$X \longrightarrow \alpha \beta$$ can  still be used for derivation at position $$k$$. 
 
