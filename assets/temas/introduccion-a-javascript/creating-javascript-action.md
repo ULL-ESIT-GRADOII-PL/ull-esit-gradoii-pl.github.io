@@ -465,6 +465,9 @@ Here is an example of versioning workflow:
 
 <img src="{{site.baseurl}}/assets/images/action-releases.png" style='background-color: white'/>
 
+## Running Manually GitHub Workflows with gh
+
+* [Running Manually GitHub Workflows with gh](gh-workflows)
 
 ## Next Steps on Learning GitHub Actions {#next-step}
 
