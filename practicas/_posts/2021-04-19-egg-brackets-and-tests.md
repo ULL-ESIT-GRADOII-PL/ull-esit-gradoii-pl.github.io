@@ -25,11 +25,11 @@ Modifique la versión actual del lenguaje egg para que acepte como entrada este 
         }
      )
    },
-   print(+("sum(array[1, 2, 3]) := ", sum(array[1, 2, 3])))
+   print(+("sum(array[1, 2, 3]) := ", sum(array(1, 2, 3))))
   }
   ```
 
-1. Las llaves `{}` y los corchetes `[]` puedan ser usados como sinónimos de 
+1. Las llaves `{}` pueden ser usados como sinónimos de 
 los correspondientes paréntesis `()`. 
 2. Además de eso se han introducido algunas alias para `define` (`:=`), `fun` (`->`), `set` (`=`), `element` (`<-`) etc. 
 3. Se permiten comentarios de una línea (`# ...`) y multilínea `/* ... */`
