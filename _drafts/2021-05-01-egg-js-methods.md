@@ -1,106 +1,8 @@
 ---
-title: "Egg. A Programming Language. Continuación (egg-1)"
+title: "Egg. Accesing JS Methods"
 categories: ["practicas"] 
-permalink: "/practicas/egg-1"
+permalink: "/practicas/egg-js-methods"
 ---
-
-## Metodologia
-
-{% include metodologia-egg.md %}  
-
-## Design: Smells, The Switch Smell, The Open Closed Principle and the Strategy Pattern
-
-Lea esta sección:
-
-* [Design: Smells, The Switch Smell, The Open Closed Principle and the Strategy Pattern]({{site.baseurl}}/tema1-introduccion-a-javascript/design)
-
-procurando entender los principios SOLID, el problema del Switch Smell y el  
-*Strategy Pattern*. Vea el vídeo de Elijah Manor.
-
-## AST con Clases: evaluate como método del nodo
-
-Aplique el Strategy Pattern para eliminar el Switch Smell en el código de evaluación del 
-AST.
-
-Modifique el AST para dar una solución OOP con clases: 
-
-- una clase `Value`
-- una clase `Word`
-- una clase `Apply`
-  
-de manera que cada clase de objeto dispone de un método `evaluate`. 
-
-```
-[~/ull-pl1718-campus-virtual/tema3-analisis-sintactico/src/egg/crguezl-egg(private)]$ cat lib/ast.js
-```
-```js
-  // The AST classes
-  const {specialForms} = require("./registry.js");
-
-  class  Value {
-    constructor(token) {
-      ...
-    }
-    evaluate() {
-      ...
-    }
-  }
-
-  class  Word {
-    constructor(token) {
-      ...
-    }
-    evaluate(env) {
-      ...
-    }
-  }
-
-  class  Apply {
-    constructor(tree) {
-      ...
-    }
-    evaluate(env) {
-      ...
-    }
-  }
-
-  module.exports = {Value, Word, Apply};
-```
-
-Por supuesto, ahora, cuando el parser detecta un nuevo nodo en su construcción  del árbol, crea un objeto de la clase correspondiente:
-
-```js
-  parseExpression() {
-    let expr;
-    if (this.lookahead.type === "STRING") {
-      expr = new Value(this.lookahead);
-    } else if (this.lookahead.type === "NUMBER") {
-      ...
-    } else if (this.lookahead.type === "WORD") {
-      expr = new Word(this.lookahead);
-    } else {
-      throw ...
-    }
-
-    return this.parseApply(expr);
-  }
-```
-
-Aisle estas clases en un fichero `lib/ast.js`. 
-La función `evaluate` con el `switch` que estaba inicialmente en `lib/eggvm.js` desaparece en esta versión
-
-**Una Solución**:
-
-* [ULL-ESIT-PL-1920/TFA-davafons/lib/interp/ast.js](https://github.com/ULL-ESIT-PL-1920/TFA-davafons/blob/casiano/lib/interp/ast.js) 
-
-
-## Jerarquía de Ficheros y Organización
-
-* [Jerarquía de Ficheros y Organización](jerarquia-de-ficheros)
-
-## Actualice la máquina virtual `evm` para que pueda ejecutar los JSON
-
-{% include json2ast.md %}
 
 ## STRINGS y NUMBERS y ... todos pueden llamar
 
@@ -302,27 +204,6 @@ Object.prototype["="] = function(value, ...indices) {
 
 ...
 ```
-
-## Recursos
-
-* [El lenguaje egg: repo en GitHub](https://github.com/ULL-ESIT-PL-1617/egg)
-* [Repo interpreter-egg](https://github.com/ULL-ESIT-PL-1617/interpreter-egg)
-* [NodeJS Readline gist](https://gist.github.com/crguezl/430642e29a2b9293317320d0d1759387)
-* En el repo [ULL-ESIT-PL-1617/interpreter-egg](https://github.com/ULL-ESIT-PL-1617/interpreter-egg) se muestra como hacer un bucle REPL
-* [XRegExp](http://xregexp.com/)
-* El módulo [@ull-esit-pl/example2test](https://www.npmjs.com/package/@ull-esit-pl/example2test)
-
-
-## Referencias
-
-* [Eloquent JS: Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
-* [Apuntes del curso 15/16: Code Smells/Código Hediondo](https://casianorodriguezleon.gitbooks.io/pl1516/content/apuntes/codesmell.html)
-* [Apuntes del curso 16/17: Patrones de Diseño](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/patterns/)
-* [Apuntes del curso 15/16: Eliminando Switch Smell](https://casianorodriguezleon.gitbooks.io/pl1516/content/practicas/noswitchsmell.html)
-* [Apuntes del curso 16/17: Strategy Pattern](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/patterns/strategypattern.html)
-* [Apuntes del curso 16/17: Práctica: Evaluar Strategy Pattern](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicaevaluastrategypattern.html)
-* [Apuntes del curso 16/17: Práctica: Creación de Paquetes NPM y Strategy Pattern](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicamodulestrategypattern.html)
-* [JSHint](http://jshint.com/)
 
 ## Recursos del Profesor
 
