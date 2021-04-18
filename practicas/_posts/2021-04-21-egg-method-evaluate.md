@@ -12,7 +12,7 @@ permalink: "/practicas/egg-method-evaluate"
 
 Lea esta sección:
 
-* [Design: Smells, The Switch Smell, The Open Closed Principle and the Strategy Pattern]({{site.baseurl}}/tema1-introduccion-a-javascript/design)
+* [Design: Smells, The Switch Smell, The Open Closed Principle and the Strategy Pattern]({{site.baseurl}}/assets/temas/introduccion-a-javascript/design)
 
 procurando entender los principios SOLID, el problema del Switch Smell y el  *Strategy Pattern*. Vea el vídeo de Elijah Manor.
 

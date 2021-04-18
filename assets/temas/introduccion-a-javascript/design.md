@@ -1,6 +1,6 @@
 ---
+title: "Design: Smells, The Switch Smell, The Open Closed Principle and the Strategy Pattern"
 ---
-# Design: Smells, The Switch Smell, The Open Closed Principle and the Strategy Pattern
 
 ## Code Smells
 
