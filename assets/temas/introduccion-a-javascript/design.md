@@ -107,7 +107,7 @@ Vea el Vídeo  de Elijah Manor.
 
 Presta especial atención al *code smell* **Switch Statement Smell** desde el minuto 11:37 al 29:15.
 
-[![](https://img.youtube.com/vi/JVlfj7mQZPo/0.jpg)](https://www.youtube.com/watch?v=JVlfj7mQZPo)
+{% include video provider="youtube" id="JVlfj7mQZPo" %}
 
 Pueden encontrar las [trasparencias](http://elijahmanor.com/talks/js-smells/#/) de la presentación en [http://elijahmanor.com/talks/js-smells/#/](http://elijahmanor.com/talks/js-smells/#/).
 
