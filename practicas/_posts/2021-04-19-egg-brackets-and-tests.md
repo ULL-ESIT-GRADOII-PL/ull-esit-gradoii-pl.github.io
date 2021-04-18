@@ -25,7 +25,7 @@ Modifique la versión actual del lenguaje egg para que acepte como entrada este 
         }
      )
    },
-   print(+("sum(array[1, 2, 3]) := ", sum(array(1, 2, 3))))
+   print(+("sum(array(1, 2, 3)) := ", sum(array(1, 2, 3))))
   }
   ```
 
