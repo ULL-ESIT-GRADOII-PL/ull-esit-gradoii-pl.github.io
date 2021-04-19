@@ -30,7 +30,7 @@ Modifique la versión actual del lenguaje egg para que acepte como entrada este 
   ```
 
 1. Las llaves `{}` pueden ser usados como sinónimos de 
-los correspondientes paréntesis `()`. 
+los correspondientes paréntesis `()`.  No use los brackets/corchetes como sinónimo de los paréntesis. 
 2. Además de eso se han introducido algunas alias para `define` (`:=`), `fun` (`->`), `set` (`=`), `element` (`<-`) etc. 
 3. Se permiten comentarios de una línea (`# ...`) y multilínea `/* ... */`
 
