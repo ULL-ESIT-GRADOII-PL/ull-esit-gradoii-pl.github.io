@@ -4,17 +4,17 @@ categories: ["practicas"]
 permalink: "/practicas/egg-js-methods"
 ---
 
-## STRINGS y NUMBERS y ... todos pueden llamar
+## Accediendo a los Métodos JS de los Objetos 
 
-Modifique la gramática de Egg para que las `String` y los `Number` puedan hacer llamadas como si fuera *applications*:
+Modifique la gramática de Egg para que las `String` y los `Number` puedan acceder a los métodos de los objetos con una sintáxis similar a la de las  *applications* pero usando corchetes:
 
 ```
 [.../p6-t3-egg-1-04-16-2020-03-13-25/davafons(casiano)]$ cat examples/string-apply.egg
 ```
 ```js
 do {
-  print("hello"("length")),
-  print(4("toFixed")(2))
+  print("hello"["length"]),
+  print(4["toFixed"](2))
 }
 ```
 
@@ -26,12 +26,14 @@ Que cuando se ejecuta debería dar una salida como esta:
 4.00
 ```
 
-Un `String` o un `Number` o cualquier objeto resultante de una llamada a una *application* puede ser llamado con argumento un string con el nombre de una propiedad JS del objeto y retorna el valor de esa propiedad .
+La idea es que dado un `String` o un `Number` o en general cualquier objeto `x`, quizá  resultante de alguna llamada `=(x, f(a))` podremos acceder a sus propiedades y métodos mediante la notación `x[e]`  donde 
+* `e` es una expression que se evalúa a  una string `p` que es el nombre de una propiedad JS del objeto y 
+* `x[e]` se evalúa al valor `x.p` de esa propiedad de `x`.
 
 Se sigue que, en particular, si el objeto JavaScript  `obj` resultado de la llamada a una función tiene una propiedad con nombre `"meth"` que es el nombre de un método, este  podrá ser llamado usando la sintáxis: 
 
 ```js 
-  obj("meth")(args)
+  obj["meth"](args)
 ```
 
 Por ejemplo:
@@ -41,7 +43,7 @@ Por ejemplo:
 ```
 ```js
 do(
-  def(x, array[1, 4, array[5, 3]]),
+  def(x, array(1, 4, array(5, 3))),
   print(x[0]),   # 1
   print(x[2]),   # [5, 3]
   print(x[2][1]) # 3
@@ -65,7 +67,7 @@ Otro ejemplo:
 .../p6-t3-egg-1-04-16-2020-03-13-25/davafons(casiano)]$ cat examples/method.egg
 ```
 ```js
-print(array[1,4,5]("join")("-"))
+print(array(1,4,5)["join"]("-"))
 ```
 
 que cuando se ejecuta da:
@@ -83,7 +85,7 @@ Otro ejemplo:
 ```js
 do(
     def(x, "hello"),
-    print(x("toUpperCase")())
+    print(x["toUpperCase"]())
 )
 ```
 
@@ -99,10 +101,10 @@ Se debería poder concatenar las llamadas de métodos:
 ```
 .../p6-t3-egg-1-04-16-2020-03-13-25/davafons(casiano)]$ cat examples/method3.egg
 ```
-```
+```js
 do{
-  def(x, array["a", "b", "c"]),
-  print(x("join")("-")("toUpperCase")())
+  def(x, array("a", "b", "c")),
+  print(x["join"]("-")["toUpperCase"]())
 }
 ```
 
@@ -120,7 +122,7 @@ la concatenación puede ser larga
 ```  
 ```js
 do(
-  print(array[1,4,5]("join")("-")("substring")(0,2)("concat")("hello egg"))
+  print(array(1,4,5)["join"]("-")["substring"](0,2)["concat"]("hello egg"))
 )
 ```
 cuya ejecución resulta en:
@@ -137,9 +139,9 @@ Esto nos permite disponer del `map`de JS para los arrays:
 ```
 ```js
 do(
-    define(x, array[1,2,3,4]),
+    define(x, array(1,2,3,4)),
     define(inc, fun(x,i,g, +(x,1))),
-    print(x("map")[inc])
+    print(x["map"](inc))
 )
 ```
 
@@ -159,9 +161,9 @@ Utilizando las extensiones anteriores y haciendo Monkey patching de las clases p
 ```
 ```ruby
 do{
-  define(x, arr[1, arr[3, 4]]),
+  define(x, arr(1, arr(3, 4))),
   print(x["sub"](1, 1)),
-  print(element[x, 1, 1])
+  print(element(x, 1, 1))
 }
 ```
 ```
@@ -178,7 +180,7 @@ Aquí se ha extendido la clase JS Object con un método `sub` que permite la ind
 ```ruby
 
 do{
-  :=(w, array[array[1,2], array[3,4]]),
+  :=(w, array(array(1,2), array(3,4))),
   w["="](5, 0, 1),
   print(w)
 }

@@ -12,12 +12,12 @@ if(true,
 .../p6-t3-egg-1-04-16-2020-03-13-25/davafons(casiano)]$ cat examples/string-apply-simple.egg 
 ```
 ```ruby
-"hello"("length")
+"hello"["length"]
 ```
 
 ```
 .../p6-t3-egg-1-04-16-2020-03-13-25/davafons(casiano)]$ cat examples/number-apply.egg 
 ```
 ```ruby
-4("toFixed")(2)
+4["toFixed"](2)
 ```
