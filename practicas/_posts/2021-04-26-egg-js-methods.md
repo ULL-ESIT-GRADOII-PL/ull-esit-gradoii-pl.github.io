@@ -207,6 +207,14 @@ Object.prototype["="] = function(value, ...indices) {
 ...
 ```
 
+## Gramática y Descripción de los AST
+
+En su informe describa formalmente 
+
+1. La gramática resultante de incorporar la llamada con corchetes, 
+2. Las modificaciones introducidas en el AST y 
+3. Comente los cambios realizados en el código (análisis sintáctico, evaluación del árbol)
+
 ## Recursos del Profesor
 
 ### Debugging Simple Examples
