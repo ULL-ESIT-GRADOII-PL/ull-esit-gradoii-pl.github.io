@@ -231,7 +231,7 @@ obj["method", param1, param2](param3, param4)
 En esta versión de Egg hemos hecho monkey patching en la clase JS `Number` 
 dotándolos de un método "`+`":
 
-file: `~/lib/monkey-patch.js` branch: `private2021`
+[file: `~/lib/monkey-patch.js` repo: ULL-ESIT-PL-2021/private-egg branch: `private2021`](https://github.com/ULL-ESIT-PL-2021/private-egg/blob/private2021/lib/monkey-patch.js#L74-L84)
 ```js
 Number.prototype["+"] = function(...args) {
   try {
