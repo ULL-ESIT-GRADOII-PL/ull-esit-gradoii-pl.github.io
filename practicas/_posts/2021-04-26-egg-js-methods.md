@@ -228,7 +228,7 @@ do {
 }
 ```
 
-La expresión `4["+", 5]` debe interpretarse que retorna una función `f` que cuando es llamada con argumentos `f(a,b,c, ...)`retorna `+(4,5,a,b,c, ...)` 
+La expresión `4["+", 5]` debe interpretarse que retorna una función `f` que "*suma 9*", esto es, que cuando es llamada con argumentos `f(a,b,c, ...)`retorna `+(4,5,a,b,c, ...)` 
 
 Vea la ejecución:
 
