@@ -514,9 +514,9 @@ Options:
 
 ### Ejemplos de Ejecución
 
-Dada el programa egg:
+Dado el programa egg:
 
-  ```
+```js
   ➜  cristo-daniel-luciana-tfa-1920-egg git:(master) ✗ cat examples/constant-folding/advanced-folding.egg 
 do(
   print(*(+(4, 6), -(/(8, 4), 1)))
@@ -528,9 +528,9 @@ al compilarlo `-c`con la opción de optimización activada `-o`:
   ➜  cristo-daniel-luciana-tfa-1920-egg git:(master) ✗ node bin/eggRun.js -o -c examples/constant-folding/advanced-folding.egg
 ```
 
-Nos produce como salida este AST:
+Nos produce como salida este AST en el que observamos el pliegue:
 
-```
+```json
 ➜  cristo-daniel-luciana-tfa-1920-egg git:(master) ✗ cat examples/constant-folding/advanced-folding.egg.evm 
 {
   "_type": "apply",
