@@ -209,7 +209,13 @@ Object.prototype["="] = function(value, ...indices) {
 
 ## Opcional: Currifying Methods
 
-Es posible ampliar fácilmente la solución encontrada para que pueda hacerse [currying](https://en.wikipedia.org/wiki/Currying) sobre el método.
+Es posible ampliar sin mas que pensar un poco la ampliación propuesta para que pueda hacerse [currying](https://en.wikipedia.org/wiki/Currying) sobre el método admitiendo una sintáxis de la forma
+
+```js
+obj["method", param1, param2](param3, param4)
+```
+
+### Ejemplo
 
 En esta versión de Egg el operador "`+`" ha sido extendido para trabajar con un número arbitrario de argumentos.
 
