@@ -247,4 +247,9 @@ En su informe describa formalmente
 
 ## Recursos del Profesor
 
-See version in branch `private2021` at `/Users/casianorodriguezleon/campus-virtual/shared/egg/eloquentjsegg` in machine `pacham.local` remote `ULL-ESIT-PL-2021/private-egg`. 
+See version in branch `private2021` at 
+
+`~/campus-virtual/shared/egg/eloquentjsegg` 
+
+in machine `pacham.local` 
+remote `ULL-ESIT-PL-2021/private-egg`. 
