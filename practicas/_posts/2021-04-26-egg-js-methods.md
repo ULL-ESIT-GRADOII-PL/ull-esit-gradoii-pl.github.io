@@ -207,6 +207,30 @@ Object.prototype["="] = function(value, ...indices) {
 ...
 ```
 
+## Opcional: Currifying Methods
+
+Es posible ampliar fácilmente la solución encontrada para que pueda hacerse [currying](https://en.wikipedia.org/wiki/Currying) sobre el método.
+
+En esta versión de Egg el operador "`+`" ha sido extendido para trabajar con un número arbitrario de argumentos.
+
+```js
+➜  eloquentjsegg git:(brackets-method-access) cat examples/curry-method.egg 
+```
+```js
+do {
+  print(4["+", 5](3)) # 4.(+,5)(3) # 12
+}
+```
+
+La expresión `4["+", 5]` debe interpretarse que retorna una función `f` que cuando es llamada con argumentos `f(a,b,c, ...)`retorna `+(4,5,a,b,c, ...)` 
+
+Vea la ejecución:
+
+```
+➜  eloquentjsegg git:(brackets-method-access) bin/egg.js examples/curry-method.egg 
+12
+``
+
 ## Gramática y Descripción de los AST
 
 En su informe describa formalmente 
