@@ -252,4 +252,5 @@ See version in branch `private2021` at
 `~/campus-virtual/shared/egg/eloquentjsegg` 
 
 in machine `pacham.local` 
+
 remote `ULL-ESIT-PL-2021/private-egg`. 
