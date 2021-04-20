@@ -10,7 +10,23 @@ definido en las clases de nodos `VALUE`, `WORD`y `APPLY`
 
 Escriba una función `json2AST` que convierta la estructura de datos
 plana en un AST en los que cada nodo pertenece a la clase correspondiente.
-Modifique la función `runFromEVM` que ejecuta el código de la máquina virtual para que siga funcionando. 
+Modifique la función `runFromEVM` que ejecuta el código de la máquina virtual para que siga funcionando. Algo como esto:
+
+```js
+function runFromEVM(fileName) {
+  try {
+    let json = fs.readFileSync(fileName, 'utf8');
+    let treeFlat = JSON.parse(json);
+    let tree = json2AST(treeFlat);
+    let env = Object.create(topEnv);
+
+    return tree.evaluate(env);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+```
 
 **Una Solucion:** (repo privado)
 
