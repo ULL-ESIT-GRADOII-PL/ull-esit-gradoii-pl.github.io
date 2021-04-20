@@ -209,7 +209,16 @@ Object.prototype["="] = function(value, ...indices) {
 
 ## Opcional: Currifying Methods
 
-Es posible ampliar sin mas que pensar un poco la ampliación propuesta para que pueda hacerse [currying](https://en.wikipedia.org/wiki/Currying) sobre el método admitiendo una sintáxis de la forma
+Es posible ampliar sin mas que pensar un poco la ampliación propuesta para que pueda hacerse [currying](https://en.wikipedia.org/wiki/Currying) sobre el método. 
+Por ejemplo supongamos un objeto JS `obj` que dispone de un método `method`que admite cuatro parámetros `obj.method(param1, param2, param3, param4)`. 
+
+Una expresión como
+
+```js
+obj["method", param1, param2]
+```
+
+retorna una función que puede ser llamada con el resto de parámetros:
 
 ```js
 obj["method", param1, param2](param3, param4)
