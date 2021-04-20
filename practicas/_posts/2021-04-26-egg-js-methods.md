@@ -210,7 +210,9 @@ Object.prototype["="] = function(value, ...indices) {
 ## Opcional: Currifying Methods
 
 Es posible ampliar sin mas que pensar un poco la ampliación propuesta para que pueda hacerse [currying](https://en.wikipedia.org/wiki/Currying) sobre el método. 
-Por ejemplo supongamos un objeto JS `obj` que dispone de un método `method`que admite cuatro parámetros `obj.method(param1, param2, param3, param4)`. 
+Por ejemplo supongamos un objeto JS `obj` que dispone de un método `method`que admite cuatro parámetros 
+
+`obj.method(param1, param2, param3, param4)`. 
 
 Una expresión como
 
@@ -226,14 +228,32 @@ obj["method", param1, param2](param3, param4)
 
 ### Ejemplo
 
-En esta versión de Egg el operador "`+`" ha sido extendido para trabajar con un número arbitrario de argumentos.
+En esta versión de Egg hemos hecho monkey patching en la clase JS `Number` 
+dotándolos de un método "`+`":
+
+file: `~/lib/monkey-patch.js` branch: `private2021`
+```js
+Number.prototype["+"] = function(...args) {
+  try {
+    let sum = this;
+    for(let i=0; i<args.length; i++) {
+      sum += args[i];
+    }
+    return sum;
+  } catch (e) {
+     throw new Error("Error in Number method '+' when summing numbers!\n",e)
+  }
+}; 
+```
+
+ ha sido extendido para trabajar con un número arbitrario de argumentos.
 
 ```js
 ➜  eloquentjsegg git:(brackets-method-access) cat examples/curry-method.egg 
 ```
 ```js
 do {
-  print(4["+", 5](3)) # 4.(+,5)(3) # 12
+  print(4["+", 5](3)) # (4.+.5)(3) # 12
 }
 ```
 
