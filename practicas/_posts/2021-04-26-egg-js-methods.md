@@ -229,7 +229,7 @@ Vea la ejecución:
 ```
 ➜  eloquentjsegg git:(brackets-method-access) bin/egg.js examples/curry-method.egg 
 12
-``
+```
 
 ## Gramática y Descripción de los AST
 
