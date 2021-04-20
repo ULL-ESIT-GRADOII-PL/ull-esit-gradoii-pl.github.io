@@ -512,7 +512,7 @@ Options:
   --help, -h          Muestra ayuda                                   [booleano]
   ```
 
-  ### Ejemplos de Ejecución
+### Ejemplos de Ejecución
 
 Dada el programa egg:
 
