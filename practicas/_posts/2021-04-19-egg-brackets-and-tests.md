@@ -2,6 +2,37 @@
 title: "Improving Egg: Brackets and Tests"
 categories: ["practicas"] 
 permalink: /practicas/egg-brackets-and-tests
+rubrica:
+  - "Alias de las palabras reservadas como `set/= define/def/:=` etc."
+  - 
+    - Analizador Léxico
+    - "**Las llaves `{}` funcionan como alias de los paréntesis**"
+    - Sticky
+    - Comentarios
+    - Localización
+  -
+    - Pruebas
+    - "**Se usa mocking**"
+    - Se provee una carpeta `examples`  con ejemplos de programas `egg``
+    - Se ha automatizado el proceso de pasar del "*ejemplo que funciona*" a "*test unitario que prueba que funciona*"
+    - Se hace integración contínua
+  - 
+    - Documentación
+    - Ejecutables, Lenguaje, ASTs, etc.
+    - Documentación del módulo npm (API) y ejecutables como se usan
+    - "Opcional: Documentación de la API de los módulos (parser, eggvm), informe de cubrimiento, etc."
+  - set (asignación y manejo de ámbitos)
+  - Librerías separadas (Parser, Intérprete, etc.)
+  - 
+    - Ejecutables (uno con opciones o varios ejecutables)
+  - 
+    - Se ha publicado en GitHub Registry 
+    - La publicación cumple los estándares de publicación de un módulo (CI, versionado, documentación, etc.)
+  - 
+    - El bucle REPL 
+    - Evalúa correctamente y no se despista
+    - Detecta expresiones incompletas
+    - Colores 
 ---
 
 ## Brackets
