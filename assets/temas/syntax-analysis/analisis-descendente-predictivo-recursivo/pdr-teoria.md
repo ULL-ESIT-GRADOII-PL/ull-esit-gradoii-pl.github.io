@@ -108,6 +108,66 @@ En forma gráfica, tenemos el árbol sintáctico concreto que sigue:
 
 ![]({{site.baseurl}}/assets/images/ast-compose-g-f-8.jpg)
 
+Este es el mismo diagrama hecho usando [mermaid](https://mermaid-js.github.io/mermaid/#/):
+
+<div class="mermaid">
+graph TD
+      E1[e]
+
+subgraph "print(**(g,f)(8))"
+      E1-->W1["W (print)"]
+      E1-->A1(a);
+end    
+
+      A1-->E2["e"]
+      A1-->A2["a"]
+
+
+subgraph "(**(g,f)(8))"
+      A1-->LP1["("]
+
+      E2-->W2["W (**)"]
+      E2-->A3[a]
+
+      A3-->LP2["("]
+      A3-->E3["e"]
+      A3-->COMMA1[","]
+      A3-->E4["e"]
+      A3-->RP2[")"]
+
+      E3-->W3["W (g)]"]
+      E3-->A5[a]
+
+      E4-->W4["W (f)]"]
+      E4-->A6[a]
+
+      A1-->RP1[")"]
+
+      A5-->EMPTY5[ε]
+      A6-->EMPTY6[ε]
+
+subgraph "(g,f)(8)"
+      A3-->A4[a]
+
+      A4 --> LP3["("]
+      A4 --> E5["e"]
+            E5-->NUM["NUMBER (8)"]
+      A4 --> RP3[")"]
+      A4 --> A7["a"]
+
+
+      A7-->EMPTY2[ε]
+
+
+end
+
+    end
+
+ 
+      A2-->EMPTY[ε]
+
+
+</div>
 
 ## Lenguaje Generado por Una Gramática {#lenguaje}
 

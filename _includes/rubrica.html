@@ -1,7 +1,7 @@
 {% if page.rubrica %} 
 <h2 id="rubrica">Rúbrica</h2>
 
-Incidencias para el Project Board para la práctica <i>{{ page.title}}</i>
+Incidencias para el Project Board para la práctica <i>{{ page.title | markdownify }}</i>
 <ul>
     {% for criterio in page.rubrica -%}
     {% if criterio.first %}
