@@ -183,7 +183,7 @@ y *trucando* nuestro analizador léxico para que siempre que una `WORD` vaya seg
 
 ## El Método `sub` deberá funcionar con los diccionarios/mapas
 
-Haga que los mapas tengan un método `sub`  que permita indexar los mapas:
+Extienda el Monkey Patching `sub` para los mapas que permita indexar los mapas:
 
  ```
 [.../p7-t3-egg-2-04-16-2020-03-13-25/davafons(casiano)]$ cat examples/map-sub.egg
