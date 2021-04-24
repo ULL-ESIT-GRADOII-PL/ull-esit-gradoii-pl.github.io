@@ -214,30 +214,32 @@ do(
 Añada objetos al lenguaje Egg de manera que podamos escribir programas como este:
 
 ```
-➜  eloquentjsegg git:(private2021) ✗ cat examples/objects.egg 
+➜  eloquentjsegg git:(brackets-method-access) ✗ cat examples/objects.egg       
 ```
 ```js
 do {
   def(x, object {
     "c", 0,
-    "gc",  ->{element(this, "c")},
-    "sc",  ->{value, =(this, "c", value)},
-    "inc", ->{=(this, "c", +(element(this, "c"),1))}
+    "gc",  ->{element(self, "c")},
+    "sc",  ->{value, =(self, "c", value)},
+    "inc", ->{=(self, "c", +(element(self, "c"),1))}
   }),
 
-  print(x["gc"]()),
+  print(x["gc"]()), # 0
   x["sc"](4),
-  print(x["gc"]()),
+  print(x["gc"]()), # 4
   x["inc"](),
-  print(x["gc"]()),
-  print(x["c"]),
+  print(x["gc"]()), # 5
+  print(x["c"]),    # 5
 }
 ```
 
-  Ejecución:
+Donde `self` hace referencia al objeto.
+
+Ejecución:
 
 ```
-➜  eloquentjsegg git:(private2021) ✗ bin/egg.js examples/objects.egg
+➜  eloquentjsegg git:(brackets-method-access) ✗ bin/egg.js examples/objects.egg  
 0
 4
 5
@@ -274,6 +276,8 @@ do(
 )
 ```
 
+Ejecución:
+
 ```
 ➜  eloquentjsegg git:(private2021) ✗ bin/egg.js examples/dot.egg
 1-4-5
@@ -283,15 +287,15 @@ do(
 Otro ejemplo, esta vez con objetos Egg.
 
 ```
-➜  eloquentjsegg git:(private2021) ✗ cat examples/dot-obj-2.egg 
+➜  eloquentjsegg git:(brackets-method-access) ✗ cat examples/dot-obj-2.egg 
 ```
 ```js
 do (
   def(x, object ( 
     c:   0,
-    gc:  ->{this.c},
-    sc:  ->{value, =(this, "c", value)},
-    inc: ->{=(this, "c", +(this.c, 1))}
+    gc:  ->{self.c},
+    sc:  ->{value, =(self, "c", value)},
+    inc: ->{=(self, "c", +(self.c, 1))}
   )),
   # print(x),
   print(x["c"]),           # 0
@@ -308,7 +312,7 @@ do (
 ```
 
 ```
-➜  eloquentjsegg git:(private2021) ✗ bin/egg.js examples/dot-obj-2.egg
+➜  eloquentjsegg git:(brackets-method-access) ✗ bin/egg.js examples/dot-obj-2.egg 
 0
 0
 0
@@ -317,32 +321,6 @@ do (
 [Function: bound ]
 5
 9
-```
-
-```js
-do (
-  def(x, object (
-    c:   3,
-    gc:  ->{this.c},
-    sc:  ->{value, =(this, "c", value)},
-    inc: ->{=(this, "c", +(this.c, 1))}
-  )),
-
-  print(x["c"]), # 3
-  print(x.c),    # 3
-  print(x.gc()), # 3
-  print(x.sc(5)),# 5
-  print(x.gc())  # 5
-)
-```
-
-```
-[.../p7-t3-egg-2-04-16-2020-03-13-25/davafons(casiano)]$ bin/egg.js examples/dot-obj-2.egg
-3
-3
-3
-5
-5
 ```
 
 
@@ -415,8 +393,9 @@ Observe como `inside module` aparece una sola vez pese a que el módulo es *requ
 * Añada expresiones regulares al lenguaje Egg. 
 * Las delimitaremos mediante `r/regexpExpression/` comenzando por `r/`y terminando con una `/`. 
 * Se admiten cualesquiera caracteres entre los delimitadores, incluyendo retornos de carro.
-* Use XRegExp para darle mayor potencia a las expresiones regulares. 
-* Recuerde que XRegExp admite 0 o mas repeticiones de estas opciones en las expresiones regulares: `[nsxAgimuy]*` 
+* Opcional:
+  * Use [XRegExp](https://xregexp.com/) para darle mayor potencia a las expresiones regulares. 
+  * Recuerde que XRegExp admite 0 o mas repeticiones de estas opciones en las expresiones regulares: `[nsxAgimuy]*` 
 * Las expresiones regulares son un nuevo tipo de token y conllevan una ligera modificación de la sintáxis. 
 * Así mismo los AST ahora tendrán un nuevo tipo `regex`
 
@@ -445,7 +424,7 @@ true
 Otro ejemplo:
 
 ```
-[.../p6-t3-egg-1-04-16-2020-03-13-25/davafons(master)]$ cat examples/regex-2.egg 
+➜  eloquentjsegg git:(brackets-method-access) ✗ cat  examples/regexp-2.egg
 ```
 ```js
 do {
@@ -454,12 +433,12 @@ do {
          (?<month> \d{2} ) -?  # month
          (?<day>   \d{2} )     # day
         /x),
-  print(d("test")("1987-07-14")),  # true
-  :=(m, d("exec")("1987-07-14")),
+  print(d["test"]("1987-07-14")),  # true
+  :=(m, d["exec"]("1987-07-14")),
   print(m), #  [ '1987-07-14', '1987', '07', '14', index: 0, input: '1987-07-14' ] 
-  print(m("index")), # 0
+  print(m["index"]), # 0
 
-  :=(x, RegExp("exec")("2015-02-22", d)),
+  :=(x, RegExp["exec"]("2015-02-22", d)),
                   /*
                   [ '2015-02-22',
                     '2015',
@@ -472,13 +451,15 @@ do {
                     day: '22' ]
                   */
   print(x), 
-  print(x("year")), # 2015
-  print(x("month")) # 02
+  print(x["year"]), # 2015
+  print(x["month"]) # 02
 }
 ```
 
+Ejecución:
+
 ```
-[.../p6-t3-egg-1-04-16-2020-03-13-25/davafons(master)]$ bin/egg.js examples/regex-2.egg 
+➜  eloquentjsegg git:(brackets-method-access) ✗ bin/egg.js examples/regexp-2.egg
 true
 [
   '1987-07-14',
