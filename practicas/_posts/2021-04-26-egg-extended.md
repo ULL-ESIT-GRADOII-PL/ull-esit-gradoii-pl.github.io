@@ -346,14 +346,26 @@ do{
 
 ## Require
 
-* Expanda el lenguaje con un `require` para que permita el uso de librerías 
-* Repase el vídeo [Como implementar la funcionalidad de "require"](https://www.youtube.com/watch?v=qffmnSCRR3c&feature=youtu.be).
-* Aquí tiene un enlace al [Repo correspondiente al vídeo](https://github.com/ULL-ESIT-MII-CA-1718/ejs-chapter10-modules/tree/master/require).
+Expanda el lenguaje con un `require` para que permita el uso de librerías.
+
+Repase el vídeo *Como implementar la funcionalidad de "require"*
+
+{% include video provider="youtube" id="qffmnSCRR3c" %}
+
+Aquí tiene un enlace al [Repo correspondiente al vídeo](https://github.com/ULL-ESIT-MII-CA-1718/ejs-chapter10-modules/tree/master/require).
+
+En este ejercicio:
+
 * Memoize las librerías para que no se carguen dos veces
 * Procure añadir esta funcionalidad sin tocar el código principal usando el strategy pattern + registry pattern
 
-Código del Módulo: **[~/.../crguezl-egg(private2019)]$ cat examples/require/module.egg**
+### Ejemplo
 
+Código del Módulo: 
+
+```
+[~/.../crguezl-egg(private2019)]$ cat examples/require/module.egg
+```
 ```js
   # module. Exports z
   do {
