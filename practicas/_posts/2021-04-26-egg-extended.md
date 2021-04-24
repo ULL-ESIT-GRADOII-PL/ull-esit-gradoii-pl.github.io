@@ -310,6 +310,20 @@ do (
 )
 ```
 
+**Tech Note Warning**: En las versiones del compilador en las que `topEnv` se crea a partir de `null` los objetos Egg no heredan los métodos añadidos por Monkey Patching a la clase `Object` (esto es así porque los creamos heredando del entorno actual `env`), de manera que la expresión `print(x["sub"]("gc"))`no va a funcionar. Lo mejor sería haber creado `topEnv` y `specialForms` como mapas JS ecma6 y no con el truco del `Object.create(null)`. Por ahora, hago una chapuza:
+
+```js
+➜  eloquentjsegg git:(private2021) ✗ sed -ne '3,4p' lib/registry.js
+let specialForms = Object.create({}); // Egg objects don't inherit from Object if create(null)
+let topEnv = Object.create({});
+```
+
+Pero  lo correcto es crearlos como [mapas](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
+
+
+
+
+
 ```
 ➜  eloquentjsegg git:(brackets-method-access) ✗ bin/egg.js examples/dot-obj-2.egg 
 0
