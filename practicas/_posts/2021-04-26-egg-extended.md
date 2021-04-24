@@ -149,7 +149,6 @@ do {
 ```
 ➜  davafons-tfa-1819-egg git:(casiano) ✗ bin/egg.js examples/map-colon.egg
 
-[ 'examples/map-colon.egg' ]
 Map(2) { 'x' => 4, 'y' => Map(1) { 'z' => 3 } }
 4
 Map(1) { 'z' => 3 }
