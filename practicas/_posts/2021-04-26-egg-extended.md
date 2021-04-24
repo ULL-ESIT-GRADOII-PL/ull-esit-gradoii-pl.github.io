@@ -183,7 +183,7 @@ y *trucando* nuestro analizador léxico para que siempre que una `WORD` vaya seg
 
 ## El Método `sub` deberá funcionar con los diccionarios/mapas
 
-Extienda el Monkey Patching `sub` para los mapas que permita indexar los mapas:
+Extienda el Monkey Patching `sub` paraque permita indexar los mapas:
 
  ```
 ➜  eloquentjsegg git:(private2021) ✗ cat examples/map-sub.egg 
