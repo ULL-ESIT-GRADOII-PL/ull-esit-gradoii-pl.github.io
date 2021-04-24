@@ -186,22 +186,21 @@ y *trucando* nuestro analizador léxico para que siempre que una `WORD` vaya seg
 Extienda el Monkey Patching `sub` para los mapas que permita indexar los mapas:
 
  ```
-[.../p7-t3-egg-2-04-16-2020-03-13-25/davafons(casiano)]$ cat examples/map-sub.egg
+➜  eloquentjsegg git:(private2021) ✗ cat examples/map-sub.egg 
 ```
-```ruby 
+```js
 do(
   def(x, map{a: 1, b: 4, c: map{d: 5, e: 3}}),
-  print(x["sub"]["a"]),      # 1
-  print(x["sub"]["c"]["d"]), # 5
-  print(x["sub"]["c"]["e"]), # 3
-  print(x["sub"]["b"])       # 4
-)
-  ```
+  print(x["sub"]("a")),      # 1
+  print(x["sub"]("c", "d")), # 5
+  print(x["sub"]("c")["e"]), # 3
+  print(x["sub"]("b"))       # 4
+)                                                                                    ```
 
-  Ejecución:
+Ejecución:
 
 ```
-[.../p7-t3-egg-2-04-16-2020-03-13-25/davafons(casiano)]$ bin/egg.js examples/map-sub.egg
+➜  eloquentjsegg git:(private2021) ✗ bin/egg.js examples/map-sub.egg
 1
 5
 3
