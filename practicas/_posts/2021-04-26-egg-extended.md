@@ -310,7 +310,8 @@ do (
 )
 ```
 
-**Tech Note Warning**: En las versiones del compilador en las que `topEnv` se crea a partir de `null` los objetos Egg no heredan los métodos añadidos por Monkey Patching a la clase `Object` (esto es así porque los creamos heredando del entorno actual `env` el cual hereda de `topEnv` que viene de `null`), de manera que la expresión `print(x["sub"]("gc"))`no va a funcionar porque `sub` fue añadido mediante monkey-patching a la clase `Object`. Lo mejor sería haber creado `topEnv` y `specialForms` como mapas JS Ecma6 y no con el truco del `Object.create(null)`. Por ahora, podemos hacer una chapuza y heredar de `Object`:
+<!--
+**Tech Note Warning**: En las versiones del compilador en las que `topEnv` se crea a partir de `null` los objetos Egg no heredan los métodos añadidos por Monkey Patching a la clase `Object` (esto es así porque los creamos heredando del entorno actual `env` el cual hereda de `topEnv` que viene de `null`), de manera que la expresión `print(x["sub"]("gc"))`no va a funcionar porque `sub` fue añadido mediante monkey-patching a la clase `Object`. Lo mejor sería haber creado `topEnv` y `specialForms` como mapas JS Ecma6 y no con el truco del `Object.create(null)`. Por ahora, bien podemos hacer una chapuza y heredar de `Object`:
 
 ```js
 ➜  eloquentjsegg git:(private2021) ✗ sed -ne '3,4p' lib/registry.js
@@ -318,10 +319,8 @@ let specialForms = Object.create({}); // Egg objects don't inherit from Object i
 let topEnv = Object.create({});
 ```
 
-Pero  lo correcto es crearlos como [mapas](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
-
-
-
+Pero  parece mejor reconvertir el código a verdaderos[mapas](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
+-->
 
 
 ```
