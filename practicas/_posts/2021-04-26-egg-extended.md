@@ -379,8 +379,11 @@ Código del Módulo:
   }
 ```
 
-Programa Cliente: **[~/.../crguezl-egg(private2019)]$ cat examples/require/client.egg**
+Programa Cliente: 
 
+```
+[~/.../crguezl-egg(private2019)]$ cat examples/require/client.egg
+```
 ```js
   do {
     :=(z, require("examples/require/module.egg")),
