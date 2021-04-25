@@ -4,9 +4,14 @@ categories: ["practicas"]
 permalink: /practicas/futuras-practicas
 ---
 
+
 ## Lexer-Generator
 
 - Make it Nearley.js compatible
+
+## Lab: Write a Lexer for Lua 
+
+Using Moo or our own Lexer Generator
 
 ## Egg-0
 
@@ -31,6 +36,7 @@ Study the benefits in performance
 
 Use a subset of Lua for the language of the infix lab.
 
+* Lua Predictive Descendant Parser: <https://github.com/ULL-ESIT-GRADOII-PL/luaparse>. Looks old and not maintained. Forked from <https://github.com/fstirlitz/luaparse>
 * <https://gist.github.com/kach/11024526>
 * Lua grammar inside the Examples folder in nearley.js `/Users/casianorodriguezleon/campus-virtual/2021/learning/nearley-learning`
 * Learning Lua: https://www.lua.org/pil/1.html
