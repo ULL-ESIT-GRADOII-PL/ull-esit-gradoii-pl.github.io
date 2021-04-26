@@ -36,9 +36,37 @@ Study the benefits in performance
 
 Use a subset of Lua for the language of the infix lab.
 
+
+### luaparse
+
 * Lua Predictive Descendant Parser: <https://github.com/ULL-ESIT-GRADOII-PL/luaparse>. Looks old and not maintained. Forked from <https://github.com/fstirlitz/luaparse>
 * <https://gist.github.com/kach/11024526>
+* <https://oxyc.github.io/luaparse/>
+* <https://www.npmjs.com/package/lua-interpreter>
+
+Works.
+
+### Lua to JS translator
+
+* <https://github.com/ULL-ESIT-GRADOII-PL/lua.js>
+
+Solo en el browser.
+
+Written in Jison?:
+No está claro que funcione. Conflictos.
+
+* [/Users/casianorodriguezleon/campus-virtual/2021/learning/lua/lua.js/src/lua.jison](https://github.com/ULL-ESIT-GRADOII-PL/lua.js/blob/master/src/lua.jison)
+
+### Lua in Nearley.js
+
 * Lua grammar inside the Examples folder in nearley.js `/Users/casianorodriguezleon/campus-virtual/2021/learning/nearley-learning`
 * Learning Lua: https://www.lua.org/pil/1.html
 * Lua manual <https://www.lua.org/manual/5.1/es/manual.html>
 
+###  Lua compiler in C++ and Bison
+
+* <https://github.com/johan-bjareholt/lua-compiler>
+
+`/Users/casianorodriguezleon/campus-virtual/2021/learning/lua/lua-compiler`
+
+Works.
