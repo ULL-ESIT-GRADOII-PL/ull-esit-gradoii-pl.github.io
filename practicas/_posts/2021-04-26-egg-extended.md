@@ -577,6 +577,35 @@ do(
 
 ### Bucle foreach
 
+Aunque al disponer de acceso a los métodos ya tenemos un bucle para recorrer los objetos iterables:
+
+```
+➜  eloquentjsegg git:(private2021) ✗ cat examples/for-js.egg 
+```
+
+```js
+do{
+  def(a, array(4,3,2,1)),
+  a.forEach(
+    fun(x,i,ra, 
+      print("Element",i,"of ",ra," is",x)
+    )
+  )
+}
+```                                                                                  
+
+Que cuando se ejecuta:
+
+```     
+➜  eloquentjsegg git:(private2021) ✗ bin/egg.js examples/for-js.egg
+Element 0 of  [ 4, 3, 2, 1 ]  is 4
+Element 1 of  [ 4, 3, 2, 1 ]  is 3
+Element 2 of  [ 4, 3, 2, 1 ]  is 2
+Element 3 of  [ 4, 3, 2, 1 ]  is 1
+```
+
+Añada a Egg un bucle `foreach` similar a este:
+
 ```
 [.../TFA-04-16-2020-03-22-00/davafons(casiano)]$ cat examples/foreach.egg
 ```
