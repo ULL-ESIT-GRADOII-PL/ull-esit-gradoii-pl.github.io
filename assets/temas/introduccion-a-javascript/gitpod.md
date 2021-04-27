@@ -83,6 +83,26 @@ puedes [configurarla](https://www.gitpod.io/docs/config-docker)
 
 Véase [Docker in Gitpod](https://www.gitpod.io/blog/docker-in-gitpod)
 
+## Self Hosted
+
+Gitpod, just as you know it from [gitpod.io](https://gitpod.io), can be deployed and operated on your own infrastructure. 
+It supports different 
+
+* cloud providers, 
+* self-managed Kubernetes clusters, 
+* corporate firewalls, and even 
+* off-grid / air-gapped networks.
+
+* [Gitpod Self-Hosted](https://www.gitpod.io/docs/self-hosted/latest/self-hosted)
+
+You can find all configuration templates and installation scripts in the Gitpod repository:
+
+<https://github.com/gitpod-io/gitpod>
+
+If you already have a Kubernetes cluster, or don’t want/cannot use AWS or GCP, please follow the generic guide:
+
+*   [Install Gitpod on Kubernetes](./install/install-on-kubernetes)
+
 ## Referencias
 
 * [The benefits of integrating Docker and Cloud IDE’s in the GitHub Classroom workflow](https://education.github.community/t/the-benefits-of-integrating-docker-and-cloud-ides-in-the-github-classroom-workflow/40724) by Ugo Pattacini

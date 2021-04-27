@@ -585,12 +585,12 @@ Aunque al disponer de acceso a los métodos ya tenemos un bucle para recorrer lo
 
 ```js
 do{
-  def(a, array(4,3,2,1)),
-  a.forEach(
+  def(a, array{4,3,2,1}),
+  a.forEach{
     fun(x,i,ra, 
-      print("Element",i,"of ",ra," is",x)
+      print("Element",i,"of ",ra,"is",x)
     )
-  )
+  }
 }
 ```                                                                                  
 
