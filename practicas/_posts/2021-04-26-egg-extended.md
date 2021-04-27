@@ -181,15 +181,20 @@ const WORD = new TokenRegex('WORD', xRegExp(`
 y *trucando* nuestro analizador léxico para que siempre que una `WORD` vaya seguida de `:` se retorne una `STRING`
 
 ```js
-  nextToken = function() {
-    if (count < result.length) {
-      lookahead = result[count++];
-      if (lookahead && (lookahead.type === 'WORD') && (result[count] && result[count].value === ":")) {
-        lookahead.type = "STRING";
+  __transformTokens(tokens) {
+    for(let i = 0; i < tokens.length; ++i) {
+
+      // x: => "x",
+      if(tokens[i].type === 'WORD') {
+        const nextToken = tokens[i + 1];
+        if(nextToken && nextToken.value === ':') {
+          tokens[i].type = 'STRING';
+        }
       }
-      return lookahead;
+      ...
     }
-    else return null;
+    ...
+    return tokens;
   }
 ```
 
