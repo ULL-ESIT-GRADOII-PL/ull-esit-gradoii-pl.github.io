@@ -101,7 +101,7 @@ You can find all configuration templates and installation scripts in the Gitpod 
 
 If you already have a Kubernetes cluster, or don’t want/cannot use AWS or GCP, please follow the generic guide:
 
-*   [Install Gitpod on Kubernetes](./install/install-on-kubernetes)
+*   [Install Gitpod on Kubernetes](https://www.gitpod.io/docs/self-hosted/0.4.0/install/install-on-kubernetes/)
 
 ## Referencias
 
