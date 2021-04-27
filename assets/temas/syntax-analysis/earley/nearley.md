@@ -8,8 +8,9 @@ title: Parsing with Nearley.js
 * [Nearley](https://github.com/kach/nearley) is a JS parser generator using the Early algorithm
 * [Repo ULL-ESIT-PL/learning-nearley](https://github.com/ULL-ESIT-PL/learning-nearley/)
 
-## Moo
+## Tokenizers for nearley.js
 
+* [Tokenizers for nearley.js](https://nearley.js.org/docs/tokenizers)
 * [moo](https://www.npmjs.com/package/moo/)
 * [nearley-moo](https://github.com/nanaian/nearley-moo)
 
@@ -52,6 +53,7 @@ The study shows a case in which NearleyJS is 200 times solwer than a Recursive D
 
 ## References
 
+* [Parsing in JavaScript: Tools and Libraries](https://tomassetti.me/parsing-in-javascript/)
 * Where:
 
   ```
