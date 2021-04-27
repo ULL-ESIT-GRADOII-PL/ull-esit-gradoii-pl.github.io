@@ -159,11 +159,24 @@ Map(1) { 'z' => 50 }
 Una forma de hacer esto es empezar haciendo que el análisis léxico acepte el carácter `:` para el token `COMMA`
 
 ```js
-  const COMMA = new XRegExp(`
-    (
-      ,|:(?!=) # : is an alias for comma ',' when not followed by '='
-    )
-  `, 'xy');
+const xRegExp = require('xregexp');
+...
+const COMMA = new TokenRegex('COMMA', xRegExp(`(
+                ,          # comma
+                |
+                :(?!=)     # a : that isn't followed by a = (:= is word)
+             )`, 'yx'));   // flag x allows spaces and comments inside the regexp
+```
+
+ y redefiniendo el token `WORD`:
+
+ ```js
+const WORD = new TokenRegex('WORD', xRegExp(`
+                 (\\[\\]|     # [] is a reserved word for arrays
+                  :=|         # := is a reserved word for 'define'
+                  [^\\s\\(\\)\\{\\}\\[\\]\\.,:"]+   # Avoid some chars
+             )`, 'yx'));
+
 ```
 
 y *trucando* nuestro analizador léxico para que siempre que una `WORD` vaya seguida de `:` se retorne una `STRING`
