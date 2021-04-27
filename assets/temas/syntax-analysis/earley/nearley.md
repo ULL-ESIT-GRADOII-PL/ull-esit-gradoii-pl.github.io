@@ -7,6 +7,11 @@ title: Parsing with Nearley.js
 
 * [Nearley](https://github.com/kach/nearley) is a JS parser generator using the Early algorithm
 
+## Moo
+
+* [moo](https://www.npmjs.com/package/moo/)
+* [nearley-moo](https://github.com/nanaian/nearley-moo)
+
 ## Toby Ho Course on How to Make a Parser with Nearley.JS
 
 ### Part One
