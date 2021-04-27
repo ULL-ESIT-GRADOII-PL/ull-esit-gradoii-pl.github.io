@@ -164,7 +164,7 @@ const xRegExp = require('xregexp');
 const COMMA = new TokenRegex('COMMA', xRegExp(`(
                 ,          # comma
                 |
-                :(?!=)     # a ':' that isn't followed by an '=' (:= is reserved word)
+                :(?!=)     # a ':' that isn't followed by an '=' (':=' is reserved word)
              )`, 'yx'));   // flag x allows spaces and comments inside the regexp
 ```
 
