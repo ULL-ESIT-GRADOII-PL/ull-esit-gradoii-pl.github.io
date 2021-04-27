@@ -176,7 +176,6 @@ const WORD = new TokenRegex('WORD', xRegExp(`
                   :=|         # := is a reserved word for 'define'
                   [^\\s\\(\\)\\{\\}\\[\\]\\.,:"]+   # Avoid some chars
              )`, 'yx'));
-
 ```
 
 y *trucando* nuestro analizador léxico para que siempre que una `WORD` vaya seguida de `:` se retorne una `STRING`
