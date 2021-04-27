@@ -286,9 +286,9 @@ Esto es,el dot es como una llamada/apply del objeto en el que el primer argument
 ```js
 do(
   def(x, array(1,4,5)),
-  def(s, x.join("-")),                 # The same as x("join", "-")
+  def(s, x.join("-")),                 # The same as x["join"]("-")
   print(s),                            # 1-4-5
-  print(array(1,4,5).join("-").length) # 5
+  print(array(1,4,5).join("-").length) # 5 Same as array(1,4,5)["join"]("-")["length"]
 )
 ```
 
