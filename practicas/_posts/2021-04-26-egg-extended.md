@@ -335,7 +335,7 @@ Para poder acceder al atributo `sub` de un objeto Egg como se ha hecho en las l�
 ```
 
 es necesario añadírselo 
-(recuerde que en la implementación de `object` que explico en clase, los objetos Egg no heredaban de la clase JS Object por lo que no les afecta el Monkey Patching)
+(recuerde que en la implementación de `object` que explico en clase, los objetos Egg no heredaban de la clase JS Object por lo que no sse benefician del Monkey Patching de Object)
 
 ```js
 ➜  eloquentjsegg git:(private2021) ✗ sed -ne '154p' lib/eggvm.js 
