@@ -341,7 +341,7 @@ es necesario añadírselo en `topEnv`:
 topEnv["sub"] = Object.prototype.sub; 
 ```
 
-Recuerde que en la implementación de `object` que explico en clase, los objetos Egg no heredaban de la clase JS Object por lo que no sse benefician del Monkey Patching de Object
+Recuerde que en la implementación de `object` que explico en clase, los objetos Egg no heredan de la clase JS Object sino del entorno actual, por lo que no se benefician del Monkey Patching de la clase JS Object
 
 
 <!--
