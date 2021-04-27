@@ -326,7 +326,15 @@ do (
   print(x.gc())            # 9
 )
 ```
-Para poder acceder al atributo `sub` de un objeto Egg es necesario añadírselo 
+
+Para poder acceder al atributo `sub` de un objeto Egg como se ha hecho en las líneas:
+
+```js
+  print(x["sub"]("gc")),   # [Function: bound ]
+  print(x.sub("gc")),      # [Function: bound ]
+```
+
+es necesario añadírselo 
 (recuerde que en la implementación explicada los objetos Egg no heredan de la clase JS Object por lo que no les afecta el Monkey Patching)
 
 ```js
