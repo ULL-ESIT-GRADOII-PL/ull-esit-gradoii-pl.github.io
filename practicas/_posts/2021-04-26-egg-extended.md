@@ -326,6 +326,13 @@ do (
   print(x.gc())            # 9
 )
 ```
+Para poder acceder al atributo `sub` de un objeto Egg es necesario añadírselo 
+(recuerde que en la implementación explicada los objetos Egg no heredan de la clase JS Object por lo que no les afecta el Monkey Patching)
+
+```js
+➜  eloquentjsegg git:(private2021) ✗ sed -ne '154p' lib/eggvm.js 
+topEnv["sub"] = Object.prototype.sub; 
+```
 
 <!--
 **Tech Note Warning**: En las versiones del compilador en las que `topEnv` se crea a partir de `null` los objetos Egg no heredan los métodos añadidos por Monkey Patching a la clase `Object` (esto es así porque los creamos heredando del entorno actual `env` el cual hereda de `topEnv` que viene de `null`), de manera que la expresión `print(x["sub"]("gc"))`no va a funcionar porque `sub` fue añadido mediante monkey-patching a la clase `Object`. Lo mejor sería haber creado `topEnv` y `specialForms` como mapas JS Ecma6 y no con el truco del `Object.create(null)`. Por ahora, bien podemos hacer una chapuza y heredar de `Object`:
