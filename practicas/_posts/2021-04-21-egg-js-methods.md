@@ -3,12 +3,12 @@ title: "Egg. Accesing JS Methods"
 categories: ["practicas"] 
 permalink: "/practicas/egg-js-methods"
 rubrica:
-  - La llamada a métodos de los objetos JS mediante la sintáxis de brackets funciona y se han añadido Pruebas
-  - Se ha añadido currying a la sintáxis de brackets
-  - Se han expandido los AST con un nuevo tipo de nodo
-  - Se ha hecho uso de Monkey Patching para mejorar la expresividad 
-  - Se describe la nueva gramática en la documentación
-  - Se describen los ASTs correctamente en la documentación
+  - "**La llamada a métodos de los objetos JS mediante la sintáxis de brackets funciona y se han añadido Pruebas**"
+  - "**Se ha añadido currying a la sintáxis de brackets**"
+  - "**Se han expandido los AST con un nuevo tipo de nodo**"
+  - "**Se ha hecho uso de Monkey Patching para mejorar la expresividad**"
+  - "**Se describe la nueva gramática en la documentación**"
+  - "**Se describen los ASTs correctamente en la documentación**"
   - Metodología de trabajo y Jerarquía de ficheros
   - Se han añadido clases para los distintos tipos de nodos siguiendo el Strategy Pattern
   - Se dispone de un mecanismo para convertir los JSON en objetos de las clases del AST y el intérprete evm funciona
