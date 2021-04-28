@@ -12,7 +12,10 @@ rubrica:
   - Los informes están bien presentados
   - "La documentación es completa: API, ejecutable, instalación, etc." 
   - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta `docs/`"
-  - Las *pruebas de producción* funcionan bien (probar ejecutable)
+  - 
+    - Las *pruebas de producción* funcionan bien
+    - Probar que la librería está accesible y funciona 
+    - Probar que el ejecutable queda correctamente instalado, puede ser ejecutado con el nombre publicado y produce salidas correctas
   - El superproyecto está correctamente estructurado usando submódulos
   - Se ha hecho un buen uso del versionado semántico en la evolución del módulo
 ---
