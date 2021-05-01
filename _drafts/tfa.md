@@ -17,7 +17,25 @@ En la asignación encontrará una asignación para un repo auxiliar para el mód
 * Si necesitas publicar un módulo npm preferiblemente usa [GitHub registry](https://help.github.com/en/articles/about-github-package-registry) en vez de npm.js y publícalo  como paquete privado. 
 *  Todos los ejemplos que se muestran aquí con Egg se pueden hacer con cualquiera de los lenguajes Infijo desarrollados en la asignatura
 
-## Programación asincrona en Egg: Primeras Consideraciones
+
+## Strategy Pattern: use 
+
+La idea es introducir una función `use` que es parecida a `require` 
+pero con la diferencia de que extiende el lenguaje `Egg-aluXX`
+mediante una librería escrita en JavaScript. 
+
+Esto es, alguien del mundo mundial, un programador llamado Y entusiasmado por tu lenguaje `Egg-aluXX` 
+extiende el lenguaje `egg-aluXX` con una librería llamada `egg-aluXX-tutu` que publica en [npm](http://npmjs.com).  
+Y lo ha hecho añadiendo en `specialForms` y `topEnv` nuevas funcionalidades. Puede hacerlo porque importa tu módulo en el que tu exportas los hashes `specialForms` y `topEnv`.
+
+Una sentencia como `use('tutu')` debe hacer que el intérprete `egg` haga un `require` de `egg-aluXX-tutu` (que se supone ha sido previamente instalada en `node_modules/`) y que las funcionalidades exportadas por `egg-aluXX-tutu` estén disponibles al programa Egg.
+
+Como posibles ejemplos de uso, véanse las siguientes 
+secciones 
+
+
+
+## Programación asincrona en Egg
 
 ### Promesas en Egg
 
@@ -76,14 +94,14 @@ topEnv['fs'] = require('fs');
 Me he encontrado con algunos problemas cuando probé a escribir este programa:
 
 ```js
-[~/.../egg/crguezl-egg(private2019)]$ cat examples/fs.egg
+➜  eloquentjsegg git:(private2021) ✗ cat examples/fs.egg  
 do {
-  fs.readFile("examples/no-existe.egg", "utf8",
-    fun{err, data,
-      if[==(err, null), print(data), print(err)]
+  fs.readFile("examples/no-existe.egg", "utf8", 
+    fun{err, data, # brackets do not change to method semantics for specialForms
+      if[==(err, null), print(data), print(err)] 
     }),
-  fs.readFile("examples/fs.egg", "utf8",
-    fun{err, data,
+  fs.readFile("examples/fs.egg", "utf8", 
+    fun{err, data, 
       if[==(err, null), print(data), print(err)]
     })
 }
@@ -97,7 +115,7 @@ Esta conducta de JS da lugar a que la versión actual de la máquina virtual Egg
 
 La cosa tiene varias soluciones, pero en este momento he optado por la mas rápida que ha sido que Egg no proteste ante llamadas con número de argumentos menor que los que le fueron declarados.
 
-Otro asunto en este ejemplo es que Egg carece del objeto `null` de JS y 
+Otro asunto en este ejemplo es que en algunas versiones Egg carece del objeto `null` de JS y 
 la convención es que JS llama a la callback con `cb(null, data)` para indicar la ausencia de error. De nuevo hay númerosas formas de abordar este asunto, pero una sencilla es advertir a la máquina virtual Egg de la existencia de `null` para que no proteste:
 
 ```
@@ -109,7 +127,7 @@ topEnv['true'] = true;
 Sigue un ejemplo de ejecución:
 
 ```js
-[~/.../egg/crguezl-egg(private2019)]$ bin/egg.js examples/fs.egg
+➜  eloquentjsegg git:(private2021) ✗ ./egg examples/fs.egg
 [Error: ENOENT: no such file or directory, open 'examples/no-existe.egg'] {
   errno: -2,
   code: 'ENOENT',
@@ -117,33 +135,18 @@ Sigue un ejemplo de ejecución:
   path: 'examples/no-existe.egg'
 }
 do {
-  fs.readFile("examples/no-existe.egg", "utf8",
-    fun{err, data,
-      if[==(err, null), print(data), print(err)]
+  fs.readFile("examples/no-existe.egg", "utf8", 
+    fun{err, data, # brackets do not change to method semantics for specialForms
+      if[==(err, null), print(data), print(err)] 
     }),
-  fs.readFile("examples/fs.egg", "utf8",
-    fun{err, data,
+  fs.readFile("examples/fs.egg", "utf8", 
+    fun{err, data, 
       if[==(err, null), print(data), print(err)]
     })
 }
 ```
 
-## Strategy Pattern: use 
-
-La idea es introducir una función `use` que es parecida a `require` 
-pero con la diferencia de que extiende el lenguaje `Egg-aluXX`
-mediante una librería escrita en JavaScript. 
-
-Esto es, alguien del mundo mundial, un programador llamado Y entusiasmado por tu lenguaje `Egg-aluXX` 
-extiende el lenguaje `egg-aluXX` con una librería llamada `egg-aluXX-tutu` que publica en [npm](http://npmjs.com).  
-Y lo ha hecho añadiendo en `specialForms` y `topEnv` nuevas funcionalidades. Puede hacerlo porque importa tu módulo en el que tu exportas los hashes `specialForms` y `topEnv`.
-
-Una sentencia como `use('tutu')` debe hacer que el intérprete `egg` haga un `require` de `egg-aluXX-tutu` (que se supone ha sido previamente instalada en `node_modules/`) y que las funcionalidades exportadas por `egg-aluXX-tutu` estén disponibles al programa Egg.
-
-Como posibles ejemplos de uso, véanse las siguientes 
-secciones 
-
-## GitHub Egg
+### Egg Extension for GitHub
 
 La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para la 
 manipulación de GitHub
@@ -153,19 +156,21 @@ do {
   use('github'),
   Org("ULL-ESIT-PL-1920").then(
     ->(org, # Object describing the org
-    do {
-      People(org).then[
-        ->(people,  # Result is an array of objects with the people in the org
-             print(people)
-          )
-      ] 
-    }
+      do {
+        People(org).then(
+          ->(people,  # Result is an array of objects with the people in the org
+              print(people)
+            )
+        ) # end then
+      } # end do
+     ) # end function
+  ) # end then
 }
 ```
 
 Para implementar la extensión `github` podríamos hacer uso de alguna librería asíncrona como [octokit/rest.js](https://github.com/octokit/rest.js/), [github-api](https://www.npmjs.com/package/github-api), [octonode](https://github.com/pksunkara/octonode) o similar.
 
-## GitHub Egg con Request Síncronos
+### Request Síncronos con sync-request
 
 Todas las librerías de JavaScript para comunicaciones 
 suelen ser asíncronas y esto casa mal con la naturaleza de Egg, hasta ahora bastante síncrona.
@@ -238,22 +243,20 @@ configuración para Egg:
 
 * [sync-request](https://www.npmjs.com/package/sync-request)
 * [GitHub: Traversing with Pagination](https://developer.github.com/v3/guides/traversing-with-pagination/)
-  
-## When All is Async and Egg Awaits for Everything
+
+### Making Egg to wait for Async Operations
 
 Una manera de simplificar todo el manejo de la asincronía en Egg
-es modificar la forma en la que todo se evalúa: Cambiar todos los métodos
+es modificar la forma en la que todo se evalúa: Cambiar  los métodos
 `evaluate` para que sean funciones `async` y se haga un `await` en todas 
 las llamadas a las evaluaciones. 
-
-Si consigue hacer esta variante, los programas asíncronos se ven altamente simplificados.
 
 Vea como reescribimos nuestro anterior ejemplo de `fetch`:
 
 ```
 [~/.../src/egg(async)]$ pwd -P
 /Users/casiano/local/src/javascript/PLgrado/eloquentjsegg
-[~/.../PLgrado/eloquentjsegg(async)]$ cat examples/fetch.egg
+[~/.../PLgrado/eloquentjsegg(async)]$ cat examples/fetch-2.egg
 ```
 ```ruby
 do{
@@ -282,9 +285,22 @@ Veamos el resultado de una ejecución:
 }
 ```
 
-Esta extensión es un reto difícil. 
+Una mejora a esta propuesta es mantener los dos tipos de evaluación: síncrona y asíncrona dentro de Egg. Quizá podría ser así:
+
+```js
+async-and-await(do{
+  :=(res, fetch("https://api.github.com/users/github")),
+  :=(json, res.json()),
+  print(json)
+})
+```
+
+la idea aquí es escribir un conversor `async-and-await(f)`retorna una versión de `f` que es una `async` function que cambia toda la evaluación de Egg de `f ` de manera que se hace un `await` en cada evaluación.
+
 Con esta versión el diseño de DSLs que extiendan Egg mediante llamadas a 
 librerías asíncronas (como es el caso de accedera a las APIs de GitHub, YouTube, Google Maps, etc.) quedan simplificadas.
+
+
 
 ## Añadir Herencia entre objetos a Egg
 
@@ -444,7 +460,9 @@ do {
 }
 ```
 
-## Plegado de Constantes
+## AST Optimizations
+
+### Plegado de Constantes
 
 Se trata de añadir al compilador de Egg una fase de optimización que haga plegado de constantes.
 
@@ -501,6 +519,14 @@ El código resultante produce un programa equivalente a `:= (x, 10)`:
 * [constant folding](https://en.wikipedia.org/wiki/Constant_folding) en la Wikipedia
 * Puede usar [estraverse](https://github.com/estools/estraverse) para recorrer el AST buscando por árboles constantes
 
+### Other Machine Independent Optimizations
+
+Otras posibles optimizaciones son:
+
+- [Loop invariant code motion](https://www.tuhh.de/es/esd/research/wcc/optimizations/loop-invariant-code-motion.html)
+- [Constant Propagation](https://cran.r-project.org/web/packages/rco/vignettes/opt-constant-propagation.html)
+- Dead code elimination
+
 ## Scope Analysis
 
 Aunque el lenguaje  Egg dispone de ámbitos, los errores de ámbito (variables no declaradas) solo se detectan en tiempo de ejecución:
@@ -529,7 +555,7 @@ En esta variante de Egg la opción `-c` usada compila el programa pero no lo eje
 En esta fase de análisis de ámbito también se pueden comprobar algunos otros tipos de errores de uso. Por ejemplo si extendieramos Egg con declaraciones `const` para constantes, 
 podemos recorrer el AST comprobando que no se hace ningún intento de modificación (`set`) de esa variable en su ámbito de declaración.
 
-* Vea el Capítulo [Análisis del Contexto]({{site.baseurl}}/tema6-analisis-dependiente-del-contexto/) en estos apuntes
+* Vea el Capítulo [Análisis del Contexto]({{site.baseurl}}/temas/analisis-dependiente-del-contexto/) en estos apuntes
 
 ## Syntax Highlighting for VSCode
 
