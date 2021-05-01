@@ -249,7 +249,7 @@ configuración para Egg:
 Una manera de simplificar todo el manejo de la asincronía en Egg
 es modificar la forma en la que todo se evalúa: Cambiar  los métodos
 `evaluate` para que sean funciones `async` y se haga un `await` en todas 
-las llamadas a las evaluaciones. 
+las llamadas a las evaluaciones (como una versión `asyncAwaitEvaluate` del `evaluate` que ya hemos visto). 
 
 Vea como reescribimos nuestro anterior ejemplo de `fetch`:
 
@@ -285,7 +285,7 @@ Veamos el resultado de una ejecución:
 }
 ```
 
-Una mejora a esta propuesta es mantener los dos tipos de evaluación: síncrona y asíncrona dentro de Egg. Quizá podría ser así:
+Una mejora a esta propuesta es mantener los dos tipos de evaluación: síncrona y asíncrona dentro de Egg. Quizá podría ser algo así:
 
 ```js
 async-and-await(do{
@@ -295,12 +295,15 @@ async-and-await(do{
 })
 ```
 
-la idea aquí es escribir un conversor `async-and-await(f)`retorna una versión de `f` que es una `async` function que cambia toda la evaluación de Egg de `f ` de manera que se hace un `await` en cada evaluación.
+la idea aquí es escribir un conversor `async-and-await(f)` que retorna una traducción distinta de `f` que es una `async` function que cambia toda la evaluación de Egg de `f` de tal manera que se hace un `await` en cada evaluación.
 
 Con esta versión el diseño de DSLs que extiendan Egg mediante llamadas a 
 librerías asíncronas (como es el caso de accedera a las APIs de GitHub, YouTube, Google Maps, etc.) quedan simplificadas.
 
+### Recursos sobre Async 
 
+* [Book *The Modern Javascript Tutorial*. Chapter Promises, async/await](https://javascript.info/async)
+* Vídeo [Cómo funciona Async/Await en menos de 15 minutos](https://youtu.be/u2axmPnxUoo) YouTube Vídeo por Appdelante
 
 ## Añadir Herencia entre objetos a Egg
 
@@ -394,71 +397,30 @@ do {
 }
 ```
 
-## Calculo Vectorial, Algoritmos Evolutivos, IA, etc.
 
-Las posibilidades son infinitas, tanto para Egg como para el lenguaje de Infijo. Puede añadir funcionalidades que faciliten la escritura 
-en determinados dominios: algoritmos evolutivos, 
-redes neuronales, estadística, etc.
+## Lua Compiler 
 
-Un ejemplo simple es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para el cálculo vectorial
+Usando un intérprete para un subconjunto de la [Gramática de Lua](https://github.com/kach/nearley/blob/master/examples/lua.ne) en Nearley.js traduciendo a árboles Egg.
 
-```js
-do {
-  use('science'),
-  :=(v1, arr(4, 5, 9)),
-  :=(v2, arr(3, 2, 7)), 
-  :=(s, *(+(v1, v2),v2)),
-  print(s)
-}
-```
+Otra alternativa es escibir una traducción usando Nearley.js a JS.
 
-## Gestor de Tareas
 
-La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para la descripción de tareas. Este código sería el contenido de un fichero `eggfile.egg`:
+## LexerGenerator
 
-```js
-tasks {
-  use('tasks'),
-  task(compile: sh("gcc hello.c"), depends: "mylib"),
-  task(mylib: sh("gcc -c -o mylib.o mylib.c")),
-  task(default: "compile")
-}
-```
+Extienda la práctica de LexerGenerator para hacer un generador de Analizadores Léxicos que sea compatible con NearleyJS y que tenga funcionalidades similares a las de [Moo](https://github.com/no-context/moo).
 
-## Command line processing 
+- Reescriba su analizador de Egg usando su LexerGenerator.
+- Añádale una opción para volcar el analizador en un fichero .js separado
 
-La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para procesar los argumentos dados en línea de comandos (similar a lo que es [commander](https://www.npmjs.com/package/commander) para Node.js):
+## Syntax Highlighting for VSCode
 
-Por ejemplo para una ejecución como esta:
-```
-$ example.egg -vt 1000 one.js two.js
-```
+Proveer Syntax Highlight en Visual Code para Egg. 
 
-Tendríamos que escribir `example-egg` siguiendo un patrón como este:
+Véase
 
-```js
-do {
-  use('command-line'),
-  :=(optionDefinition, arr [
-    map { name: 'verbose', alias: 'v', type: Boolean },
-    map { name: 'src', type: String, multiple: true, defaultOption: true },
-    map { name: 'timeout', alias: 't', type: Number },
-    map { name: 'help', alias: 'h', type: Boolean },
-  ]),
-  :=(options, parseArgs(optionDefinitions)),
-  print(options)
-    /* options es un map como este:
-        {
-          src: [
-            'one.js',
-            'two.js'
-          ],
-          verbose: true,
-          timeout: 1000
-        }
-    */
-}
-```
+* [Syntax Highlight Guide](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
+* [Egg Tools](https://marketplace.visualstudio.com/items?itemName=jasonhaxstuff.egg-tools)
+
 
 ## AST Optimizations
 
@@ -552,76 +514,87 @@ ReferenceError: Trying to use the undefined symbol x
 
 En esta variante de Egg la opción `-c` usada compila el programa pero no lo ejecuta. 
 
-En esta fase de análisis de ámbito también se pueden comprobar algunos otros tipos de errores de uso. Por ejemplo si extendieramos Egg con declaraciones `const` para constantes, 
-podemos recorrer el AST comprobando que no se hace ningún intento de modificación (`set`) de esa variable en su ámbito de declaración.
+En esta fase de análisis de ámbito también se pueden comprobar algunos otros tipos de errores de uso. 
+
+Por ejemplo si se anima, puede extender Egg con declaraciones de la forma `const(a,4)` para constantes. 
+
+Podemos entonces recorrer el AST comprobando que no se hace ningún intento de modificación (`set(a, ...)`) de esa variable en su ámbito de declaración.
 
 * Vea el Capítulo [Análisis del Contexto]({{site.baseurl}}/temas/analisis-dependiente-del-contexto/) en estos apuntes
 
-## Syntax Highlighting for VSCode
-
-Proveer Syntax Highlight en Visual Code para Egg. Véase
-[Syntax Highlight Guide](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
 
 ## Compilador de Egg a JS
 
-Escribir un traductor (no un intérprete) desde Egg a JavaScript.
+Extienda el traductor desde Egg a JavaScript.
 
-A continuación un ejemplo borrador de como podría ser el esquema de traducción:
+## Extensiones de Egg via `use`
 
-### Ejemplo: complex.egg
+Las opciones descritas en este apartado aunque no conllevan la aplicación de conceptos y competencias de Procesadores de Lenguajes se pueden considerar válidas para el TFA. 
 
-Supongamos la entrada:
 
-```ruby
-➜  translate-solucion git:(master) ✗ cat examples/complex.egg 
-print("computed value = ", 
-  do(
-    def(x,4),
-    def(inc, fun(w, do(
-        def(y, 999),
-        +(w,1)
-      ) # do
-    ) # fun
-    ),# def
-    def(z,-1),
-    set(x, inc(x))
-  )
-)
-```
+### Calculo Vectorial, Algoritmos Evolutivos, IA, etc.
 
-### Salida
+Las posibilidades son infinitas, tanto para Egg como para el lenguaje de Infijo. Puede añadir funcionalidades que faciliten la escritura 
+en determinados dominios: algoritmos evolutivos, 
+redes neuronales, estadística, etc.
 
-```
-➜  translate-solucion git:(master) ✗ bin/egg2js.js -t examples/complex.egg
-➜  translate-solucion git:(master) ✗ cat examples/complex.js
-```
+Un ejemplo simple es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para el cálculo vectorial
 
 ```js
-console.log("computed value = ",(() => {
-  let $x = 4
-  let $inc = 
-  function($w) {
-    return (() => {
-  let $y = 999
-  return ($w + 1)
-})()
-
-  }
-  
-  let $z = -1
-  return $x = $inc($x)
-})()
-)
+do {
+  use('science'),
+  :=(v1, arr(4, 5, 9)),
+  :=(v2, arr(3, 2, 7)), 
+  :=(s, *(+(v1, v2),v2)),
+  print(s)
+}
 ```
 
-Ejecución:
+### Gestor de Tareas
 
+La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para la descripción de tareas. Este código sería el contenido de un fichero `eggfile.egg`:
+
+```js
+tasks {
+  use('tasks'),
+  task(compile: sh("gcc hello.c"), depends: "mylib"),
+  task(mylib: sh("gcc -c -o mylib.o mylib.c")),
+  task(default: "compile")
+}
 ```
-➜  translate-solucion git:(master) ✗ node examples/complex.js 
-computed value =  5
+
+### Command line processing 
+
+La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para procesar los argumentos dados en línea de comandos (similar a lo que es [commander](https://www.npmjs.com/package/commander) para Node.js):
+
+Por ejemplo para una ejecución como esta:
+```
+$ example.egg -vt 1000 one.js two.js
 ```
 
-## Recursos
+Tendríamos que escribir `example-egg` siguiendo un patrón como este:
 
-* [Book *The Modern Javascript Tutorial*. Chapter Promises, async/await](https://javascript.info/async)
-* Vídeo [Cómo funciona Async/Await en menos de 15 minutos](https://youtu.be/u2axmPnxUoo) YouTube Vídeo por Appdelante
+```js
+do {
+  use('command-line'),
+  :=(optionDefinition, arr ()
+    map { name: 'verbose', alias: 'v', type: Boolean },
+    map { name: 'src', type: String, multiple: true, defaultOption: true },
+    map { name: 'timeout', alias: 't', type: Number },
+    map { name: 'help', alias: 'h', type: Boolean },
+  )),
+  :=(options, parseArgs(optionDefinitions)),
+  print(options)
+    /* options es un map como este:
+        {
+          src: [
+            'one.js',
+            'two.js'
+          ],
+          verbose: true,
+          timeout: 1000
+        }
+    */
+}
+```
+
