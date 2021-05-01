@@ -5,9 +5,14 @@ excerpt: "Interpretation and Code Generation"
 ---
 
 
-* [Code Generation (wikipedia)](https://en.wikipedia.org/wiki/Code_generation_(compiler))
 
 ## References
+
+### Wikipedia
+
+* [Code Generation (wikipedia)](https://en.wikipedia.org/wiki/Code_generation_(compiler))
+* [Interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing))
+
 
 ### How to implement a programming language in JavaScript
 
