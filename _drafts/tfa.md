@@ -224,9 +224,9 @@ apply: /* vacio */
      | '[' (expression ',')* expression? ']' apply
 
 asyncapply: /* vacio */
-     | '(' (expression ',')* expression? ')' apply
-     | '[' (expression ',')* expression? ']' apply
-     
+     | '(' (expression ',')* expression? ')' asyncapply
+     | '[' (expression ',')* expression? ']' asyncapply
+
 WHITES = /^(\s|[#;].*|\/\*(.|\n)*?\*\/)*/;
 STRING = /^"((?:[^"\\]|\\.)*)"/;
 NUMBER = /^([-+]?\d*\.?\d+([eE][-+]?\d+)?)/;
