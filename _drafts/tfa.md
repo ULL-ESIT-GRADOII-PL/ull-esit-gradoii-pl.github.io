@@ -285,20 +285,59 @@ Veamos el resultado de una ejecución:
 }
 ```
 
+## Propuesta de TFA: Await en Egg
+
 Una mejora a esta propuesta es mantener los dos tipos de evaluación: síncrona y asíncrona dentro de Egg. Quizá podría ser algo así:
 
 ```js
-async-and-await(do{
+await {
   :=(res, fetch("https://api.github.com/users/github")),
   :=(json, res.json()),
   print(json)
-})
+},
+print("hello") // it appears first
 ```
 
-la idea aquí es escribir un conversor `async-and-await(f)` que retorna una traducción distinta de `f` que es una `async` function que cambia toda la evaluación de Egg de `f` de tal manera que se hace un `await` en cada evaluación.
+La idea es que en Egg  `await(expression)` dispara una commutación a una evaluación asíncrona (`async`) en la que se espera (`await p`) por todas las promesas `p` que aparecen durante la evaluación de la `expression` que recibe como argumento.
 
-Con esta versión el diseño de DSLs que extiendan Egg mediante llamadas a 
-librerías asíncronas (como es el caso de accedera a las APIs de GitHub, YouTube, Google Maps, etc.) quedan simplificadas.
+### Una Posible Implementación
+
+Creo que sería adecuado intervenir desde las primeras fases del compilador, haciendo que `await` sea una palabra reservada que produce el token `AWAIT`:
+
+```Yacc
+expression: (STRING | 
+             NUMBER | 
+             REGEXP | 
+             AWAIT  | 
+             WORD) apply
+
+apply: /* vacio */
+     | '(' (expression ',')* expression? ')' apply
+     | '[' (expression ',')* expression? ']' apply
+
+
+WHITES = /^(\s|[#;].*|\/\*(.|\n)*?\*\/)*/;
+STRING = /^"((?:[^"\\]|\\.)*)"/;
+NUMBER = /^([-+]?\d*\.?\d+([eE][-+]?\d+)?)/;
+COMMA = /^,|:(?!=)/ # : is an alias for comma ',' when not followed by '='
+AWAIT = /^await\b/
+REGEXP = /r\/([^\/]|\\.)+\//
+WORD   = ([^\s().,:"\{\}\[\]]+|:=)
+DOT    = /^[.]/;
+
+The curly brackets "{ }" are equivalent to the parenthesis "( )"
+La secuencia léxica [WORD[b], COMMA[:]] es transformada a [STRING("b"), COMMA[:]]
+La secuencia léxica [DOT, WORD[b]] es transformada a ["[", STRING["b"], "]"]
+```
+
+cuando se encuentra un `await` la generación del árbol cambia produciéndose nuevos tipos de nodos que se implantarían en el fichero `lib/ast.js`:
+
+* `AsyncValue`, 
+* `AsyncWord`, 
+* `AsyncApply`, 
+* `AsyncMethodApply`
+
+que tienen unos métodos `evaluate` que computan en un contexto asíncrono  y esperando (`await p`) por cada llamada recursiva a `evaluate` 
 
 ### Recursos sobre Async 
 
@@ -529,7 +568,7 @@ Extienda el traductor desde Egg a JavaScript.
 
 ## Extensiones de Egg via `use`
 
-Las opciones descritas en este apartado aunque no conllevan la aplicación de conceptos y competencias de Procesadores de Lenguajes se pueden considerar válidas para el TFA. 
+Las opciones descritas en este apartado aunque no conllevan la aplicación de conceptos y competencias de Procesadores de Lenguajes se pueden considerar válidas para el TFA. Su ponderación es por tanto menor que  las contribuciones descritas en  los anteriores apartados.
 
 
 ### Calculo Vectorial, Algoritmos Evolutivos, IA, etc.
