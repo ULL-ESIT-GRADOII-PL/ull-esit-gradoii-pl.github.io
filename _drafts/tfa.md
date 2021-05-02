@@ -35,9 +35,55 @@ secciones
 
 
 
-## Programación asincrona en Egg
 
-### Promesas en Egg
+<!--
+### Making Egg to wait for Async Operations
+
+Una manera de simplificar todo el manejo de la asincronía en Egg
+es modificar la forma en la que todo se evalúa: Cambiar  los métodos
+`evaluate` para que sean funciones `async` y se haga un `await` en todas 
+las llamadas a las evaluaciones (como una versión `asyncAwaitEvaluate` del `evaluate` que ya hemos visto). 
+
+Vea como reescribimos nuestro anterior ejemplo de `fetch`:
+
+```
+[~/.../src/egg(async)]$ pwd -P
+/Users/casiano/local/src/javascript/PLgrado/eloquentjsegg
+[~/.../PLgrado/eloquentjsegg(async)]$ cat examples/fetch-2.egg
+```
+```ruby
+do{
+  :=(res, fetch("https://api.github.com/users/github")),
+  :=(json, res.json()),
+  print(json)
+}
+```
+
+Veamos el resultado de una ejecución:
+
+```
+[~/.../PLgrado/eloquentjsegg(async)]$ bin/egg.js examples/fetch.egg
+```
+```js
+{
+  login: 'github',
+  id: 9919,
+  node_id: 'MDEyOk9yZ2FuaXphdGlvbjk5MTk=',
+  avatar_url: 'https://avatars1.githubusercontent.com/u/9919?v=4',
+  gravatar_id: '',
+  url: 'https://api.github.com/users/github',
+  ...
+  created_at: '2008-05-11T04:37:31Z',
+  updated_at: '2020-02-07T13:08:07Z'
+}
+```
+-->
+  
+## Propuesta de TFA: Await en Egg
+
+### Introducción a la Programación asincrona en Egg
+
+#### Promesas en Egg
 
 A estas alturas la máquina Egg puede manejar promesas por cuanto 
 que es posible en Egg llamar a los métodos de los objetos JavaScript
@@ -81,7 +127,7 @@ Al ejecutarlo obtenemos:
 }
 ```
 
-### Callbacks en Egg
+#### Callbacks en Egg
 
 Veamos un ejemplo de asíncronía en Egg con callbacks.
 Extendamos Egg con un objeto que provee acceso al sistema de
@@ -146,52 +192,6 @@ do {
 }
 ```
 
-
-<!--
-### Making Egg to wait for Async Operations
-
-Una manera de simplificar todo el manejo de la asincronía en Egg
-es modificar la forma en la que todo se evalúa: Cambiar  los métodos
-`evaluate` para que sean funciones `async` y se haga un `await` en todas 
-las llamadas a las evaluaciones (como una versión `asyncAwaitEvaluate` del `evaluate` que ya hemos visto). 
-
-Vea como reescribimos nuestro anterior ejemplo de `fetch`:
-
-```
-[~/.../src/egg(async)]$ pwd -P
-/Users/casiano/local/src/javascript/PLgrado/eloquentjsegg
-[~/.../PLgrado/eloquentjsegg(async)]$ cat examples/fetch-2.egg
-```
-```ruby
-do{
-  :=(res, fetch("https://api.github.com/users/github")),
-  :=(json, res.json()),
-  print(json)
-}
-```
-
-Veamos el resultado de una ejecución:
-
-```
-[~/.../PLgrado/eloquentjsegg(async)]$ bin/egg.js examples/fetch.egg
-```
-```js
-{
-  login: 'github',
-  id: 9919,
-  node_id: 'MDEyOk9yZ2FuaXphdGlvbjk5MTk=',
-  avatar_url: 'https://avatars1.githubusercontent.com/u/9919?v=4',
-  gravatar_id: '',
-  url: 'https://api.github.com/users/github',
-  ...
-  created_at: '2008-05-11T04:37:31Z',
-  updated_at: '2020-02-07T13:08:07Z'
-}
-```
--->
-  
-## Propuesta de TFA: Await en Egg
-
 Una mejora a esta propuesta es mantener los dos tipos de evaluación: síncrona y asíncrona dentro de Egg. Quizá podría ser algo así:
 
 ```js
@@ -202,6 +202,8 @@ await {
 },
 print("hello") // it appears first
 ```
+
+### Objetivo
 
 La idea es que en Egg  `await(expression)` dispara una commutación a una evaluación asíncrona (`async`) en la que se espera (`await p`) por todas las promesas `p` que aparecen durante la evaluación de la `expression` que recibe como argumento.
 
