@@ -195,7 +195,7 @@ do {
 
 ### Objetivo
 
-Una mejora a esta propuesta es mantener los dos tipos de evaluación: síncrona y asíncrona dentro de Egg. Quizá podría ser algo así:
+Una mejora a esta situación actual es proveer los dos tipos de evaluación: síncrona y asíncrona dentro de Egg. Quizá podría ser una sintáxis como esta:
 
 ```js
 await {
@@ -206,7 +206,7 @@ await {
 print("hello") // it appears first
 ```
 
-La idea es que en Egg  `await(expression)` dispara una commutación a una evaluación asíncrona (`async`) en la que se espera (`await p`) por todas las promesas `p` que aparecen durante la evaluación de la `expression` que recibe como argumento.
+La idea es que en Egg  `await(expression)` dispara una commutación a una evaluación asíncrona (`async`) en la que se espera (`await p`) por todas las promesas `p` que aparecen durante la evaluación de la `expression` que `await` recibe como argumento.
 
 ### Una Posible Implementación
 
