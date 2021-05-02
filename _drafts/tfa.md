@@ -146,104 +146,8 @@ do {
 }
 ```
 
-### Egg Extension for GitHub
 
-La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para la 
-manipulación de GitHub
-
-```js
-do {
-  use('github'),
-  Org("ULL-ESIT-PL-1920").then(
-    ->(org, # Object describing the org
-      do {
-        People(org).then(
-          ->(people,  # Result is an array of objects with the people in the org
-              print(people)
-            )
-        ) # end then
-      } # end do
-     ) # end function
-  ) # end then
-}
-```
-
-Para implementar la extensión `github` podríamos hacer uso de alguna librería asíncrona como [octokit/rest.js](https://github.com/octokit/rest.js/), [github-api](https://www.npmjs.com/package/github-api), [octonode](https://github.com/pksunkara/octonode) o similar.
-
-### Request Síncronos con sync-request
-
-Todas las librerías de JavaScript para comunicaciones 
-suelen ser asíncronas y esto casa mal con la naturaleza de Egg, hasta ahora bastante síncrona.
-
-Una excepción es `sync-request`:
-
-* [sync-request](https://www.npmjs.com/package/sync-request)
-
-Usando [sync-request](https://www.npmjs.com/package/sync-request) podemos diseñar una sintáxis mas simple:
-
-```ruby
-do{
-    use("../lib/github"),     # Carga el módulo para trabajar con la Api de GitHub
-    # setToken(".eggtoken"),  # Token Obtenido en la web de GitHub https://github.com/settings/tokens
-    def(me, whoami()),
-    print("Teacher: ",me.name),
-    print("Teacher's blog:",me.blog),
-    :=(pl, org("ULL-ESIT-PL-1920")),
-    # print(pl),
-    print("Total number of repos in ULL-ESIT-PL-1920: ",pl.total_private_repos),
-    print("Number of collaborators in ULL-ESIT-PL-1920: ",pl.collaborators),
-    :=(membersPL, members(pl)),
-    print("Total members in PL: ",membersPL.length),
-    :=(collaboratorsPL, collaborators(pl)),
-    print("Total collaborators in PL: ",collaboratorsPL.length),
-
-    :=(inside,
-      membersPL.map{->(cv, i, a,
-          array[cv.login, cv.url]
-        ) # end function
-      } # end map
-    ),
-    print("First and last Members: ", inside[0], element(inside,-1)),
-    def(lastCol, element(collaboratorsPL, -1)),
-    print("Last collaborator: ", lastCol.login, lastCol.url)
-```
-
-Cuando se ejecuta obtenemos:
-
-```
-Teacher:  Casiano Rodriguez-Leon
-Teacher's blog: https://crguezl.github.io/quotes-and-thoughts/
-Total number of repos in ULL-ESIT-PL-1920:  829
-Number of collaborators in ULL-ESIT-PL-1920:  54
-Total members in PL:  25
-Total collaborators in PL:  29
-First and last Members:  [ 'Alien-97', 'https://api.github.com/users/Alien-97' ] [ 'victoriamr210', 'https://api.github.com/users/victoriamr210' ]
-Last collaborator:  sermg111 https://api.github.com/users/sermg111
-```
-
-que nos informa que el Sábado 16/05/2020 tenemos 54 personas y  820 repos en la organización.
-
-Por supuesto es necesario configurar la extensión con un token.
-En esta solución hemos optado por poner el token en un fichero de 
-configuración para Egg:
-
-```
-[~/.../PLgrado/eloquentjsegg(async)]$ tree ~/.egg/
-/Users/casiano/.egg/
-└── config.json
-
-0 directories, 1 file
-[~/.../PLgrado/eloquentjsegg(async)]$ cat ~/.egg/config.json
-{
-  "github" : {
-    "token": "badbadbadbadbadbadbad..."
-  }
-}
-```
-
-* [sync-request](https://www.npmjs.com/package/sync-request)
-* [GitHub: Traversing with Pagination](https://developer.github.com/v3/guides/traversing-with-pagination/)
-
+<!--
 ### Making Egg to wait for Async Operations
 
 Una manera de simplificar todo el manejo de la asincronía en Egg
@@ -284,7 +188,8 @@ Veamos el resultado de una ejecución:
   updated_at: '2020-02-07T13:08:07Z'
 }
 ```
-
+-->
+  
 ## Propuesta de TFA: Await en Egg
 
 Una mejora a esta propuesta es mantener los dos tipos de evaluación: síncrona y asíncrona dentro de Egg. Quizá podría ser algo así:
@@ -570,6 +475,104 @@ Extienda el traductor desde Egg a JavaScript.
 
 Las opciones descritas en este apartado aunque no conllevan la aplicación de conceptos y competencias de Procesadores de Lenguajes se pueden considerar válidas para el TFA. Su ponderación es por tanto menor que  las contribuciones descritas en  los anteriores apartados.
 
+
+### Egg Extension for GitHub
+
+La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para la 
+manipulación de GitHub
+
+```js
+do {
+  use('github'),
+  Org("ULL-ESIT-PL-1920").then(
+    ->(org, # Object describing the org
+      do {
+        People(org).then(
+          ->(people,  # Result is an array of objects with the people in the org
+              print(people)
+            )
+        ) # end then
+      } # end do
+     ) # end function
+  ) # end then
+}
+```
+
+Para implementar la extensión `github` podríamos hacer uso de alguna librería asíncrona como [octokit/rest.js](https://github.com/octokit/rest.js/), [github-api](https://www.npmjs.com/package/github-api), [octonode](https://github.com/pksunkara/octonode) o similar.
+
+### Request Síncronos con sync-request
+
+Todas las librerías de JavaScript para comunicaciones 
+suelen ser asíncronas y esto casa mal con la naturaleza de Egg, hasta ahora bastante síncrona.
+
+Una excepción es `sync-request`:
+
+* [sync-request](https://www.npmjs.com/package/sync-request)
+
+Usando [sync-request](https://www.npmjs.com/package/sync-request) podemos diseñar una sintáxis mas simple:
+
+```ruby
+do{
+    use("../lib/github"),     # Carga el módulo para trabajar con la Api de GitHub
+    # setToken(".eggtoken"),  # Token Obtenido en la web de GitHub https://github.com/settings/tokens
+    def(me, whoami()),
+    print("Teacher: ",me.name),
+    print("Teacher's blog:",me.blog),
+    :=(pl, org("ULL-ESIT-PL-1920")),
+    # print(pl),
+    print("Total number of repos in ULL-ESIT-PL-1920: ",pl.total_private_repos),
+    print("Number of collaborators in ULL-ESIT-PL-1920: ",pl.collaborators),
+    :=(membersPL, members(pl)),
+    print("Total members in PL: ",membersPL.length),
+    :=(collaboratorsPL, collaborators(pl)),
+    print("Total collaborators in PL: ",collaboratorsPL.length),
+
+    :=(inside,
+      membersPL.map{->(cv, i, a,
+          array[cv.login, cv.url]
+        ) # end function
+      } # end map
+    ),
+    print("First and last Members: ", inside[0], element(inside,-1)),
+    def(lastCol, element(collaboratorsPL, -1)),
+    print("Last collaborator: ", lastCol.login, lastCol.url)
+```
+
+Cuando se ejecuta obtenemos:
+
+```
+Teacher:  Casiano Rodriguez-Leon
+Teacher's blog: https://crguezl.github.io/quotes-and-thoughts/
+Total number of repos in ULL-ESIT-PL-1920:  829
+Number of collaborators in ULL-ESIT-PL-1920:  54
+Total members in PL:  25
+Total collaborators in PL:  29
+First and last Members:  [ 'Alien-97', 'https://api.github.com/users/Alien-97' ] [ 'victoriamr210', 'https://api.github.com/users/victoriamr210' ]
+Last collaborator:  sermg111 https://api.github.com/users/sermg111
+```
+
+que nos informa que el Sábado 16/05/2020 tenemos 54 personas y  820 repos en la organización.
+
+Por supuesto es necesario configurar la extensión con un token.
+En esta solución hemos optado por poner el token en un fichero de 
+configuración para Egg:
+
+```
+[~/.../PLgrado/eloquentjsegg(async)]$ tree ~/.egg/
+/Users/casiano/.egg/
+└── config.json
+
+0 directories, 1 file
+[~/.../PLgrado/eloquentjsegg(async)]$ cat ~/.egg/config.json
+{
+  "github" : {
+    "token": "badbadbadbadbadbadbad..."
+  }
+}
+```
+
+* [sync-request](https://www.npmjs.com/package/sync-request)
+* [GitHub: Traversing with Pagination](https://developer.github.com/v3/guides/traversing-with-pagination/)
 
 ### Calculo Vectorial, Algoritmos Evolutivos, IA, etc.
 
