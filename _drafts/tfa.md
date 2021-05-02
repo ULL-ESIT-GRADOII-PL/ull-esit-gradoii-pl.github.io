@@ -224,8 +224,14 @@ apply: /* vacio */
      | '[' (expression ',')* expression? ']' apply
 
 asyncapply: /* vacio */
-     | '(' (expression ',')* expression? ')' asyncapply
-     | '[' (expression ',')* expression? ']' asyncapply
+     | '(' (asyncexpression ',')* asyncexpression? ')' asyncapply
+     | '[' (asyncexpression ',')* asyncexpression? ']' asyncapply
+
+asyncexpression: (STRING | 
+                  NUMBER | 
+                  REGEXP | 
+                  WORD) asyncapply 
+
 
 WHITES = /^(\s|[#;].*|\/\*(.|\n)*?\*\/)*/;
 STRING = /^"((?:[^"\\]|\\.)*)"/;
