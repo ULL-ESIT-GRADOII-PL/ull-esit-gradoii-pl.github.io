@@ -216,14 +216,17 @@ Creo que sería adecuado intervenir desde las primeras fases del compilador, hac
 expression: (STRING | 
              NUMBER | 
              REGEXP | 
-             AWAIT  | 
-             WORD) apply
+             WORD) apply |   
+             AWAIT asyncapply  
 
 apply: /* vacio */
      | '(' (expression ',')* expression? ')' apply
      | '[' (expression ',')* expression? ']' apply
 
-
+asyncapply: /* vacio */
+     | '(' (expression ',')* expression? ')' apply
+     | '[' (expression ',')* expression? ']' apply
+     
 WHITES = /^(\s|[#;].*|\/\*(.|\n)*?\*\/)*/;
 STRING = /^"((?:[^"\\]|\\.)*)"/;
 NUMBER = /^([-+]?\d*\.?\d+([eE][-+]?\d+)?)/;
@@ -246,6 +249,28 @@ cuando se encuentra un `await` la generación del árbol cambia produciéndose n
 * `AsyncMethodApply`
 
 que tienen unos métodos `evaluate` que computan en un contexto asíncrono  y esperando (`await p`) por cada llamada recursiva a `evaluate` 
+
+Ahora los ASTs generados por el parser serían algo similar a esto:
+
+```yacc
+ast: VALUE{value: String | Number}
+   | WORD{name: String}
+   | APPLY{operator: ast, args: [ ast ...]}
+   | METHODAPPLY{operator: ast, args: [ ast ...]}
+   | asyncast:
+asyncast:
+   | ASYNCVALUE{value: String | Number}
+   | ASYNCWORD{name: String}
+   | ASYNCAPPLY{
+                 operator: asyncast, 
+                 args: [ asyncast ...]
+               }
+   | ASYNCMETHODAPPLY{
+                       operator: asyncast, 
+                       args: [ asyncast ...]
+                     }   
+```
+
 
 ### Recursos sobre Async 
 
