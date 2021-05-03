@@ -54,6 +54,8 @@ The study shows a case in which NearleyJS is 200 times solwer than a Recursive D
 
 ## References
 
+* [fun-lang in Nearley.js](git@github.com:airportyh/fun-lang.git) GitHub Repo by Toby Ho
+  * [scripts](https://github.com/airportyh/fun-lang/tree/master/scripts) folder: How to run the compiler
 * [Parsing in JavaScript: Tools and Libraries](https://tomassetti.me/parsing-in-javascript/)
 * Where:
 
