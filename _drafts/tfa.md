@@ -79,7 +79,7 @@ Veamos el resultado de una ejecución:
 ```
 -->
   
-## Propuesta de TFA: Await en Egg
+## Propuesta de TFA: Async and Await en Egg
 
 ### Introducción a la Programación asincrona en Egg
 
@@ -198,7 +198,7 @@ do {
 Una mejora a esta situación actual es proveer los dos tipos de evaluación: síncrona y asíncrona dentro de Egg. Quizá podría ser una sintáxis como esta:
 
 ```js
-await {
+async {
   :=(res, fetch("https://api.github.com/users/github")),
   :=(json, res.json()),
   print(json)
@@ -206,18 +206,18 @@ await {
 print("hello") // it appears first
 ```
 
-La idea es que en Egg  `await(expression)` dispara una commutación a una evaluación asíncrona (`async`) en la que se espera (`await p`) por todas las promesas `p` que aparecen durante la evaluación de la `expression` que `await` recibe como argumento.
+La idea es que en Egg  `async(expression)` dispara una commutación a una evaluación asíncrona (`async`) en la que se espera (`await p`) por todas las promesas `p` que aparecen durante la evaluación de la `expression` que `await` recibe como argumento.
 
 ### Una Posible Implementación
 
-Creo que sería adecuado intervenir desde las primeras fases del compilador, haciendo que `await` sea una palabra reservada que produce el token `AWAIT`:
+Creo que sería adecuado intervenir desde las primeras fases del compilador, haciendo que `async` sea una palabra reservada que produce el token `async`:
 
 ```Yacc
 expression: (STRING | 
              NUMBER | 
              REGEXP | 
              WORD) apply |   
-             AWAIT asyncapply  
+             ASYNC asyncapply  
 
 apply: /* vacio */
      | '(' (expression ',')* expression? ')' apply
@@ -230,6 +230,7 @@ asyncapply: /* vacio */
 asyncexpression: (STRING | 
                   NUMBER | 
                   REGEXP | 
+                  AWAIT  |
                   WORD) asyncapply 
 
 
@@ -237,6 +238,7 @@ WHITES = /^(\s|[#;].*|\/\*(.|\n)*?\*\/)*/;
 STRING = /^"((?:[^"\\]|\\.)*)"/;
 NUMBER = /^([-+]?\d*\.?\d+([eE][-+]?\d+)?)/;
 COMMA = /^,|:(?!=)/ # : is an alias for comma ',' when not followed by '='
+ASYNC = /^async\b/
 AWAIT = /^await\b/
 REGEXP = /r\/([^\/]|\\.)+\//
 WORD   = ([^\s().,:"\{\}\[\]]+|:=)
@@ -247,7 +249,7 @@ La secuencia léxica [WORD[b], COMMA[:]] es transformada a [STRING("b"), COMMA[:
 La secuencia léxica [DOT, WORD[b]] es transformada a ["[", STRING["b"], "]"]
 ```
 
-cuando se encuentra un `await` la generación del árbol cambia produciéndose nuevos tipos de nodos que se implantarían en el fichero `lib/ast.js`:
+cuando se encuentra un `async` la generación del árbol cambia produciéndose nuevos tipos de nodos que se implantarían en el fichero `lib/ast.js`:
 
 * `AsyncValue`, 
 * `AsyncWord`, 
