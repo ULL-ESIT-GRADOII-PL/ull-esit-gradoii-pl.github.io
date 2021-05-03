@@ -7,6 +7,7 @@ title: Parsing with Nearley.js
 
 * [Nearley.JS Home Page](https://nearley.js.org/)
 * [Nearley.JS GitHub repo](https://github.com/kach/nearley) is a JS parser generator using the Early algorithm
+  * [Nearley.js Grammar in Nearley.js](https://github.com/kach/nearley/blob/master/lib/nearley-language-bootstrapped.ne)
 * [Repo ULL-ESIT-PL/learning-nearley](https://github.com/ULL-ESIT-PL/learning-nearley/)
 
 ## Tokenizers for nearley.js
