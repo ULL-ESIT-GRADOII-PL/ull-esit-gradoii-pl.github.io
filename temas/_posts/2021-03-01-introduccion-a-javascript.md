@@ -14,6 +14,8 @@ sections:
         url: gh
       - title: "GitHub Actions"
         url: github-actions
+      - title: "Git"
+        url: git
 #      - title: "GitHub Apps"
 #        url: github-apps
 #      - title: Azure
