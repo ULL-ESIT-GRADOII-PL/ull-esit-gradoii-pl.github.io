@@ -380,7 +380,7 @@ do {
 
 ## Lua Compiler 
 
-Usando un intérprete para un subconjunto de la [Gramática de Lua](https://github.com/kach/nearley/blob/master/examples/lua.ne) en Nearley.js traduciendo a árboles Egg.
+Usando un intérprete para un subconjunto suficientemente grande de la [Gramática de Lua](https://github.com/kach/nearley/blob/master/examples/lua.ne) en Nearley.js traduciendo a árboles Egg.
 
 Otra alternativa es escibir una traducción usando Nearley.js a JS.
 
