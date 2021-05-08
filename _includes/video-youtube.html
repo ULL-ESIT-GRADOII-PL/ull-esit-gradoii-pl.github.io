@@ -1,7 +1,7 @@
 {% if page.video %}
 {% if page.video.first%}
 
-<h2> Videos</h2>
+<h2 id="videos"> Videos</h2>
 <!-- Warning duplicated code below-->
 {% for video in page.video %}
     {% capture video_src %} 
@@ -20,7 +20,7 @@
 {% endfor %}
 
 {% else  %}
-<h2> Video</h2>
+<h2 id="video">Video</h2>
 
 {% capture video_src %}
    https://www.youtube-nocookie.com/embed/{{ page.video }}
