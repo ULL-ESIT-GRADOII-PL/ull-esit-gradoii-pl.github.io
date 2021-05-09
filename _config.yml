@@ -307,11 +307,17 @@ defaults:
       path: temas
     values:
       comments: true
+      layout: tema
   - scope:
       path: temas/_posts
       type: posts
     values:
       permalink: temas/:title
+  - scope:
+      path: /assets/temas
+    values:
+      comments: true
+      layout: tema
   - scope:
       path: practicas
       type: posts

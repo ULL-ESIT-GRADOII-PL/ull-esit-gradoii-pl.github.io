@@ -1,5 +1,7 @@
 ---
+layout: tema
 title: Parsing with Nearley.js
+clases: [ '2021/05/05', '2021/05/04', '2021/05/03', '2021/04/28' ]
 ---
 
 
@@ -51,7 +53,6 @@ Continuing in the series on making parsers, this time, we build a calculator tha
 The study shows a case in which NearleyJS is 200 times solwer than a Recursive Descendant Functional parser :disappointed:.
 
 {% include video id="njWmVljrhEE" provider="youtube" %}
-
 
 ## References
 
