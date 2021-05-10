@@ -3,6 +3,7 @@ layout: single
 title: Calendarios, Horarios y Exámenes
 permalink: /timetables
 toc: true
+clases: [ "2021/05/10" ]
 ---
 
 
