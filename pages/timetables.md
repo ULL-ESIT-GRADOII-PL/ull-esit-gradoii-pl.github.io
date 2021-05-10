@@ -21,6 +21,12 @@ scrolling="yes">
 
 [![](https://www.ull.es/estudios-docencia/wp-content/uploads/sites/7/2020/07/calendarios-2020-21.jpg)]({{site.calendario_academico}})
 
+## Exámenes
+
+* [Exámenes de Convocatoria](https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/) curso 2020/2021
+
+![](assets/images/examenes-2020-2021-mod-15-abril-2021.png)
+
 <!--
 ## Adaptación de Procesadores de Lenguajes a la Docencia y Evaluación No Presencial
 
