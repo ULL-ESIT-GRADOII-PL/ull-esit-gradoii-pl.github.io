@@ -23,9 +23,9 @@ scrolling="yes">
 
 ## Exámenes
 
-* [Exámenes de Convocatoria](https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/) curso 2020/2021
+* [![](assets/images/examenes-2020-2021-mod-15-abril-2021.png)](https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/) curso 2020/2021
 
-![](assets/images/examenes-2020-2021-mod-15-abril-2021.png)
+
 
 <!--
 ## Adaptación de Procesadores de Lenguajes a la Docencia y Evaluación No Presencial
