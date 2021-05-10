@@ -26,7 +26,7 @@ scrolling="yes">
 
 Junta de Escuela de jueves 15 de abril de 2021:
 
-* El cierre de actas de Junio es el 17 de Junio. Aprobado en Junta de Escuela
+* El cierre de actas de Junio es el 17 de Junio
 * La presentación de TFGs comienza el 18 de Junio
 * La entrega de actas de TFG se acaba el 23 de Junio
 
