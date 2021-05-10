@@ -22,6 +22,10 @@ scrolling="yes">
 
 [![](https://www.ull.es/estudios-docencia/wp-content/uploads/sites/7/2020/07/calendarios-2020-21.jpg)]({{site.calendario_academico}})
 
+### Modificaciones
+
+El cierre de actas de Junio es el 17 de Junio
+
 ## Exámenes
 
 * [![](assets/images/examenes-2020-2021-mod-15-abril-2021.png)](https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/) 
