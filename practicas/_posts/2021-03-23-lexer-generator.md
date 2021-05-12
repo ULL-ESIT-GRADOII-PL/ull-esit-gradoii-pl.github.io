@@ -4,7 +4,7 @@ published: true
 categories: ["practicas"]
 rubrica:
   - El paquete está publicado en GitHub Registry
-  - "Opcional: Se ha cambiado la interfaz para que el nombre del token sólo aparezca una vez"
+  - "Opcional: La función exportada se llama con un array de pares `[[NAME, /(?<NAME>, ...)/] ... ]` en la que el nombre del token aparece repetido dos veces. Modifique la interfaz para que reciba sólo un array de expresiones regulares con nombre `[/(?<NAME> ...)/, ... ]`"
   - El módulo exporta las funciones adecuadas
   - Contiene suficientes tests 
   - "Opcional: estudio de covering"
