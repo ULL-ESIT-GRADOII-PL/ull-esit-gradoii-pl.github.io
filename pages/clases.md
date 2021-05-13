@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Clases
+title: Clases (Grupos 1 y PA101)
 permalink: /clases
 toc: true
 ---
