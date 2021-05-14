@@ -4,6 +4,14 @@ categories: ["practicas"]
 permalink: /practicas/futuras-practicas
 ---
 
+## AST Egg
+
+Add location info in the AST (as espree)
+
+
+## Nearley.JS
+
+pull requests: gh actions, bug mac-os installation, calculator
 
 ## Lexer-Generator
 
