@@ -8,6 +8,8 @@ permalink: /practicas/futuras-practicas
 
 Add location info in the egg AST (as espree)
 
+Traspase la información de localización de los tokens (línea, offset, punto de comienzo, etc.) en los nodos del árbol AST. Lo ideal es que para cada nodo se disponga de donde empieza el código asociado al nodo y de donde termina. Por ejemplo un node `APPLY[Op: if]` tendría asociado 
+un atributo `loc` con información sobre la línea y columna de comienzo del `if` y su final. Aproveche dicha información para mejorar los errores en tiempo de ejecución.
 
 ## Nearley.JS
 
