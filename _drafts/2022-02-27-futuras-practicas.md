@@ -80,3 +80,50 @@ No está claro que funcione. Conflictos.
 `/Users/casianorodriguezleon/campus-virtual/2021/learning/lua/lua-compiler`
 
 Works.
+
+## TFA gh
+
+Siguen unas cuantas tareas e ideas que creo te pueden ayudar a mejorar tu comprensión de que va el TFG y que podría ayudar con el vídeo:
+
+Aprende a usar estos paquetes npm:
+
+https://www.npmjs.com/package/commander
+https://www.npmjs.com/package/shelljs 
+
+La idea inicial es que el paquete que publiques expanda gh  mediante alias y API para que se pueda usar así:
+
+gh help orgs -- da la ayuda sobre el comando orgs
+gh org cd ULL-ESIT-PL-2021 # pone como rog por defecto ULL-ESIT-PL-2021. Futuros comandos 
+se referirán a esta org
+
+gh org people # lista información sobre los miembros de la "organización por defecto"
+gh org people --outside-collaborators  # lista información sobre los outside-collaborators
+...
+gh org packages # lista información sobre los paquetes publicados en la organización
+...
+
+el subcomando 
+
+gh orgs 
+
+debería permitir subcomandos anidados
+(ver en commander la sección https://www.npmjs.com/package/commander#stand-alone-executable-subcommands). 
+
+Por ejemplo un comando como:
+
+gh org people --outside-collaborators 
+
+"people" es un subcomando de "org". 
+Al final se ejecutaría un programa con nombre "gh-org-people" al que se le pasarían los parámetros (--outside-collaborators).
+
+
+Una idea clave del TFG es que existirá un comando como este:
+
+gh org create superrepo practica-handling-events --match 'handling-events.*'
+
+que crearía en la organización por defecto un repo con nombre "practica-handling-events"
+y que tendría como submódulos todos los repos de la organización que casen con la expresión regular 'handling-events.*'
+
+
+
+
