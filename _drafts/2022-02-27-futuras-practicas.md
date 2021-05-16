@@ -6,7 +6,7 @@ permalink: /practicas/futuras-practicas
 
 ## AST Egg
 
-Add location info in the AST (as espree)
+Add location info in the egg AST (as espree)
 
 
 ## Nearley.JS
