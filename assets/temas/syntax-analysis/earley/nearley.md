@@ -61,7 +61,7 @@ const moo = require('moo')
 const lex = moo.compile({
   // If one rule is /u then all must be
   ws: { match: /\p{White_Space}+/u, lineBreaks: true },
-   word: /\p{XID_Start}\p{XID_Continue}*/u,
+  word: /\p{XID_Start}\p{XID_Continue}*/u,
   op: moo.fallback,
 });
 ```
