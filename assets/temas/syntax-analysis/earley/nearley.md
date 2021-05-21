@@ -87,12 +87,17 @@ I believe is similar to:
 { match: /(?:.|\n)/u, lineBreaks: true}  
 ```
 
-```js
-console.log(moo.fallback);
+Observe how we feed the lexer using the `reset` method.
+Using the spread operator on the returned generator we get an array with the token 
+objects:
 
+```js
 const result = [...lex.reset('while ( a < 3 ) { a += 1; }')];
-//console.log(result);
-/*
+```
+
+Something like:
+
+```js
 [
   {
     type: 'word',
@@ -116,13 +121,18 @@ const result = [...lex.reset('while ( a < 3 ) { a += 1; }')];
   },
   ... etc.
 ]
-*/
+```
 
+We can filter the array:
+
+```js
 let filtered = result.filter(t => t.type !== 'ws');
-
 console.log(filtered.map(function (t) { return { type: t.type, value: t.value } }) );
+```
 
-/* No longer white spaces: 
+No longer white spaces:
+
+```js
 [
   { type: 'word', value: 'while' }, { type: 'op', value: '(' },
   { type: 'word', value: 'a' }, { type: 'op', value: '<' },
@@ -131,8 +141,10 @@ console.log(filtered.map(function (t) { return { type: t.type, value: t.value } 
   { type: 'op', value: '+=' }, { type: 'op', value: '1;' },
   { type: 'op', value: '}' }
 ]
-*/
 ```
+
+Regrettably, Nearley.JS requires a Moo compatible lexer. That means we have to wrap the returned array in a lexer complaining with a Moo API!
+
 
 ### References
 
