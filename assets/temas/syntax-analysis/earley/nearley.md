@@ -66,23 +66,13 @@ const lex = moo.compile({
 });
 ```
 
-`ID_Start` characters are derived from the Unicode General_Category of
-uppercase letters, lowercase letters, titlecase letters, modifier letters, other letters,
-letter numbers, plus Other_ID_Start, minus Pattern_Syntax and Pattern_White_Space
-code points.
-
-In set notation:
+`ID_Start` characters are derived from the Unicode `General_Category`. In set notation:
 
 ```js
 /[\p{L}\p{Nl}\p{Other_ID_Start}-\p{Pattern_Syntax}-\p{Pattern_White_Space}]/u
 ```
 
-ID_Continue characters include ID_Start characters, plus characters having the 
-Unicode General_Category of nonspacing marks, spacing combining marks, 
-decimal number, connector punctuation, plus Other_ID_Continue , 
-minus Pattern_Syntax and Pattern_White_Space code points.
-
-In set notation:
+`ID_Continue characters` in set notation is:
 
 ```js
 /[\p{ID_Start}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\p{Other_ID_Continue}-\p{Pattern_Syntax}-\p{Pattern_White_Space}]/
