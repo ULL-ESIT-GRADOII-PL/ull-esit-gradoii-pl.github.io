@@ -89,7 +89,7 @@ Evaluación Curricular por Compensación de la Universidad de La Laguna](https:/
 * Para participar en la evaluación continua, es obligatorio hacer uso de los recursos proveídos (apuntes, vídeos, repositorios, foros, wikis, etc.) y realizar los ejercicios y actividades señaladas como obligatorios. Se realizará control de asistencia.
 
 * El alumno deberá demostrar que ha adquirido las habilidades y competencias de la asignatura en entrevistas con el profesor que se realizan en las horas habilitadas al efecto. Para ello usaremos las horas de laboratorio y opcionalmente las de tutorías. Véase el [calendario de citas](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUd1YlJSLURtcE5JfGRlZmF1bHR8ZmNiMWNmMTE4MjNjNzk1MWQwZGQyYTI4ZjZjYjZjY2E      
-). Para el mejor funcionamiento del proceso no solicite una segunda cita si ya dispone de una.
+). Para el mejor funcionamiento del proceso **no solicite una segunda cita si ya dispone de una**.
 
 
 <!--
