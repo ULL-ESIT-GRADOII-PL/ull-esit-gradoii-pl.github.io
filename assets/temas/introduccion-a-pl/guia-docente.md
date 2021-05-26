@@ -88,6 +88,10 @@ Evaluación Curricular por Compensación de la Universidad de La Laguna](https:/
 
 * Para participar en la evaluación continua, es obligatorio hacer uso de los recursos proveídos (apuntes, vídeos, repositorios, foros, wikis, etc.) y realizar los ejercicios y actividades señaladas como obligatorios. Se realizará control de asistencia.
 
+* El alumno deberá demostrar que ha adquirido las habilidades y competencias de la asignatura en entrevistas con el profesor que se realizan en las horas habilitadas al efecto. Para ello usaremos las horas de laboratorio y opcionalmente las de tutorías. Véase el [calendario de citas](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUd1YlJSLURtcE5JfGRlZmF1bHR8ZmNiMWNmMTE4MjNjNzk1MWQwZGQyYTI4ZjZjYjZjY2E      
+). Para el mejor funcionamiento del proceso no solicite una segunda cita si ya dispone de una.
+
+
 <!--
 * Se realizarán micro-exámenes a lo largo del curso que incluyen cuestiones de desarrollo de conceptos y ejercicios prácticos. Una parte de estos ejercicios está destinada a autentificar los conocimientos que se han adquirido durante la elaboración de los proyectos mencionados en los otros apartados. Antes de las pruebas de evaluación continua se invierte cierto tiempo en la preparación mediante cuestionarios. Los estudiantes deberán superar los micro-exámenes para aprobar la asignatura con una nota mínima de 5 (sobre 10) en cada uno de ellos.
 
