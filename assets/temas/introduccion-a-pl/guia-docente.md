@@ -104,9 +104,9 @@ Evaluación Curricular por Compensación de la Universidad de La Laguna](https:/
 
   * Acepte la asignación Classroom y estudie la descripción de la práctica
   * Entregue la tarea en el Repo creado asignado dentro de la organización {{site.organization.name}}
-  * Cree incidencias para los problemas que encuentra y las dudas. Añádalas a su tablero.
-  * Cuando termine cree una incidencia/issue mencionando al profesor `@{{site.profesor_github}}`. Mueva la incidencia a la columna `done`de su tablero
-  * El profesor le proveerá de retroalimentación con una incidencia indicándole que puntos mejorar o que la entrega está apta y cerrando la incidencia
+  * Cree incidencias para los problemas que encuentra y las dudas. Añádalas a su tablero Kanban Automático. Añada una columna `revisadas por el profesor` 
+  * Cuando termine cree una incidencia/issue mencionando al profesor `@{{site.profesor_github}}`. Mueva la incidencia a la columna `done` de su tablero. No la mueva a la columna `revisadas por el profesor`
+  * En alguna momento posterior  el profesor comprobará la autenticidad y la adquisición de las competencias asociadas a la práctica y le proveerá de retroalimentación bien indicándole que puntos mejorar bien que la entrega está apta. En este último caso podrá cerrar las incidencias y moverlas a la columna `revisadas por el profesor`
 
 ### TFA
 
