@@ -119,7 +119,6 @@ Evaluación Curricular por Compensación de la Universidad de La Laguna](https:/
 ### Alumnos que no participan en la Evaluación Continua
 
 * Los estudiantes que no participen en la evaluación continua se evalúan a través de los exámenes oficiales y convocatorias fijados por la Universidad de La Laguna.
-Estos exámenes constan de una parte teórica y una parte práctica. Es necesario aprobar las dos partes para superar la asignatura. La nota final es la media ponderada de ambas.
 
 ## Referencias
 
