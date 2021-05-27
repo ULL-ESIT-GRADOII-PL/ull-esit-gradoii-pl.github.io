@@ -150,6 +150,7 @@ Regrettably, Nearley.JS requires a Moo compatible lexer. That means we have to w
 
 * [Tokenizers for nearley.js](https://nearley.js.org/docs/tokenizers)
 * [moo](https://www.npmjs.com/package/moo/)
+* [moo-ignore](https://www.npmjs.com/package/moo-ignore)
 * [nearley-moo](https://github.com/nanaian/nearley-moo)
 
 ## Toby Ho Course on How to Make a Parser with Nearley.JS
