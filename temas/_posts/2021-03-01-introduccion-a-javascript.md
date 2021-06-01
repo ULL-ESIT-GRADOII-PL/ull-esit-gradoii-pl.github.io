@@ -16,6 +16,8 @@ sections:
         url: github-actions
       - title: "Git"
         url: git
+      - title: "Docker"
+        url: docker
 #      - title: "GitHub Apps"
 #        url: github-apps
 #      - title: Azure

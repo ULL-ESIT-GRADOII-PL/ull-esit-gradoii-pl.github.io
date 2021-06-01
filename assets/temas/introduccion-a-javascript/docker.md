@@ -1,6 +1,6 @@
 ---
+title: Docker
 video: https://youtu.be/iqqDU2crIEQ
-permalink: /docker
 ---
 
 {% include video provider="youtube" id="iqqDU2crIEQ" %}
