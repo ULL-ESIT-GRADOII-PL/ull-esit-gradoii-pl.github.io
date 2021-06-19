@@ -93,8 +93,8 @@ function SCANNER((A → α•aβ, j), k, words) {
   if (words[k].matches(a)) S[k+1].add((A → αa•β, j))
 }
 
-function COMPLETER((B → γ•, x), k) {
-    S[x].forEach((A → α•Bβ, j) ) => S[k].add((A → αB•β, j))
+function COMPLETER((B → γ•, s), k) {
+    S[s].forEach((A → α•Bβ, j) ) => S[k].add((A → αB•β, j))
 }
 ```
 
