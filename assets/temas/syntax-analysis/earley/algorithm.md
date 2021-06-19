@@ -74,7 +74,7 @@ function EarleyParse(words, grammar) {
     for(k = 0: k <= words.length; k++) {
         S[k].forEach(state => {  // S[k] can expand during this loop
             if (!state.isFinished()) 
-                if (state.NextElementOf() is a NonTerminal) then
+                if (state.NextElementOf() in grammar.NonTerminal) then
                     PREDICTOR(state, k, grammar)         // non-terminal
                 else
                     SCANNER(state, k, words)             // terminal
