@@ -55,7 +55,90 @@ If there are several of these states it means the grammaris ambiguous.
 
 If there are none, the input is rejected.
 
+## Example
 
+```
+# https://en.wikipedia.org/wiki/Earley_parser#Example
+
+P -> S
+
+S -> S "+" M
+   | M
+
+M -> M "*" T
+   | T
+
+T -> "1"
+   | "2"
+   | "3"
+   | "4"
+```
+
+```console
+➜  examples git:(main) ✗ nearleyc wikipedia.ne -o wikipedia.js 
+➜  examples git:(main) ✗ nearley-test wikipedia.js -i '2+3*4'
+Table length: 6
+Number of parses: 1
+Parse Charts
+Chart: 0
+0: {P →  ● S}, from: 0
+1: {S →  ● S "+" M}, from: 0
+2: {S →  ● M}, from: 0
+3: {M →  ● M "*" T}, from: 0
+4: {M →  ● T}, from: 0
+5: {T →  ● "1"}, from: 0
+6: {T →  ● "2"}, from: 0
+7: {T →  ● "3"}, from: 0
+8: {T →  ● "4"}, from: 0
+
+Chart: 1
+0: {T → "2" ● }, from: 0
+1: {M → T ● }, from: 0
+2: {M → M ● "*" T}, from: 0
+3: {S → M ● }, from: 0
+4: {S → S ● "+" M}, from: 0
+5: {P → S ● }, from: 0
+
+Chart: 2
+0: {S → S "+" ● M}, from: 0
+1: {M →  ● M "*" T}, from: 2
+2: {M →  ● T}, from: 2
+3: {T →  ● "1"}, from: 2
+4: {T →  ● "2"}, from: 2
+5: {T →  ● "3"}, from: 2
+6: {T →  ● "4"}, from: 2
+
+Chart: 3
+0: {T → "3" ● }, from: 2
+1: {M → T ● }, from: 2
+2: {M → M ● "*" T}, from: 2
+3: {S → S "+" M ● }, from: 0
+4: {S → S ● "+" M}, from: 0
+5: {P → S ● }, from: 0
+
+Chart: 4
+0: {M → M "*" ● T}, from: 2
+1: {T →  ● "1"}, from: 4
+2: {T →  ● "2"}, from: 4
+3: {T →  ● "3"}, from: 4
+4: {T →  ● "4"}, from: 4
+
+Chart: 5
+0: {T → "4" ● }, from: 4
+1: {M → M "*" T ● }, from: 2
+2: {M → M ● "*" T}, from: 2
+3: {S → S "+" M ● }, from: 0
+4: {S → S ● "+" M}, from: 0
+5: {P → S ● }, from: 0
+
+
+Parse results: 
+[
+  [
+    [ [ [ [ '2' ] ] ], '+', [ [ [ '3' ] ], '*', [ '4' ] ] ]
+  ]
+]
+```
 
 ## Earley Parsing Explained
 
