@@ -60,16 +60,31 @@ If there are none, the input is rejected.
 We augment the initial grammar with  the rule `γ → •S`  
 
 ```js
-let S = new Array(words.length + 1);
-
-function init(words) {
-    for(k =0; k <= words.length; k++) {
-      S[k] = new EmptyOrderedSet();
-    }        
-}
 
 function EarleyParse(words, grammar) {
-    init(words)
+
+    function init(words) {
+        let S = [];
+        for(k =0; k <= words.length; k++) {
+          S[k] = new Set();
+        }
+        return S;     
+    }
+
+    let S = init(words);
+
+    function PREDICTOR((A → α•Bβ, j), k, grammar) {
+      grammar.rules(B).forEach((B → γ) => S[k].add((B → •γ, k)))
+    }
+
+    function SCANNER((A → α•aβ, j), k, words) {
+      if (words[k].match(a.regexp)) S[k+1].add((A → αa•β, j))
+    }
+
+    function COMPLETER((B → γ•, s), k) {
+      S[s].forEach((A → α•Bβ, j) ) => S[k].add((A → αB•β, j))
+    }
+
     S[0].add((γ → •S, 0));
     for(k = 0: k <= words.length; k++) {
         S[k].forEach(state => {  // S[k] can expand during this loop
@@ -85,17 +100,6 @@ function EarleyParse(words, grammar) {
     return S;
 }
 
-function PREDICTOR((A → α•Bβ, j), k, grammar) {
-    grammar.rules(B).forEach((B → γ) => S[k].add((B → •γ, k)))
-}
-
-function SCANNER((A → α•aβ, j), k, words) {
-  if (words[k].match(a.regexp)) S[k+1].add((A → αa•β, j))
-}
-
-function COMPLETER((B → γ•, s), k) {
-    S[s].forEach((A → α•Bβ, j) ) => S[k].add((A → αB•β, j))
-}
 ```
 
 ## Example
