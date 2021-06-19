@@ -55,6 +55,49 @@ If there are several of these states it means the grammaris ambiguous.
 
 If there are none, the input is rejected.
 
+## Pseudocode
+
+We augment the initial grammar with  the rule `γ → •S`  
+
+```js
+let S = new Array(words.length + 1);
+
+function init(words) {
+    for(k =0; k <= words.length; k++) {
+      S[k] = new EmptyOrderedSet();
+    }        
+}
+
+function EarleyParse(words, grammar) {
+    init(words)
+    S[0].add((γ → •S, 0));
+    for(k = 0: k <= words.length; k++) {
+        S[k].forEach(state => {  // S[k] can expand during this loop
+            if (!state.isFinished()) 
+                if (state.NextElementOf() is a NonTerminal) then
+                    PREDICTOR(state, k, grammar)         // non-terminal
+                else
+                    SCANNER(state, k, words)             // terminal
+            else 
+                COMPLETER(state, k)
+        })
+    }
+    return S;
+}
+
+function PREDICTOR((A → α•Bβ, j), k, grammar) {
+    grammar.rules(B).forEach((B → γ) => S[k].add((B → •γ, k)))
+}
+
+function SCANNER((A → α•aβ, j), k, words) {
+  if (words[k].matches(a)) S[k+1].add((A → αa•β, j))
+}
+
+function COMPLETER((B → γ•, x), k) {
+    S[x].forEach((A → α•Bβ, j) ) => S[k].add((A → αB•β, j))
+}
+```
+
 ## Example
 
 ```
