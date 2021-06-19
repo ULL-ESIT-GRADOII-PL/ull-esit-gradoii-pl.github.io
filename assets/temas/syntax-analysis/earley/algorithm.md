@@ -74,7 +74,7 @@ function EarleyParse(words, grammar) {
     for(k = 0: k <= words.length; k++) {
         S[k].forEach(state => {  // S[k] can expand during this loop
             if (!state.isFinished()) 
-                if (state.NextElement() in grammar.NonTerminal) then
+                if (state.NextElement() in grammar.NonTerminal) 
                     PREDICTOR(state, k, grammar)         // non-terminal
                 else
                     SCANNER(state, k, words)             // terminal
@@ -90,7 +90,7 @@ function PREDICTOR((A → α•Bβ, j), k, grammar) {
 }
 
 function SCANNER((A → α•aβ, j), k, words) {
-  if (words[k].matches(a)) S[k+1].add((A → αa•β, j))
+  if (words[k].match(a.regexp)) S[k+1].add((A → αa•β, j))
 }
 
 function COMPLETER((B → γ•, s), k) {
