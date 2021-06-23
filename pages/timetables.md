@@ -22,6 +22,9 @@ scrolling="yes">
 
 [![Calendario Académico]({{site.baseurl}}/assets/images/calendarios-2020-21.png)]({{site.calendario_academico}})
 
+* Examen de Julio: 7 de Julio
+* Cierre de actas de Julio: 12 de Julio
+
 ### Modificaciones
 
 Junta de Escuela de jueves 15 de abril de 2021:

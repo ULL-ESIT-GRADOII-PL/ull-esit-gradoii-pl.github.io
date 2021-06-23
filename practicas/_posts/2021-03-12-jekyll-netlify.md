@@ -105,7 +105,7 @@ Existe una API similar a la de los gatos usada en el ejemplo para los amantes de
 * Se puede probar el buen funcionamiento del Blog haciendo pruebas en GitHub Actions. 
 Repase la sección [Testing HTML pages](https://ull-esit-gradoii-pl.github.io/assets/temas/introduccion-a-javascript/jekyll#testing) de estos apuntes
 
-* Here is a link to a [starter template for a Jekyll 4 site - deployed with GH Actions and GH Pages](https://github.com/MichaelCurrin/jekyll-gh-actions-quickstart)
+* Here is a link to a [starter template for a Jekyll 4 site - deployed with GH Actions and GH Pages](https://github.com/MichaelCurrin/jekyll-gh-actions-quickstart). It uses [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) a GitHub Action to deploy your static files to GitHub Pages.
 
 <!--
 # Despliegue en GitHub usando Github Actions
