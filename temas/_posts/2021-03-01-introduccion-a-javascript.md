@@ -10,7 +10,7 @@ sections:
         url: iaas
       - title: Editors
         url: editors
-      - title: "GitHub Command Line Interface"
+      - title: "GitHub Command Line Interface: gh"
         url: gh
       - title: "GitHub Actions"
         url: github-actions

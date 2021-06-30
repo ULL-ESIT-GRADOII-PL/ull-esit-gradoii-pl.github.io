@@ -22,8 +22,8 @@ scrolling="yes">
 
 [![Calendario Académico]({{site.baseurl}}/assets/images/calendarios-2020-21.png)]({{site.calendario_academico}})
 
-* Examen de Julio: 7 de Julio
-* Cierre de actas de Julio: 12 de Julio
+* Examen de Julio: Miércoles 7 de Julio
+* Cierre de actas de Julio: Lunes 12 de Julio
 
 ### Modificaciones
 
