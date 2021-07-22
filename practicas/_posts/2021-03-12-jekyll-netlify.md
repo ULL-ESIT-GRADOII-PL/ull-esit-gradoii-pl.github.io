@@ -21,7 +21,11 @@ Durante esta práctica desarrollará un web-site usando Jekyllrb como *static si
 
 ## Instale Jekyll
 
-* Instale [Jekyll](https://jekyllrb.com/docs/) en su máquina o en la máquina del servicio [iaas.ull.es]({{site.baseurl}}/tema1-introduccion/practicas/p01-t1-iaas/) si no dispone de máquina. Instrucciones en [Jekyll Installation](https://jekyllrb.com/docs/installation/)
+* Instale [Jekyll](https://jekyllrb.com/docs/) 
+  * Usando [docker](https://ddewaele.github.io/running-jekyll-in-docker/)
+  * o bien en su máquina o bien
+  * en la máquina del servicio [iaas.ull.es]({{site.baseurl}}/tema1-introduccion/practicas/p01-t1-iaas/) si no dispone de máquina. 
+  * Vea también las instrucciones en [Jekyll Installation](https://jekyllrb.com/docs/installation/)
 * Si no se acuerda de como funciona Ruby le pueden venir las instrucciones en [Ruby 101](https://jekyllrb.com/docs/ruby-101/)
 
 ## Estudie las secciones del Tutorial de jekyllrb
