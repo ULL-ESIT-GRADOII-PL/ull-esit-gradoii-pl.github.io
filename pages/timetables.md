@@ -20,7 +20,10 @@ scrolling="yes">
 
 ## Calendario Académico
 
-[![](https://www.ull.es/estudios-docencia/wp-content/uploads/sites/7/2020/07/calendarios-2020-21.jpg)]({{site.calendario_academico}})
+[![Calendario Académico]({{site.baseurl}}/assets/images/calendarios-2020-21.png)]({{site.calendario_academico}})
+
+* Examen de Julio: Miércoles 7 de Julio
+* Cierre de actas de Julio: Lunes 12 de Julio
 
 ### Modificaciones
 

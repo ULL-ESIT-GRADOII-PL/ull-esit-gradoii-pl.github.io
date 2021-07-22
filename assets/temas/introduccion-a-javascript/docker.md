@@ -30,3 +30,9 @@ The Node.js getting started guide teaches you how to create a containerized Node
 * After completing the Node.js getting started modules, you should be able to containerize your own Node.js application based on the examples and instructions provided in this guide.
 
 [The Node.js Docker Tutorial](https://docs.docker.com/language/nodejs/)
+
+## References
+* [docker/getting-started](https://github.com/docker/getting-started) en GitHub
+* [docker/getting-started](https://hub.docker.com/r/docker/getting-started) en Docker
+* [Demystifying Containers - Part I: Kernel Space](https://medium.com/@saschagrunert/demystifying-containers-part-i-kernel-space-2c53d6979504) medium blog
+* [Containers From Scratch](https://youtu.be/8fi7uSYlOdc) An amzing intro to Containers  by Liz Rice in GOTO 2018

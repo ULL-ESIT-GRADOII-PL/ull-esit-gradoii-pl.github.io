@@ -8,7 +8,7 @@ A **state** is an element $$(X \longrightarrow \alpha \bullet \beta, j)$$ where
 $$X \longrightarrow \alpha \beta \in P$$ is a  production in the set of  grammar productions  $$P$$, and 
 $$j \in \{0 \ldots n \}$$ is a position in the input string $$x = a_{1}a_{2} \ldots a_{n}$$.
 
-The set of *active states* when the  input prefix $$a_1 \ldots a_k$$ is being analyzed called $$S_k$$. 
+The set of *active states* when the  input prefix $$a_1 \ldots a_k$$ is being analyzed is called $$S_k$$. 
 
 More precisely, $$S_k$$ is the set of states $$(X \longrightarrow \alpha \bullet \beta, j)$$  whose production rule $$X \longrightarrow \alpha \beta$$ appears in a derivation from the $$Start$$ symbol 
 
@@ -55,7 +55,137 @@ If there are several of these states it means the grammaris ambiguous.
 
 If there are none, the input is rejected.
 
+## Pseudocode
 
+We augment the initial grammar with  the rule `γ → •S`  
+
+```js
+
+function EarleyParse(words, grammar) {
+
+    function init(words) {
+        let S = [];
+        for(k =0; k <= words.length; k++) {
+          S[k] = new Set();
+        }
+        return S;     
+    }
+
+    let S = init(words);
+
+    function PREDICTOR((A → α•Bβ, j), k, grammar) {
+      grammar.rules(B).forEach((B → γ) => S[k].add((B → •γ, k)))
+    }
+
+    function SCANNER((A → α•aβ, j), k, words) {
+      if (words[k].match(a.regexp)) S[k+1].add((A → αa•β, j))
+    }
+
+    function COMPLETER((B → γ•, s), k) {
+      S[s].forEach((A → α•Bβ, j) ) => S[k].add((A → αB•β, j))
+    }
+
+    S[0].add((γ → •S, 0));
+    for(k = 0: k <= words.length; k++) {
+        S[k].forEach(state => {  // S[k] can expand during this loop
+            if (!state.isFinished()) 
+                if (state.NextElement() in grammar.NonTerminal) 
+                    PREDICTOR(state, k, grammar)         // non-terminal
+                else
+                    SCANNER(state, k, words)             // terminal
+            else 
+                COMPLETER(state, k)
+        })
+    }
+    return S;
+}
+
+```
+
+## Example
+
+```
+# https://en.wikipedia.org/wiki/Earley_parser#Example
+
+P -> S
+
+S -> S "+" M
+   | M
+
+M -> M "*" T
+   | T
+
+T -> "1"
+   | "2"
+   | "3"
+   | "4"
+```
+
+```console
+➜  examples git:(main) ✗ nearleyc wikipedia.ne -o wikipedia.js 
+➜  examples git:(main) ✗ nearley-test wikipedia.js -i '2+3*4'
+Table length: 6
+Number of parses: 1
+Parse Charts
+Chart: 0
+0: {P →  ● S}, from: 0
+1: {S →  ● S "+" M}, from: 0
+2: {S →  ● M}, from: 0
+3: {M →  ● M "*" T}, from: 0
+4: {M →  ● T}, from: 0
+5: {T →  ● "1"}, from: 0
+6: {T →  ● "2"}, from: 0
+7: {T →  ● "3"}, from: 0
+8: {T →  ● "4"}, from: 0
+
+Chart: 1
+0: {T → "2" ● }, from: 0
+1: {M → T ● }, from: 0
+2: {M → M ● "*" T}, from: 0
+3: {S → M ● }, from: 0
+4: {S → S ● "+" M}, from: 0
+5: {P → S ● }, from: 0
+
+Chart: 2
+0: {S → S "+" ● M}, from: 0
+1: {M →  ● M "*" T}, from: 2
+2: {M →  ● T}, from: 2
+3: {T →  ● "1"}, from: 2
+4: {T →  ● "2"}, from: 2
+5: {T →  ● "3"}, from: 2
+6: {T →  ● "4"}, from: 2
+
+Chart: 3
+0: {T → "3" ● }, from: 2
+1: {M → T ● }, from: 2
+2: {M → M ● "*" T}, from: 2
+3: {S → S "+" M ● }, from: 0
+4: {S → S ● "+" M}, from: 0
+5: {P → S ● }, from: 0
+
+Chart: 4
+0: {M → M "*" ● T}, from: 2
+1: {T →  ● "1"}, from: 4
+2: {T →  ● "2"}, from: 4
+3: {T →  ● "3"}, from: 4
+4: {T →  ● "4"}, from: 4
+
+Chart: 5
+0: {T → "4" ● }, from: 4
+1: {M → M "*" T ● }, from: 2
+2: {M → M ● "*" T}, from: 2
+3: {S → S "+" M ● }, from: 0
+4: {S → S ● "+" M}, from: 0
+5: {P → S ● }, from: 0
+
+
+Parse results: 
+[
+  [
+    [ [ [ [ '2' ] ] ], '+', [ [ [ '3' ] ], '*', [ '4' ] ] ]
+  ]
+]
+```
 
 ## Earley Parsing Explained
 

@@ -77,6 +77,12 @@ title: VSCode
 
 {% include remote-ssh.md %}
 
+### Ligatures/ Ligaduras
+
+* [FireCode](https://github.com/tonsky/FiraCode) GitHub 
+* [Video tutorial](https://youtu.be/2xzoh2bYnjs) Agregar Fuente 'Fira Code' para codificar mejor en JavaScript.
+* [Install and validate fonts in Font Book on Mac](https://support.apple.com/guide/font-book/install-and-validate-fonts-fntbk1000/mac)
+
 ### VSCode: Settings file locations
 
 - Depending on your platform, the user settings file is located here:

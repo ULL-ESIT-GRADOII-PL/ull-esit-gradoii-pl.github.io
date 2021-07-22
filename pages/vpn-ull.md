@@ -1,7 +1,7 @@
 ---
+title: Intrucciones para Mac OS Catalina
 ---
 
-# Intrucciones para Mac OS Catalina
 
 La VPN de la ULL usa el protocolo IPSec Cisco y, como en linux, MacOS tiene soporte nativo.
 
